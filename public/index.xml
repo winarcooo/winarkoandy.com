@@ -22,26 +22,6 @@
     </item>
     
     <item>
-      <title>A small project example : add yours !</title>
-      <link>/projects/small-project/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/small-project/</guid>
-      <description>Along with Ford Prefect, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a hyperspace bypass. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.
- He rather enjoys tea, but seems to have trouble obtaining it in the far reaches of the galaxy.
- In time, he learns how to fly and carves a niche for himself as a sandwich-maker.</description>
-    </item>
-    
-    <item>
-      <title>Example article</title>
-      <link>/blog/example-article/</link>
-      <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/example-article/</guid>
-      <description>Text This is some text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium at ipsum eu pharetra. Proin ac ante et leo ultrices bibendum. Vivamus id ipsum fermentum, aliquam nunc mollis, tempus sapien. Praesent scelerisque cursus eros vitae pretium. Etiam sit amet ligula in leo euismod malesuada. Proin eleifend pulvinar ipsum, eu lobortis ante pharetra eu. Vivamus sem elit, venenatis eget ornare nec, ullamcorper non tellus. Duis quis massa finibus, euismod erat quis, fermentum nunc.</description>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
@@ -49,50 +29,6 @@
       <guid>/about/</guid>
       <description>With this theme, it is possible to add small sections that only contains one page like this. It will automatically appears in the header, at the end.
 Along with Ford Prefect, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a hyperspace bypass. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.</description>
-    </item>
-    
-    <item>
-      <title>Projects</title>
-      <link>/projects/projects/</link>
-      <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
-      
-      <guid>/projects/projects/</guid>
-      <description>In this theme, it is possible to add sections like a Projects one for example. You can add plenty of articles about your projects and a presentation page that will be displayed before the list. All is modulable, if you don&amp;rsquo;t want something.
-A Hollywood-funded film version, produced and filmed in the UK, was released in April 2005, and radio adaptations of the third, fourth, and fifth novels were broadcast from 2004 to 2005.</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>/blog/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>/blog/hugo-template-primer/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/hugo-template-primer/</guid>
-      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
-This document is a brief primer on using go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>/blog/getting-started-with-hugo/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/getting-started-with-hugo/</guid>
-      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at installing hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
     </item>
     
     <item>
