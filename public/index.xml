@@ -2,21 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Snackoverflow</title>
-    <link>https://example.com/</link>
+    <link>/</link>
     <description>Recent content on Snackoverflow</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Go print typeof object</title>
+      <link>/blog/go-print-typeof-object/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/go-print-typeof-object/</guid>
+      <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
+ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
+    </item>
+    
+    <item>
       <title>A small project example : add yours !</title>
-      <link>https://example.com/projects/small-project/</link>
+      <link>/projects/small-project/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/projects/small-project/</guid>
+      <guid>/projects/small-project/</guid>
       <description>Along with Ford Prefect, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a hyperspace bypass. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.
  He rather enjoys tea, but seems to have trouble obtaining it in the far reaches of the galaxy.
  In time, he learns how to fly and carves a niche for himself as a sandwich-maker.</description>
@@ -24,59 +34,59 @@
     
     <item>
       <title>Example article</title>
-      <link>https://example.com/blog/example-article/</link>
+      <link>/blog/example-article/</link>
       <pubDate>Mon, 28 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/example-article/</guid>
+      <guid>/blog/example-article/</guid>
       <description>Text This is some text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium at ipsum eu pharetra. Proin ac ante et leo ultrices bibendum. Vivamus id ipsum fermentum, aliquam nunc mollis, tempus sapien. Praesent scelerisque cursus eros vitae pretium. Etiam sit amet ligula in leo euismod malesuada. Proin eleifend pulvinar ipsum, eu lobortis ante pharetra eu. Vivamus sem elit, venenatis eget ornare nec, ullamcorper non tellus. Duis quis massa finibus, euismod erat quis, fermentum nunc.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://example.com/about/</link>
+      <link>/about/</link>
       <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/about/</guid>
+      <guid>/about/</guid>
       <description>With this theme, it is possible to add small sections that only contains one page like this. It will automatically appears in the header, at the end.
 Along with Ford Prefect, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a hyperspace bypass. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.</description>
     </item>
     
     <item>
       <title>Projects</title>
-      <link>https://example.com/projects/projects/</link>
+      <link>/projects/projects/</link>
       <pubDate>Wed, 19 Aug 2015 20:29:37 -0700</pubDate>
       
-      <guid>https://example.com/projects/projects/</guid>
+      <guid>/projects/projects/</guid>
       <description>In this theme, it is possible to add sections like a Projects one for example. You can add plenty of articles about your projects and a presentation page that will be displayed before the list. All is modulable, if you don&amp;rsquo;t want something.
 A Hollywood-funded film version, produced and filmed in the UK, was released in April 2005, and radio adaptations of the third, fourth, and fifth novels were broadcast from 2004 to 2005.</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>https://example.com/blog/creating-a-new-theme/</link>
+      <link>/blog/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/creating-a-new-theme/</guid>
+      <guid>/blog/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://example.com/blog/hugo-template-primer/</link>
+      <link>/blog/hugo-template-primer/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/hugo-template-primer/</guid>
+      <guid>/blog/hugo-template-primer/</guid>
       <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates.</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://example.com/blog/getting-started-with-hugo/</link>
+      <link>/blog/getting-started-with-hugo/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/blog/getting-started-with-hugo/</guid>
+      <guid>/blog/getting-started-with-hugo/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo
@@ -87,20 +97,19 @@ Follow the following steps:
     
     <item>
       <title>Home</title>
-      <link>https://example.com/home/</link>
+      <link>/home/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/home/</guid>
-      <description>This is the home page. It will display the blog section if there is one, and a text before.
-Hey ! Welcome to the Cocoa Enhanced theme. Here are some articles :</description>
+      <guid>/home/</guid>
+      <description>Simple, Straightforward.</description>
     </item>
     
     <item>
       <title>License</title>
-      <link>https://example.com/license/</link>
+      <link>/license/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/license/</guid>
+      <guid>/license/</guid>
       <description>You can use this page to put a license on the contents of your blog, like so:
  The MIT License (MIT)
 Copyright &amp;copy; 2015 Nishanth Shanmughamnishanth.gerrard@gmail.com

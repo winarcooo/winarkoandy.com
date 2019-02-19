@@ -15,13 +15,14 @@ pluralizelisttitles = false
 blog = "blog/:slug/"
 
 [params]
+titlestyle = "lowercase"
 dateform = "Jan 2, 2006"
 dateformfull = "Mon Jan 2 2006 15:04:05 MST"
 description = "Snackoverflow"
 copyright = "Copyright © 2019 Andy Winarko"
 # copyrightUrl = "https://creativecommons.org/licenses/by-sa/4.0/"
-logofile = "img/logo.png"
-faviconfile = "img/logo.png"
+logofile = "img/stackoverflow.png"
+faviconfile = "img/stackoverflow.png"
 highlightjs = true
 progressively = true
 share = true
@@ -33,7 +34,7 @@ github = "winarcooo"
 email = "winarcooo@gmail.com"
 linkedin = "andywinarko"
 facebook = "masAndywinarko"
-social_banner = "img/banner.png"
+social_banner = "img/stackoverflow.png"
 usesmallsummarycard = true
 posts_navigation = true
 # issoHost = "comments.domain.tld:1234"
