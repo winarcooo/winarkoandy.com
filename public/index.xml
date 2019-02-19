@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Snackoverflow</title>
+    <title>~/.andy_winarko</title>
     <link>/</link>
-    <description>Recent content on Snackoverflow</description>
+    <description>Recent content on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Go print typeof object</title>
-      <link>/blog/go-print-typeof-object/</link>
-      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog/go-print-typeof-object/</guid>
-      <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
- package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
+      <guid>/about/</guid>
+      <description>Perkenalkan nama saya Andy Winarko.
+Along with Ford Prefect, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a hyperspace bypass. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.
+ He rather enjoys tea, but seems to have trouble obtaining it in the far reaches of the galaxy.
+ In time, he learns how to fly and carves a niche for himself as a sandwich-maker.</description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
+      <title>Golang print typeof object</title>
+      <link>/blog/golang-print-typeof-object/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/about/</guid>
-      <description>With this theme, it is possible to add small sections that only contains one page like this. It will automatically appears in the header, at the end.
-Along with Ford Prefect, Dent barely escapes the Earth&amp;rsquo;s destruction as it is demolished to make way for a hyperspace bypass. Arthur spends the next several years, still wearing his dressing gown, helplessly launched from crisis to crisis while trying to straighten out his lifestyle.</description>
+      <guid>/blog/golang-print-typeof-object/</guid>
+      <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
+ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
     </item>
     
     <item>

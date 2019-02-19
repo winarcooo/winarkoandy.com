@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/blog/go-print-typeof-object/</loc>
-    <lastmod>2019-01-19T00:00:00+00:00</lastmod>
+    <loc>/about/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
-    <lastmod>2015-08-22T00:00:00+00:00</lastmod>
+    <loc>/blog/golang-print-typeof-object/</loc>
+    <lastmod>2019-01-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -32,13 +32,13 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-01-19T00:00:00+00:00</lastmod>
+    <loc>/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/</loc>
+    <loc>/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

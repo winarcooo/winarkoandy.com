@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Snackoverflow</title>
+    <title>Blog on ~/.andy_winarko</title>
     <link>/blog/</link>
-    <description>Recent content in Blog on Snackoverflow</description>
+    <description>Recent content in Blog on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sat, 19 Jan 2019 00:00:00 +0000</lastBuildDate>
@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Go print typeof object</title>
-      <link>/blog/go-print-typeof-object/</link>
+      <title>Golang print typeof object</title>
+      <link>/blog/golang-print-typeof-object/</link>
       <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/blog/go-print-typeof-object/</guid>
+      <guid>/blog/golang-print-typeof-object/</guid>
       <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
  package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
     </item>
