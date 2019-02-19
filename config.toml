@@ -1,4 +1,4 @@
-baseurl = "https://app.netlify.com/sites/tender-curie-14c740"
+baseurl = "/"
 theme = "cocoa-eh"
 builddrafts = true
 canonifyurls = true
