@@ -1,8 +1,17 @@
----
-author: "andy winarko"
-date: 2019-01-19
-title: Golang print typeof object
----
++++
+author = "andy winarko"
+title = "Golang print typeof object"
+description = ""
+tags = [
+    "go",
+    "golang",
+    "snippet",
+]
+date = "2019-02-19"
+categories = [
+    "golang",
+]
++++
 
 > The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
 

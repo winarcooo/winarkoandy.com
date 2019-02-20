@@ -23,7 +23,7 @@
     <item>
       <title>Golang print typeof object</title>
       <link>/blog/golang-print-typeof-object/</link>
-      <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/golang-print-typeof-object/</guid>
       <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.

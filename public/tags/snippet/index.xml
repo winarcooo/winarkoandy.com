@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Go on ~/.andy_winarko</title>
-    <link>/tags/go/</link>
-    <description>Recent content in Go on ~/.andy_winarko</description>
+    <title>Snippet on ~/.andy_winarko</title>
+    <link>/tags/snippet/</link>
+    <description>Recent content in Snippet on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 19 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/snippet/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
