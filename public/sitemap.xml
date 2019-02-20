@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/install-fira-code-font/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/useful-git-command---amend/</loc>
     <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
@@ -25,6 +30,18 @@
   
   <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/font/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/font/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,6 +81,12 @@
   
   <url>
     <loc>/license/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/ligature/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
