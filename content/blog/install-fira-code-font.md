@@ -12,11 +12,11 @@ categories = [
 ]
 +++
 
-Kenapa Fira Code ?
+Kenapa Fira Code ? 😕
 
 > Programmers use a lot of symbols, often encoded with several characters. For the human brain, sequences like `->`, `<=` or `:=` are single logical tokens, even if they take two or three characters on the screen. Your eye spends a non-zero amount of energy to scan, parse and join multiple characters into a single logical one. Ideally, all programming languages should be designed with full-fledged Unicode symbols for operators, but that’s not the case yet.
 
-Intinya font ini ada ligature-nya buat ubah beberapa symbol yang sering kita pakai jadi lebih enak dilihat mata.
+Intinya font ini ada ligature-nya buat ubah beberapa symbol yang sering kita pakai jadi lebih enak dilihat mata 👀.
 
 ---
 
@@ -38,7 +38,7 @@ brew tap caskroom/fonts
 brew cask install font-fira-code
 ```
 
-Udah itu aja, dan jangan lupa aktifin fitur `enable/use ligatures` di terminal atau editor yang dipakai.
+Udah itu aja, dan jangan lupa aktifin fitur ✅ `enable/use ligatures` di terminal atau editor yang dipakai.
 
 
 ### Terminal support
