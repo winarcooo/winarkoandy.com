@@ -1129,7 +1129,7 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
                         
                     
                     
-                    <div class="reading-time middot">1 minute read</div>
+                    <div class="reading-time middot">2 minute read</div>
                     
                     <div class="tags">
                         <ul>
@@ -1151,7 +1151,9 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
             <div class="markdown">
                 
     
-    <p>Kenapa Fira Code ?</p>
+    
+
+<p>Kenapa Fira Code ?</p>
 
 <blockquote>
 <p>Programmers use a lot of symbols, often encoded with several characters. For the human brain, sequences like <code>-&gt;</code>, <code>&lt;=</code> or <code>:=</code> are single logical tokens, even if they take two or three characters on the screen. Your eye spends a non-zero amount of energy to scan, parse and join multiple characters into a single logical one. Ideally, all programming languages should be designed with full-fledged Unicode symbols for operators, but that’s not the case yet.</p>
@@ -1159,14 +1161,16 @@ div.main .content .markdown pre, div.main .content .markdown pre code {
 
 <p>Intinya font ini ada ligature-nya buat ubah beberapa symbol yang sering kita pakai jadi lebih enak dilihat mata.</p>
 
+<hr />
+
 <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="/img/all_ligatures.png" src="/img/low/all_ligatures.png" alt="image" /></p></figure>
 
 <p>Contohnya,</p>
 
-<p>Javascript
+<p><em>Javascript</em>
 <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="/img/javascript.png" src="/img/low/javascript.png" alt="image" /></p></figure>
 
-<p>Go
+<p><em>Go</em>
 <figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="/img/go.png" src="/img/low/go.png" alt="image" /></p></figure>
 
 <p><strong>1. Install Fira Code</strong></p>
@@ -1177,7 +1181,368 @@ brew cask install font-fira-code
 
 <p>Udah itu aja, dan jangan lupa aktifin fitur <code>enable/use ligatures</code> di terminal atau editor yang dipakai.</p>
 
-<p>list terminal atau editor apa aja yang disuport fira code bisa dilihat di halaman <a href="https://github.com/tonsky/FiraCode">GitHub Fira Code</a>.</p>
+<h3 id="terminal-support">Terminal support</h3>
+
+<table>
+<thead>
+<tr>
+<th>Works</th>
+<th>Doesn’t work</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Butterfly</strong></td>
+<td><strong>Alacritty</strong></td>
+</tr>
+
+<tr>
+<td><strong>Hyper.app</strong></td>
+<td><strong>cmd.exe</strong></td>
+</tr>
+
+<tr>
+<td><strong>iTerm 2</strong> (<a href="https://gitlab.com/gnachman/iterm2/issues/3568#note_13118332">3.1+</a>)</td>
+<td><strong>Cmder</strong></td>
+</tr>
+
+<tr>
+<td><strong>Kitty</strong></td>
+<td><strong>ConEmu</strong></td>
+</tr>
+
+<tr>
+<td><strong>Konsole</strong></td>
+<td><strong>GNOME Terminal</strong></td>
+</tr>
+
+<tr>
+<td><strong>mintty</strong> (partial support <a href="https://github.com/mintty/mintty/issues/601">2.8.3+</a>)</td>
+<td><strong>mate-terminal</strong></td>
+</tr>
+
+<tr>
+<td><strong>QTerminal</strong></td>
+<td><strong>PuTTY</strong></td>
+</tr>
+
+<tr>
+<td><strong>Terminal.app</strong></td>
+<td><strong>rxvt</strong></td>
+</tr>
+
+<tr>
+<td><strong>Termux</strong></td>
+<td><strong>ZOC</strong> (Windows)</td>
+</tr>
+
+<tr>
+<td><strong>Token2Shell/MD</strong></td>
+<td><strong>gtkterm, guake, LXTerminal, sakura, Terminator, xfce4-terminal,</strong> and other libvte-based terminals (<a href="https://bugzilla.gnome.org/show_bug.cgi?id=584160">bug report</a>)</td>
+</tr>
+
+<tr>
+<td><strong>upterm</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>ZOC</strong> (macOS)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="editor-support">Editor support</h3>
+
+<table>
+<thead>
+<tr>
+<th>Works</th>
+<th>Doesn’t work</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Abricotine</strong></td>
+<td><strong>Arduino IDE</strong></td>
+</tr>
+
+<tr>
+<td><strong>Android Studio</strong> (2.3+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td><strong>Adobe Dreamweaver</strong></td>
+</tr>
+
+<tr>
+<td><strong>Anjuta</strong> (unless at the EOF)</td>
+<td><strong>Delphi IDE</strong></td>
+</tr>
+
+<tr>
+<td><strong>AppCode</strong> (2016.2+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td><strong>Eclipse</strong> (Win, <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=398656">vote here</a>)</td>
+</tr>
+
+<tr>
+<td><strong>Atom</strong> 1.1 or newer (<a href="https://github.com/tonsky/FiraCode/wiki/Atom-instructions">instructions</a>)</td>
+<td>Standalone <strong>Emacs</strong> (<a href="https://github.com/tonsky/FiraCode/wiki/Emacs-instructions">workaround</a>)</td>
+</tr>
+
+<tr>
+<td><strong>BBEdit/TextWrangler</strong> (v. 11 only, <a href="https://github.com/tonsky/FiraCode/wiki/BBEdit-instructions">instructions</a>)</td>
+<td><strong>gVim</strong> (Windows <a href="https://github.com/tonsky/FiraCode/issues/462">workaround</a>)</td>
+</tr>
+
+<tr>
+<td><strong>Brackets</strong> (with <a href="https://github.com/polo2ro/firacode-in-brackets">this plugin</a>)</td>
+<td><strong>IDLE</strong></td>
+</tr>
+
+<tr>
+<td><strong>Chocolat</strong></td>
+<td><strong>KDevelop 4</strong></td>
+</tr>
+
+<tr>
+<td><strong>CLion</strong> (2016.2+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td><strong>Monkey Studio IDE</strong></td>
+</tr>
+
+<tr>
+<td><strong>Cloud9</strong> (<a href="https://github.com/tonsky/FiraCode/wiki/Cloud9-Instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Coda 2</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>CodeLite</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Eclipse</strong> (Mac 4.7+, Linux)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>elementary Code</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Geany</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>gEdit / Pluma</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>GNOME Builder</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>GoormIDE</strong> (<a href="https://github.com/tonsky/FiraCode/wiki/GoormIDE-Instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>IntelliJ IDEA</strong> (2016.2+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Kate, KWrite</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Komodo</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Leafpad</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>LibreOffice</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>LightTable</strong> (<a href="https://github.com/tonsky/FiraCode/wiki/LightTable-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>LINQPad</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>MacVim</strong> 7.4 or newer (<a href="https://github.com/tonsky/FiraCode/wiki/MacVim-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Mancy</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Meld</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Mousepad</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>NeoVim-gtk</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>NetBeans</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Notepad</strong> (Win)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Notepad++</strong> (with a <a href="https://github.com/notepad-plus-plus/notepad-plus-plus/issues/2287#issuecomment-256638098">workaround</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>PhpStorm</strong> (2016.2+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>PyCharm</strong> (2016.2+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>QtCreator</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Rider</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>RStudio</strong> (<a href="https://github.com/tonsky/FiraCode/wiki/RStudio-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>RubyMine</strong> (2016.2+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Scratch</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Scribus</strong> (1.5.3+)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>SublimeText</strong> (3146+)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Spyder IDE</strong> (only with Qt5)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>SuperCollider 3</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>TextAdept</strong> (Linux, Mac)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>TextEdit</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>TextMate 2</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>VimR</strong> (<a href="https://github.com/qvacua/vimr/wiki#ligatures">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Visual Studio 2015</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Visual Studio 2017</strong> (<a href="https://github.com/tonsky/FiraCode/wiki/Visual-Studio-2017-Instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Visual Studio Code</strong> (<a href="https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>WebStorm</strong> (2016.2+, <a href="https://github.com/tonsky/FiraCode/wiki/Intellij-products-instructions">instructions</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Xamarin Studio/Monodevelop</strong></td>
+<td></td>
+</tr>
+
+<tr>
+<td><strong>Xcode</strong> (8.0+, otherwise <a href="https://github.com/robertvojta/LigatureXcodePlugin">with plugin</a>)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Probably work: <strong>Smultron, Vico</strong></td>
+<td>Under question: <strong>Code::Blocks IDE</strong></td>
+</tr>
+</tbody>
+</table>
+
+<p><a href="https://github.com/tonsky/FiraCode"><em>github.com/tonsky/FiraCode</em></a></p>
 
 
             </div>
