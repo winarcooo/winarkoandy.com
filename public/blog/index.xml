@@ -18,8 +18,8 @@
       
       <guid>/blog/useful-git-command---amend/</guid>
       <description>&amp;ldquo;Photo by Mick Haupt on Unsplash&amp;rdquo;
-Git udah pasti jadi tools sehari-hari yang dipakai software developer, command git basic kayak git commititu salah satu sering dipakai.
-salah-salah model gini juga pastinya sering,
+Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah git commit.
+nah problem yang muncul kalo pake git commit biasanya kayak gini,
  git commit gua messagenya salah, gantinya gmn ya ?
  eh file gua ada 1 yang gak ke commit, gua bikin commit baru aja ya?
   Nah di case-case ini kita bisa pakai option --amend</description>

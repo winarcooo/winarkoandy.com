@@ -14,9 +14,9 @@ categories = [
 ![image](/img/book.jpg) "Photo by Mick Haupt on Unsplash"
 
 
-Git udah pasti jadi tools sehari-hari yang dipakai software developer, command git basic kayak `git commit`itu salah satu sering dipakai.
+Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah  `git commit`.
 
-salah-salah model gini juga pastinya sering,
+nah problem yang muncul kalo pake `git commit` biasanya kayak gini,
 
 * ***git commit gua messagenya salah, gantinya gmn ya ?***
 
