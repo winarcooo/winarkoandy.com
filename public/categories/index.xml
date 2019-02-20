@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Git</title>
+      <link>/categories/git/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Golang</title>
       <link>/categories/golang/</link>
       <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
