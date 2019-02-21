@@ -6,9 +6,19 @@
     <description>Recent content in Categories on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Awesome Curated</title>
+      <link>/categories/awesome-curated/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/awesome-curated/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cheatsheet</title>

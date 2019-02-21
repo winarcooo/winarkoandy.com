@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>Awesome Crawler</title>
+      <link>/blog/awesome-crawler/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/awesome-crawler/</guid>
+      <description>Awesome-crawler A collection of awesome web crawler,spider and resources in different languages.
+Contents  Awesome-crawler  Contents Python Java C# JavaScript PHP C++ C Ruby R Erlang Perl Go Scala   Python  Scrapy - A fast high-level screen scraping and web crawling framework.  django-dynamic-scraper - Creating Scrapy scrapers via the Django admin interface. Scrapy-Redis - Redis-based components for Scrapy. scrapy-cluster - Uses Redis and Kafka to create a distributed on demand scraping cluster.</description>
+    </item>
+    
+    <item>
       <title>Golang Cheat Sheet</title>
       <link>/blog/golang-cheat-sheet/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>

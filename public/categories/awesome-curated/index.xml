@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Awesome Curated on ~/.andy_winarko</title>
+    <link>/categories/awesome-curated/</link>
+    <description>Recent content in Awesome Curated on ~/.andy_winarko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/awesome-curated/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Awesome Crawler</title>
+      <link>/blog/awesome-crawler/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/awesome-crawler/</guid>
+      <description>Awesome-crawler A collection of awesome web crawler,spider and resources in different languages.
+Contents  Awesome-crawler  Contents Python Java C# JavaScript PHP C++ C Ruby R Erlang Perl Go Scala   Python  Scrapy - A fast high-level screen scraping and web crawling framework.  django-dynamic-scraper - Creating Scrapy scrapers via the Django admin interface. Scrapy-Redis - Redis-based components for Scrapy. scrapy-cluster - Uses Redis and Kafka to create a distributed on demand scraping cluster.</description>
+    </item>
+    
+  </channel>
+</rss>
