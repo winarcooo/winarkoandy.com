@@ -48,6 +48,6 @@ git commit --amend --no-edit
 `--no-edit` artinya commit messagenya gak diganti, atau tetep pakai message yang sebelumnya aja.
 
 ---
-Sekarang kita udah tau konsep `*amending commits*`, untuk explore lanjutan, bisa lihat disini 
+Sekarang kita udah tau konsep `amending commits`, untuk explore lanjutan, bisa lihat disini 
 
 https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Go on ~/.andy_winarko</title>
-    <link>/tags/go/</link>
-    <description>Recent content in Go on ~/.andy_winarko</description>
+    <title>Cheatsheet on ~/.andy_winarko</title>
+    <link>/tags/cheatsheet/</link>
+    <description>Recent content in Cheatsheet on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/go/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/cheatsheet/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,16 +18,6 @@
       
       <guid>/blog/golang-cheat-sheet/</guid>
       <description>Index  Index  Credits Go in a Nutshell  Basic Syntax  Hello World Operators Arithmetic Comparison Logical Other Declarations Functions Functions As Values And Closures Variadic Functions Built-in Types Type Conversions Packages Control structures If Loops Switch Arrays, Slices, Ranges Arrays Slices Operations on Arrays and Slices Maps Structs Pointers Interfaces Embedding Errors  Concurrency  Goroutines Channels Channel Axioms Printing Reflection Type Switch  Snippets  HTTP Server   Credits Most example code taken from A Tour of Go, which is an excellent introduction to Go.</description>
-    </item>
-    
-    <item>
-      <title>Golang print typeof object</title>
-      <link>/blog/golang-print-typeof-object/</link>
-      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/golang-print-typeof-object/</guid>
-      <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
- package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
     </item>
     
   </channel>

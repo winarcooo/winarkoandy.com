@@ -12,9 +12,9 @@
 <meta property="og:site_name" content="~/.andy_winarko" />
 <meta property="og:locale" content="en-US" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/tags/font/" />
-<meta property="og:title" content="Font" />
-<meta property="twitter:title" content="Font">
+<meta property="og:url" content="/blog/golang-cheat-sheet/" />
+<meta property="og:title" content="Golang Cheat Sheet" />
+<meta property="twitter:title" content="Golang Cheat Sheet">
 
     <meta property="og:image" content="/img/terminal-small.png">
     <meta property="twitter:card" content="summary">
@@ -26,10 +26,10 @@
 <title>
 
 
-     ~/.andy_winarko - Font 
+     ~/.andy_winarko - Golang Cheat Sheet 
 
 </title>
-<link rel="canonical" href="/tags/font/">
+<link rel="canonical" href="/blog/golang-cheat-sheet/">
 
 
 <style media="screen">
@@ -994,8 +994,6 @@ margin-left: -4%;
 
 
 
-  <link href="/tags/font/index.xml" rel="alternate" type="application/rss+xml" title="~/.andy_winarko" />
-
 
 </head>
 
@@ -1003,7 +1001,7 @@ margin-left: -4%;
 <body>
 
 
-<div class="header header-home column">
+<div class="header column">
 
     <div class="container">
         
@@ -1036,26 +1034,1038 @@ margin-left: -4%;
     </div>
 </div>
 
-<div class="main column">
+
+
+
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about Font</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Feb 20, 2019</span>
-    
-    <a href="/blog/install-fira-code-font/"><span>Install Fira-Code font</span></a>
-    
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
+    
+    Golang Cheat Sheet
+    
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Thu Feb 21 2019 00:00:00 UTC">Feb 21, 2019</div>
                     
-                </ul>
+                        
+                        <div class="author middot" title="github">github</div>
+                        
+                    
+                    
+                    <div class="reading-time middot">13 minute read</div>
+                    
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="/tags/go">go</a> </li>
+                          
+                            <li class="middot"><a href="/tags/golang">golang</a> </li>
+                          
+                            <li class="middot"><a href="/tags/cheatsheet">cheatsheet</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    
+
+<h1 id="index">Index</h1>
+
+<ul>
+<li><a href="#index">Index</a>
+
+<ul>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#go-in-a-nutshell">Go in a Nutshell</a></li>
+</ul></li>
+<li><a href="#basic-syntax">Basic Syntax</a>
+
+<ul>
+<li><a href="#hello-world">Hello World</a></li>
+<li><a href="#operators">Operators</a></li>
+<li><a href="#arithmetic">Arithmetic</a></li>
+<li><a href="#comparison">Comparison</a></li>
+<li><a href="#logical">Logical</a></li>
+<li><a href="#other">Other</a></li>
+<li><a href="#declarations">Declarations</a></li>
+<li><a href="#functions">Functions</a></li>
+<li><a href="#functions-as-values-and-closures">Functions As Values And Closures</a></li>
+<li><a href="#variadic-functions">Variadic Functions</a></li>
+<li><a href="#built-in-types">Built-in Types</a></li>
+<li><a href="#type-conversions">Type Conversions</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#control-structures">Control structures</a></li>
+<li><a href="#if">If</a></li>
+<li><a href="#loops">Loops</a></li>
+<li><a href="#switch">Switch</a></li>
+<li><a href="#arrays-slices-ranges">Arrays, Slices, Ranges</a></li>
+<li><a href="#arrays">Arrays</a></li>
+<li><a href="#slices">Slices</a></li>
+<li><a href="#operations-on-arrays-and-slices">Operations on Arrays and Slices</a></li>
+<li><a href="#maps">Maps</a></li>
+<li><a href="#structs">Structs</a></li>
+<li><a href="#pointers">Pointers</a></li>
+<li><a href="#interfaces">Interfaces</a></li>
+<li><a href="#embedding">Embedding</a></li>
+<li><a href="#errors">Errors</a></li>
+</ul></li>
+<li><a href="#concurrency">Concurrency</a>
+
+<ul>
+<li><a href="#goroutines">Goroutines</a></li>
+<li><a href="#channels">Channels</a></li>
+<li><a href="#channel-axioms">Channel Axioms</a></li>
+<li><a href="#printing">Printing</a></li>
+<li><a href="#reflection">Reflection</a></li>
+<li><a href="#type-switch">Type Switch</a></li>
+</ul></li>
+<li><a href="#snippets">Snippets</a>
+
+<ul>
+<li><a href="#http-server">HTTP Server</a></li>
+</ul></li>
+</ul>
+
+<h2 id="credits">Credits</h2>
+
+<p>Most example code taken from <a href="http://tour.golang.org/">A Tour of Go</a>, which is an excellent introduction to Go.
+If you&rsquo;re new to Go, do that tour. Seriously.</p>
+
+<h2 id="go-in-a-nutshell">Go in a Nutshell</h2>
+
+<ul>
+<li>Imperative language</li>
+<li>Statically typed</li>
+<li>Syntax tokens similar to C (but less parentheses and no semicolons) and the structure to Oberon-2</li>
+<li>Compiles to native code (no JVM)</li>
+<li>No classes, but structs with methods</li>
+<li>Interfaces</li>
+<li>No implementation inheritance. There&rsquo;s <a href="http://golang.org/doc/effective%5Fgo.html#embedding">type embedding</a>, though.</li>
+<li>Functions are first class citizens</li>
+<li>Functions can return multiple values</li>
+<li>Has closures</li>
+<li>Pointers, but not pointer arithmetic</li>
+<li>Built-in concurrency primitives: Goroutines and Channels</li>
+</ul>
+
+<h1 id="basic-syntax">Basic Syntax</h1>
+
+<h2 id="hello-world">Hello World</h2>
+
+<p>File <code>hello.go</code>:</p>
+
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+    fmt.Println(&quot;Hello Go&quot;)
+}
+</code></pre>
+
+<p><code>$ go run hello.go</code></p>
+
+<h2 id="operators">Operators</h2>
+
+<h3 id="arithmetic">Arithmetic</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>addition</td>
+</tr>
+
+<tr>
+<td><code>-</code></td>
+<td>subtraction</td>
+</tr>
+
+<tr>
+<td><code>*</code></td>
+<td>multiplication</td>
+</tr>
+
+<tr>
+<td><code>/</code></td>
+<td>quotient</td>
+</tr>
+
+<tr>
+<td><code>%</code></td>
+<td>remainder</td>
+</tr>
+
+<tr>
+<td><code>&amp;</code></td>
+<td>bitwise and</td>
+</tr>
+
+<tr>
+<td><code>\|</code></td>
+<td>bitwise or</td>
+</tr>
+
+<tr>
+<td><code>^</code></td>
+<td>bitwise xor</td>
+</tr>
+
+<tr>
+<td><code>&amp;^</code></td>
+<td>bit clear (and not)</td>
+</tr>
+
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>left shift</td>
+</tr>
+
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>right shift</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="comparison">Comparison</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>equal</td>
+</tr>
+
+<tr>
+<td><code>!=</code></td>
+<td>not equal</td>
+</tr>
+
+<tr>
+<td><code>&lt;</code></td>
+<td>less than</td>
+</tr>
+
+<tr>
+<td><code>&lt;=</code></td>
+<td>less than or equal</td>
+</tr>
+
+<tr>
+<td><code>&gt;</code></td>
+<td>greater than</td>
+</tr>
+
+<tr>
+<td><code>&gt;=</code></td>
+<td>greater than or equal</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="logical">Logical</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>logical and</td>
+</tr>
+
+<tr>
+<td><code>\|\|</code></td>
+<td>logical or</td>
+</tr>
+
+<tr>
+<td><code>!</code></td>
+<td>logical not</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="other">Other</h3>
+
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>&amp;</code></td>
+<td>address of / create pointer</td>
+</tr>
+
+<tr>
+<td><code>*</code></td>
+<td>dereference pointer</td>
+</tr>
+
+<tr>
+<td><code>&lt;-</code></td>
+<td>send / receive operator (see &lsquo;Channels&rsquo; below)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="declarations">Declarations</h2>
+
+<p>Type goes after identifier!</p>
+
+<pre><code class="language-go">var foo int // declaration without initialization
+var foo int = 42 // declaration with initialization
+var foo, bar int = 42, 1302 // declare and init multiple vars at once
+var foo = 42 // type omitted, will be inferred
+foo := 42 // shorthand, only in func bodies, omit var keyword, type is always implicit
+const constant = &quot;This is a constant&quot;
+
+// iota can be used for incrementing numbers, starting from 0
+const (
+    _ = iota
+    a
+    b
+    c = 1 &lt;&lt; iota
+    d
+)
+    fmt.Println(a, b) // 1 2 (0 is skipped)
+    fmt.Println(c, d) // 8 16 (2^3, 2^4)
+</code></pre>
+
+<h2 id="functions">Functions</h2>
+
+<pre><code class="language-go">// a simple function
+func functionName() {}
+
+// function with parameters (again, types go after identifiers)
+func functionName(param1 string, param2 int) {}
+
+// multiple parameters of the same type
+func functionName(param1, param2 int) {}
+
+// return type declaration
+func functionName() int {
+    return 42
+}
+
+// Can return multiple values at once
+func returnMulti() (int, string) {
+    return 42, &quot;foobar&quot;
+}
+var x, str = returnMulti()
+
+// Return multiple named results simply by return
+func returnMulti2() (n int, s string) {
+    n = 42
+    s = &quot;foobar&quot;
+    // n and s will be returned
+    return
+}
+var x, str = returnMulti2()
+
+</code></pre>
+
+<h3 id="functions-as-values-and-closures">Functions As Values And Closures</h3>
+
+<pre><code class="language-go">func main() {
+    // assign a function to a name
+    add := func(a, b int) int {
+        return a + b
+    }
+    // use the name to call the function
+    fmt.Println(add(3, 4))
+}
+
+// Closures, lexically scoped: Functions can access values that were
+// in scope when defining the function
+func scope() func() int{
+    outer_var := 2
+    foo := func() int { return outer_var}
+    return foo
+}
+
+func another_scope() func() int{
+    // won't compile because outer_var and foo not defined in this scope
+    outer_var = 444
+    return foo
+}
+
+
+// Closures
+func outer() (func() int, int) {
+    outer_var := 2
+    inner := func() int {
+        outer_var += 99 // outer_var from outer scope is mutated.
+        return outer_var
+    }
+    inner()
+    return inner, outer_var // return inner func and mutated outer_var 101
+}
+</code></pre>
+
+<h3 id="variadic-functions">Variadic Functions</h3>
+
+<pre><code class="language-go">func main() {
+	fmt.Println(adder(1, 2, 3)) 	// 6
+	fmt.Println(adder(9, 9))	// 18
+
+	nums := []int{10, 20, 30}
+	fmt.Println(adder(nums...))	// 60
+}
+
+// By using ... before the type name of the last parameter you can indicate that it takes zero or more of those parameters.
+// The function is invoked like any other function except we can pass as many arguments as we want.
+func adder(args ...int) int {
+	total := 0
+	for _, v := range args { // Iterates over the arguments whatever the number.
+		total += v
+	}
+	return total
+}
+</code></pre>
+
+<h2 id="built-in-types">Built-in Types</h2>
+
+<pre><code>bool
+
+string
+
+int  int8  int16  int32  int64
+uint uint8 uint16 uint32 uint64 uintptr
+
+byte // alias for uint8
+
+rune // alias for int32 ~= a character (Unicode code point) - very Viking
+
+float32 float64
+
+complex64 complex128
+</code></pre>
+
+<h2 id="type-conversions">Type Conversions</h2>
+
+<pre><code class="language-go">var i int = 42
+var f float64 = float64(i)
+var u uint = uint(f)
+
+// alternative syntax
+i := 42
+f := float64(i)
+u := uint(f)
+</code></pre>
+
+<h2 id="packages">Packages</h2>
+
+<ul>
+<li>Package declaration at top of every source file</li>
+<li>Executables are in package <code>main</code></li>
+<li>Convention: package name == last name of import path (import path <code>math/rand</code> =&gt; package <code>rand</code>)</li>
+<li>Upper case identifier: exported (visible from other packages)</li>
+<li>Lower case identifier: private (not visible from other packages)</li>
+</ul>
+
+<h2 id="control-structures">Control structures</h2>
+
+<h3 id="if">If</h3>
+
+<pre><code class="language-go">func main() {
+	// Basic one
+	if x &gt; 10 {
+		return x
+	} else if x == 10 {
+		return 10
+	} else {
+		return -x
+	}
+
+	// You can put one statement before the condition
+	if a := b + c; a &lt; 42 {
+		return a
+	} else {
+		return a - 42
+	}
+
+	// Type assertion inside if
+	var val interface{}
+	val = &quot;foo&quot;
+	if str, ok := val.(string); ok {
+		fmt.Println(str)
+	}
+}
+</code></pre>
+
+<h3 id="loops">Loops</h3>
+
+<pre><code class="language-go">    // There's only `for`, no `while`, no `until`
+    for i := 1; i &lt; 10; i++ {
+    }
+    for ; i &lt; 10;  { // while - loop
+    }
+    for i &lt; 10  { // you can omit semicolons if there is only a condition
+    }
+    for { // you can omit the condition ~ while (true)
+    }
+    
+    // use break/continue on current loop
+    // use break/continue with label on outer loop
+here:
+    for i := 0; i &lt; 2; i++ {
+        for j := i + 1; j &lt; 3; j++ {
+            if i == 0 {
+                continue here
+            }
+            fmt.Println(j)
+            if j == 2 {
+                break
+            }
+        }
+    }
+
+there:
+    for i := 0; i &lt; 2; i++ {
+        for j := i + 1; j &lt; 3; j++ {
+            if j == 1 {
+                continue
+            }
+            fmt.Println(j)
+            if j == 2 {
+                break there
+            }
+        }
+    }
+</code></pre>
+
+<h3 id="switch">Switch</h3>
+
+<pre><code class="language-go">    // switch statement
+    switch operatingSystem {
+    case &quot;darwin&quot;:
+        fmt.Println(&quot;Mac OS Hipster&quot;)
+        // cases break automatically, no fallthrough by default
+    case &quot;linux&quot;:
+        fmt.Println(&quot;Linux Geek&quot;)
+    default:
+        // Windows, BSD, ...
+        fmt.Println(&quot;Other&quot;)
+    }
+
+    // as with for and if, you can have an assignment statement before the switch value
+    switch os := runtime.GOOS; os {
+    case &quot;darwin&quot;: ...
+    }
+
+    // you can also make comparisons in switch cases
+    number := 42
+    switch {
+        case number &lt; 42:
+            fmt.Println(&quot;Smaller&quot;)
+        case number == 42:
+            fmt.Println(&quot;Equal&quot;)
+        case number &gt; 42:
+            fmt.Println(&quot;Greater&quot;)
+    }
+
+    // cases can be presented in comma-separated lists
+    var char byte = '?'
+    switch char {
+        case ' ', '?', '&amp;', '=', '#', '+', '%':
+            fmt.Println(&quot;Should escape&quot;)
+    }
+</code></pre>
+
+<h2 id="arrays-slices-ranges">Arrays, Slices, Ranges</h2>
+
+<h3 id="arrays">Arrays</h3>
+
+<pre><code class="language-go">var a [10]int // declare an int array with length 10. Array length is part of the type!
+a[3] = 42     // set elements
+i := a[3]     // read elements
+
+// declare and initialize
+var a = [2]int{1, 2}
+a := [2]int{1, 2} //shorthand
+a := [...]int{1, 2} // elipsis -&gt; Compiler figures out array length
+</code></pre>
+
+<h3 id="slices">Slices</h3>
+
+<pre><code class="language-go">var a []int                              // declare a slice - similar to an array, but length is unspecified
+var a = []int {1, 2, 3, 4}               // declare and initialize a slice (backed by the array given implicitly)
+a := []int{1, 2, 3, 4}                   // shorthand
+chars := []string{0:&quot;a&quot;, 2:&quot;c&quot;, 1: &quot;b&quot;}  // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+
+var b = a[lo:hi]	// creates a slice (view of the array) from index lo to hi-1
+var b = a[1:4]		// slice from index 1 to 3
+var b = a[:3]		// missing low index implies 0
+var b = a[3:]		// missing high index implies len(a)
+a =  append(a,17,3)	// append items to slice a
+c := append(a,b...)	// concatenate slices a and b
+
+// create a slice with make
+a = make([]byte, 5, 5)	// first arg length, second capacity
+a = make([]byte, 5)	// capacity is optional
+
+// create a slice from an array
+x := [3]string{&quot;Лайка&quot;, &quot;Белка&quot;, &quot;Стрелка&quot;}
+s := x[:] // a slice referencing the storage of x
+</code></pre>
+
+<h3 id="operations-on-arrays-and-slices">Operations on Arrays and Slices</h3>
+
+<p><code>len(a)</code> gives you the length of an array/a slice. It&rsquo;s a built-in function, not a attribute/method on the array.</p>
+
+<pre><code class="language-go">// loop over an array/a slice
+for i, e := range a {
+    // i is the index, e the element
+}
+
+// if you only need e:
+for _, e := range a {
+    // e is the element
+}
+
+// ...and if you only need the index
+for i := range a {
+}
+
+// In Go pre-1.4, you'll get a compiler error if you're not using i and e.
+// Go 1.4 introduced a variable-free form, so that you can do this
+for range time.Tick(time.Second) {
+    // do it once a sec
+}
+
+</code></pre>
+
+<h2 id="maps">Maps</h2>
+
+<pre><code class="language-go">var m map[string]int
+m = make(map[string]int)
+m[&quot;key&quot;] = 42
+fmt.Println(m[&quot;key&quot;])
+
+delete(m, &quot;key&quot;)
+
+elem, ok := m[&quot;key&quot;] // test if key &quot;key&quot; is present and retrieve it, if so
+
+// map literal
+var m = map[string]Vertex{
+    &quot;Bell Labs&quot;: {40.68433, -74.39967},
+    &quot;Google&quot;:    {37.42202, -122.08408},
+}
+
+// iterate over map content
+for key, value := range m {
+}
+
+</code></pre>
+
+<h2 id="structs">Structs</h2>
+
+<p>There are no classes, only structs. Structs can have methods.</p>
+
+<pre><code class="language-go">// A struct is a type. It's also a collection of fields
+
+// Declaration
+type Vertex struct {
+    X, Y int
+}
+
+// Creating
+var v = Vertex{1, 2}
+var v = Vertex{X: 1, Y: 2} // Creates a struct by defining values with keys
+var v = []Vertex{{1,2},{5,2},{5,5}} // Initialize a slice of structs
+
+// Accessing members
+v.X = 4
+
+// You can declare methods on structs. The struct you want to declare the
+// method on (the receiving type) comes between the the func keyword and
+// the method name. The struct is copied on each method call(!)
+func (v Vertex) Abs() float64 {
+    return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+// Call method
+v.Abs()
+
+// For mutating methods, you need to use a pointer (see below) to the Struct
+// as the type. With this, the struct value is not copied for the method call.
+func (v *Vertex) add(n float64) {
+    v.X += n
+    v.Y += n
+}
+
+</code></pre>
+
+<p><strong>Anonymous structs:</strong>
+Cheaper and safer than using <code>map[string]interface{}</code>.</p>
+
+<pre><code class="language-go">point := struct {
+	X, Y int
+}{1, 2}
+</code></pre>
+
+<h2 id="pointers">Pointers</h2>
+
+<pre><code class="language-go">p := Vertex{1, 2}  // p is a Vertex
+q := &amp;p            // q is a pointer to a Vertex
+r := &amp;Vertex{1, 2} // r is also a pointer to a Vertex
+
+// The type of a pointer to a Vertex is *Vertex
+
+var s *Vertex = new(Vertex) // new creates a pointer to a new struct instance
+</code></pre>
+
+<h2 id="interfaces">Interfaces</h2>
+
+<pre><code class="language-go">// interface declaration
+type Awesomizer interface {
+    Awesomize() string
+}
+
+// types do *not* declare to implement interfaces
+type Foo struct {}
+
+// instead, types implicitly satisfy an interface if they implement all required methods
+func (foo Foo) Awesomize() string {
+    return &quot;Awesome!&quot;
+}
+</code></pre>
+
+<h2 id="embedding">Embedding</h2>
+
+<p>There is no subclassing in Go. Instead, there is interface and struct embedding.</p>
+
+<pre><code class="language-go">// ReadWriter implementations must satisfy both Reader and Writer
+type ReadWriter interface {
+    Reader
+    Writer
+}
+
+// Server exposes all the methods that Logger has
+type Server struct {
+    Host string
+    Port int
+    *log.Logger
+}
+
+// initialize the embedded type the usual way
+server := &amp;Server{&quot;localhost&quot;, 80, log.New(...)}
+
+// methods implemented on the embedded struct are passed through
+server.Log(...) // calls server.Logger.Log(...)
+
+// the field name of the embedded type is its type name (in this case Logger)
+var logger *log.Logger = server.Logger
+</code></pre>
+
+<h2 id="errors">Errors</h2>
+
+<p>There is no exception handling. Functions that might produce an error just declare an additional return value of type <code>Error</code>. This is the <code>Error</code> interface:</p>
+
+<pre><code class="language-go">type error interface {
+    Error() string
+}
+</code></pre>
+
+<p>A function that might return an error:</p>
+
+<pre><code class="language-go">func doStuff() (int, error) {
+}
+
+func main() {
+    result, err := doStuff()
+    if err != nil {
+        // handle error
+    } else {
+        // all is good, use result
+    }
+}
+</code></pre>
+
+<h1 id="concurrency">Concurrency</h1>
+
+<h2 id="goroutines">Goroutines</h2>
+
+<p>Goroutines are lightweight threads (managed by Go, not OS threads). <code>go f(a, b)</code> starts a new goroutine which runs <code>f</code> (given <code>f</code> is a function).</p>
+
+<pre><code class="language-go">// just a function (which can be later started as a goroutine)
+func doStuff(s string) {
+}
+
+func main() {
+    // using a named function in a goroutine
+    go doStuff(&quot;foobar&quot;)
+
+    // using an anonymous inner function in a goroutine
+    go func (x int) {
+        // function body goes here
+    }(42)
+}
+</code></pre>
+
+<h2 id="channels">Channels</h2>
+
+<pre><code class="language-go">ch := make(chan int) // create a channel of type int
+ch &lt;- 42             // Send a value to the channel ch.
+v := &lt;-ch            // Receive a value from ch
+
+// Non-buffered channels block. Read blocks when no value is available, write blocks until there is a read.
+
+// Create a buffered channel. Writing to a buffered channels does not block if less than &lt;buffer size&gt; unread values have been written.
+ch := make(chan int, 100)
+
+close(ch) // closes the channel (only sender should close)
+
+// read from channel and test if it has been closed
+v, ok := &lt;-ch
+
+// if ok is false, channel has been closed
+
+// Read from channel until it is closed
+for i := range ch {
+    fmt.Println(i)
+}
+
+// select blocks on multiple channel operations, if one unblocks, the corresponding case is executed
+func doStuff(channelOut, channelIn chan int) {
+    select {
+    case channelOut &lt;- 42:
+        fmt.Println(&quot;We could write to channelOut!&quot;)
+    case x := &lt;- channelIn:
+        fmt.Println(&quot;We could read from channelIn&quot;)
+    case &lt;-time.After(time.Second * 1):
+        fmt.Println(&quot;timeout&quot;)
+    }
+}
+</code></pre>
+
+<h3 id="channel-axioms">Channel Axioms</h3>
+
+<ul>
+<li>A send to a nil channel blocks forever</li>
+</ul>
+
+<pre><code class="language-go">  var c chan string
+  c &lt;- &quot;Hello, World!&quot;
+  // fatal error: all goroutines are asleep - deadlock!
+</code></pre>
+
+<ul>
+<li>A receive from a nil channel blocks forever</li>
+</ul>
+
+<pre><code class="language-go">  var c chan string
+  fmt.Println(&lt;-c)
+  // fatal error: all goroutines are asleep - deadlock!
+</code></pre>
+
+<ul>
+<li>A send to a closed channel panics</li>
+</ul>
+
+<pre><code class="language-go">  var c = make(chan string, 1)
+  c &lt;- &quot;Hello, World!&quot;
+  close(c)
+  c &lt;- &quot;Hello, Panic!&quot;
+  // panic: send on closed channel
+</code></pre>
+
+<ul>
+<li>A receive from a closed channel returns the zero value immediately</li>
+</ul>
+
+<pre><code class="language-go">  var c = make(chan int, 2)
+  c &lt;- 1
+  c &lt;- 2
+  close(c)
+  for i := 0; i &lt; 3; i++ {
+      fmt.Printf(&quot;%d &quot;, &lt;-c)
+  }
+  // 1 2 0
+</code></pre>
+
+<h2 id="printing">Printing</h2>
+
+<pre><code class="language-go">fmt.Println(&quot;Hello, 你好, नमस्ते, Привет, ᎣᏏᏲ&quot;) // basic print, plus newline
+p := struct { X, Y int }{ 17, 2 }
+fmt.Println( &quot;My point:&quot;, p, &quot;x coord=&quot;, p.X ) // print structs, ints, etc
+s := fmt.Sprintln( &quot;My point:&quot;, p, &quot;x coord=&quot;, p.X ) // print to string variable
+
+fmt.Printf(&quot;%d hex:%x bin:%b fp:%f sci:%e&quot;,17,17,17,17.0,17.0) // c-ish format
+s2 := fmt.Sprintf( &quot;%d %f&quot;, 17, 17.0 ) // formatted print to string variable
+
+hellomsg := `
+ &quot;Hello&quot; in Chinese is 你好 ('Ni Hao')
+ &quot;Hello&quot; in Hindi is नमस्ते ('Namaste')
+` // multi-line string literal, using back-tick at beginning and end
+</code></pre>
+
+<h2 id="reflection">Reflection</h2>
+
+<h3 id="type-switch">Type Switch</h3>
+
+<p>A type switch is like a regular switch statement, but the cases in a type switch specify types (not values), and those values are compared against the type of the value held by the given interface value.</p>
+
+<pre><code class="language-go">func do(i interface{}) {
+	switch v := i.(type) {
+	case int:
+		fmt.Printf(&quot;Twice %v is %v\n&quot;, v, v*2)
+	case string:
+		fmt.Printf(&quot;%q is %v bytes long\n&quot;, v, len(v))
+	default:
+		fmt.Printf(&quot;I don't know about type %T!\n&quot;, v)
+	}
+}
+
+func main() {
+	do(21)
+	do(&quot;hello&quot;)
+	do(true)
+}
+</code></pre>
+
+<h1 id="snippets">Snippets</h1>
+
+<h2 id="http-server">HTTP Server</h2>
+
+<pre><code class="language-go">package main
+
+import (
+    &quot;fmt&quot;
+    &quot;net/http&quot;
+)
+
+// define a type for the response
+type Hello struct{}
+
+// let that type implement the ServeHTTP method (defined in interface http.Handler)
+func (h Hello) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprint(w, &quot;Hello!&quot;)
+}
+
+func main() {
+    var h Hello
+    http.ListenAndServe(&quot;localhost:4000&quot;, h)
+}
+
+// Here's the method signature of http.ServeHTTP:
+// type Handler interface {
+//     ServeHTTP(w http.ResponseWriter, r *http.Request)
+// }
+</code></pre>
+
+<p>Source : <a href="https://github.com/a8m/go-lang-cheat-sheet">go-lang-cheat-sheet</a></p>
+
+
+            </div>
+            
+            <br>
+            <div class="share">
+                  
+                  <a href="" class="ssk ssk-facebook"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-twitter"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-google-plus"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-linkedin"></a>
+                  
+            </div>
+            
+            
+            <br>
+            <div class="navigation">
+                
+                <div>
+                    <img class="icon" src="/img/back.svg" alt="back" />
+                    <a href="/blog/install-fira-code-font/">Install Fira-Code font</a>
+                </div>
+                
+                <div style="width: 100%;"></div>
+                
+            </div>
+            
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "winarkoandy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+
+            
+
+            
         </div>
     </div>
 </div>
+
+
+
 <div class="footer column">
     <div class="container">
 

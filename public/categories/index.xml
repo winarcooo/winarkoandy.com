@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Cheatsheet</title>
+      <link>/categories/cheatsheet/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/cheatsheet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Font</title>
       <link>/categories/font/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
@@ -29,9 +38,18 @@
     </item>
     
     <item>
+      <title>Go</title>
+      <link>/categories/go/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Golang</title>
       <link>/categories/golang/</link>
-      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/golang/</guid>
       <description></description>
