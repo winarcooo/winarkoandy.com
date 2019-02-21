@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="I&#39;m a Web Developer">
+
+
+<meta property="og:site_name" content="~/.andy_winarko" />
+<meta property="og:locale" content="en-US" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/public-apis/" />
+<meta property="og:title" content="Public Apis" />
+<meta property="twitter:title" content="Public Apis">
+
+    <meta property="og:image" content="/img/terminal-small.png">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="/img/terminal-small.png">
+
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     ~/.andy_winarko - Public Apis 
+
+</title>
+<link rel="canonical" href="/blog/public-apis/">
+
+
+<style media="screen">
+  @font-face {
+  font-family: 'Nexa Bold';
+  src: url('/fonts/Nexa Bold.otf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, div.column {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #111111;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+.icon {
+  text-rendering: geometricPrecision !important;
+}
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+div.column {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  width: 100%;
+}
+div.header .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+div.header .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.header .container .logo {
+  
+  max-width: 100px;
+  
+  margin-left: -2em;
+}
+div.header .name {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  
+      
+  text-transform: lowercase;
+      
+  
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+}
+div.header nav {
+  margin-bottom: 16px;
+}
+div.header nav ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+div.header nav ul li {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+div.header nav ul li:first-child {
+  margin-left: 0;
+}
+div.header nav ul li:last-child {
+  margin-right: 0;
+}
+div.header nav ul a {
+  color: #555555;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.header nav ul a:hover {
+  color: #111111;
+}
+div.footer .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+div.footer .container a {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.footer .container a:first-child {
+  margin-left: 0;
+}
+div.footer .container a:last-child {
+  margin-right: 0;
+}
+div.footer .container a:hover {
+  opacity: 0.8;
+}
+div.footer .container a .icon {
+  width: 16px;
+  height: 16px;
+}
+div.footer .container .copyright {
+  flex-grow: 0.5;
+  text-align: start;
+}
+div.footer .container .icons {
+  flex-grow: 0.5;
+  text-align: end;
+}
+div.main .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+div.main .content {
+  color: #111111;
+  font-size: 16px;
+}
+div.main .content .title-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+div.main .content .posts {
+  
+  
+}
+div.main .content .page-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 16px;
+}
+div.main .content .front-matter .page-heading {
+  margin-bottom: 0;
+}
+div.main .content .front-matter .meta {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 32px;
+}
+div.main .content .front-matter .date,
+div.main .content .front-matter .author,
+div.main .content .front-matter .tags,
+div.main .content .front-matter .word-count,
+div.main .content .front-matter .middot:before {
+  display: none;
+}
+div.main .content .front-matter .middot:before {
+  font-size: 6px;
+  margin: 0 6px;
+  vertical-align: middle;
+  content: "•";
+}
+div.main .content .front-matter .tags ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.main .content .front-matter .tags ul li {
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.main .content .front-matter .tags ul li:hover {
+  opacity: 0.7;
+}
+div.main .content .front-matter .tags ul li a {
+  color: #666666;
+}
+div.main .container.f04 {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+div.main .container.f04 .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.main .container.f04 .content .num {
+  margin: 30px 0px 30px 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 50px;
+}
+div.main .container.f04 .content .detail {
+  margin-bottom: 40px;
+}
+div.main .container .content .groupby {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
+div.main .container .content .post-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: list-item;
+  list-style: disc inside;
+}
+div.main .container .content .post-item .meta {
+  font-size: 14px;
+  color: #666666;
+  display: none;
+  min-width: 100px;
+}
+div.main .container .content .see-more {
+  font-style: italic;
+  float: right;
+  font-size: 0.9em;
+  margin-top: 2em;
+  color: #313537;
+}
+div.main .container .content .see-more:hover {
+  color: #666;
+}
+section {
+  padding: 0 16px;
+}
+div.column {
+  padding: 0 16px;
+}
+div.header {
+  padding-top: 10px;
+}
+div.header-home {
+  padding-top: 36px;
+}
+div.main {
+  padding-top: 32px;
+}
+div.main .container .content .post-item .meta {
+    display: block;
+}
+div.main .container .content .post-item {
+    display: flex;
+    list-style: none;
+}
+a {
+  color: #428bca;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:hover {
+  color: #2a6496;
+}
+img {
+  max-width: 100%;
+}
+div.main .content {
+    width: 100%;
+}
+div.main .content .markdown {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  color: #313537;
+  font-family: serif;
+  font-weight: 300;
+}
+div.main .content .markdown h1,
+div.main .content .markdown h2,
+div.main .content .markdown h3,
+div.main .content .markdown h4,
+div.main .content .markdown h5,
+div.main .content .markdown h6 {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  text-transform: none;
+  margin-top: 1.75rem;
+}
+div.main .content .markdown h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+div.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+div.main .content .markdown h3 {
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+div.main .content .markdown h4,
+div.main .content .markdown h5,
+div.main .content .markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: none;
+}
+div.main .content .markdown code,
+div.main .content .markdown pre {
+  font-family: 'Menlo', monospace;
+  font-size: 0.98rem;
+  background-color: #f7f7f7;
+}
+div.main .content .markdown code {
+  /* enclosed by single backtick (`) */
+  padding: .15em .5em;
+  border-radius: 2px;
+}
+div.main .content .markdown pre {
+  /* Hugo specific: consider using the 'highlight' shortcode */
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+div.main .content .markdown pre code {
+  /* enclosed by 4 backticks (````) */
+  padding: 0;
+  font-size: 0.9rem;
+}
+div.main .content .markdown a code {
+  color: #428bca !important;
+}
+div.main .content .markdown a code:hover {
+  text-decoration: underline;
+}
+div.main .content .markdown p {
+  
+  text-align: justify;
+  
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+div.main .content .markdown ul,
+div.main .content .markdown ol,
+div.main .content .markdown dl {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+div.main .content .markdown dt {
+  font-weight: bold;
+}
+div.main .content .markdown dd {
+  margin-bottom: .5rem;
+}
+div.main .content .markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 1.25rem;
+}
+div.main .content .markdown ol {
+  list-style-type: decimal;
+  margin-bottom: 1.25rem;
+}
+div.main .content .markdown li {
+  margin-left: 2em;
+}
+div.main .content .markdown em {
+  font-style: italic;
+}
+div.main .content .markdown strong {
+  font-weight: 700;
+}
+div.main .content .markdown hr {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-top: 1px solid #999999;
+}
+div.main .content .markdown abbr {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+div.main .content .markdown abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #808080;
+}
+div.main .content .markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+div.main .content .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+div.main .content .markdown figure {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1em;
+}
+div.main .content .markdown figure img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+div.main .content .markdown table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+div.main .content .markdown td,
+div.main .content .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+div.main .content .markdown tbody tr:nth-child(odd) td,
+div.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+}
+div.main .content .markdown .footnotes ol {
+  list-style-type: decimal;
+  margin-left: 16px;
+}
+div.main .content .markdown .footnotes li {
+  list-style-type: unset;
+}
+div.main .content .markdown .footnote-ref {
+  font-size: 0.7em;
+}
+div.main .content .navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  padding: 2em;
+}
+div.main .content .navigation div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 1em;
+}
+div.main .content .navigation .icon {
+  width: 16px;
+  height: 16px;
+}
+div.main .content .navigation a {
+  width: 250px;
+  margin: 0 1em;
+  text-align: center;
+  font-style: italic;
+  color: #313537;
+}
+div.main .content .share, div.main .content .share div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+div.main .content .share {
+  background-color: rgba(152, 152, 152, 0.07);
+  padding: 1em 0;
+}
+div.main .content .share a {
+  margin: 0 6px;
+}
+kbd {
+  padding: 0.1em 0.6em;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  font-family: Arial,Helvetica,sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 0.1em;
+  text-shadow: 0 1px 0 #fff;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Fonts */
+
+
+.wf-raleway-n4-active body, 
+.wf-raleway-n4-active div.header nav ul a,
+.wf-raleway-n7-active div.main .content .page-heading,
+.wf-raleway-n2-active div.main .container.f04 .content .num,
+.wf-raleway-n7-active div.main .content .markdown h1,
+.wf-raleway-n7-active div.main .content .markdown h2,
+.wf-raleway-n7-active div.main .content .markdown h3,
+.wf-raleway-n7-active div.main .content .markdown h4,
+.wf-raleway-n7-active div.main .content .markdown h5,
+.wf-raleway-n7-active div.main .content .markdown h6 {
+      font-family: 'Raleway';
+}
+
+.wf-merriweather-n3-active div.main .content .markdown {
+      font-family: 'Merriweather';
+}
+
+.wf-ubuntu-mono-n4-active div.main .content .markdown code,
+.wf-ubuntu-mono-n4-active div.main .content .markdown pre {
+      font-family: 'Ubuntu Mono';
+}
+
+
+</style>
+<style media="(min-width: 600px)">
+  body {
+-webkit-justify-content: center;
+-moz-justify-content: center;
+-ms-justify-content: center;
+justify-content: center;
+}
+.non-narrow.zero-top-spacing {
+padding-top: 0 !important;
+}
+section {
+padding: 0 16px;
+margin-left: 100px;
+margin-right: 100px;
+
+max-width: 750px;
+
+}
+div.column {
+padding: 0 16px;
+
+max-width: 750px;
+
+}
+div.header {
+background-color: transparent;
+}
+div.header .container {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+div.header .container .logo {
+margin: 0;
+}
+div.header-home .container .logo {
+max-width: 216px;
+margin-left: 24px;
+}
+div.header-home .name-home {
+padding-top: 30px;
+font-size: 40px;
+}
+div.header-home nav ul a {
+font-size: 18px;
+}
+div.header .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+div.header .name {
+color: #333333;
+}
+div.header nav {
+font-size: 14px;
+margin-bottom: 0;
+}
+div.header nav ul {
+text-align: left;
+}
+div.header nav ul a {
+color: #666666;
+}
+div.header nav ul a:hover {
+color: #333333;
+}
+div.footer {
+background-color: transparent;
+}
+div.footer .container {
+flex-direction: row;
+}
+div.footer .container a {
+margin-left: 3px;
+margin-right: 3px;
+color: #666666;
+}
+div.footer .container a:hover {
+color: #333333;
+}
+div.footer .container a .icon {
+font-size: 18px;
+}
+div.footer .container a .icon.larger {
+font-size: 20px;
+}
+div.main .content .front-matter .date,
+div.main .content .front-matter .author,
+div.main .content .front-matter .tags,
+div.main .content .front-matter .word-count,
+div.main .content .front-matter .middot:before {
+display: initial;
+}
+div.main .container.f04 {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+div.main .container.f04 .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+div.main .container.f04 .content .num {
+margin: 0 0 10px 0;
+font-size: 32px;
+}
+div.main .container.f04 .content .detail {
+margin-bottom: 30px;
+}
+.container {
+padding: 0 30px;
+}
+div.header {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+div.footer {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+div.main {
+padding-top: 0;
+}
+div.main .content {
+  
+  font-size: 16px;
+  
+}
+div.main .container .content .post-item {
+display: flex;
+list-style: none;
+padding-left: 1.5em;
+}
+div.main .container .content .post-item .meta {
+display: block;
+}
+div.main .content .markdown blockquote {
+padding-right: 5rem;
+padding-left: 1.25rem;
+}
+div.main .content .navigation {
+-webkit-flex-direction: row;
+-moz-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+}
+div.main .content .navigation div {
+margin-top: 0em;
+}
+
+</style>
+<style media="(min-width: 769px)">
+  div.main .content .markdown figure {
+width: 110%;
+margin-left: -4%;
+}
+div.main .content .markdown img {
+max-width: 110%;
+width: 110%;
+margin-left: -4%;
+}
+div.main .content .markdown pre {
+width: 110%;
+margin-left: -4%;
+}
+
+</style>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</noscript>
+
+
+  <style type="text/css" media="screen">
+    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    /*!
+ * Social Share Kit v1.0.7 (http://socialsharekit.com)
+ * Copyright 2015 Social Share Kit / Kaspars Sprogis.
+ * Licensed under Creative Commons Attribution-NonCommercial 3.0 license:
+ * https://github.com/darklow/social-share-kit/blob/master/LICENSE
+ * ---
+ */@font-face{font-family:'social-share-kit';src:url('/fonts/social-share-kit.eot');src:url('/fonts/social-share-kit.eot?#iefix') format('embedded-opentype'),url('/fonts/social-share-kit.woff') format('woff'),url('/fonts/social-share-kit.ttf') format('truetype'),url('/fonts/social-share-kit.svg#social-share-kit') format('svg');font-weight:normal;font-style:normal}.ssk:before{display:inline-block;font-family:"social-share-kit" !important;font-style:normal !important;font-weight:normal !important;font-variant:normal !important;text-transform:none !important;speak:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.ssk-facebook:before{content:"a";text-indent:4px;margin-right:-4px}.ssk-twitter:before{content:"b"}.ssk-google-plus:before{content:"v"}.ssk-google-plus-old:before{content:"c"}.ssk-email:before{content:"d";top:-1px;position:relative}.ssk-pinterest:before{content:"e"}.ssk-tumblr:before{content:"f"}.ssk-linkedin:before{content:"g"}.ssk-github:before{content:"h"}.ssk-vk:before{content:"i"}.ssk-instagram:before{content:"j"}.ssk-amazon:before{content:"k"}.ssk-skype:before{content:"s"}.ssk-youtube:before{content:"x"}.ssk-vimeo:before{content:"u"}.ssk-ebay:before{content:"p"}.ssk-apple:before{content:"l"}.ssk-behance:before{content:"q"}.ssk-dribble:before{content:"n"}.ssk-android:before{content:"o"}.ssk-whatsapp:before{content:"m"}.ssk-reddit:before{content:"r"}.ssk-reddit2:before{content:"t"}.ssk-link:before{content:"w"}.ssk{background-color:#757575;color:white;display:inline-block;font-size:22px;line-height:1px;margin-right:2px;margin-bottom:2px;padding:7px;text-align:center;text-decoration:none;transition:background-color .1s;-webkit-transition:background-color .1s;-moz-transition:background-color .1s;-ms-transition:background-color .1s;-o-transition:background-color .1s}.ssk:before,.ssk .glyphicon,.ssk .fa{position:relative;font-size:22px;top:0;vertical-align:middle}.ssk.ssk-xs,.ssk-xs>.ssk{padding:4px}.ssk.ssk-xs:before,.ssk-xs>.ssk:before,.ssk.ssk-xs .glyphicon,.ssk-xs>.ssk .glyphicon,.ssk.ssk-xs .fa,.ssk-xs>.ssk .fa{font-size:15px}.ssk.ssk-sm,.ssk-sm>.ssk{padding:5px}.ssk.ssk-sm:before,.ssk-sm>.ssk:before,.ssk.ssk-sm .glyphicon,.ssk-sm>.ssk .glyphicon,.ssk.ssk-sm .fa,.ssk-sm>.ssk .fa{font-size:20px}.ssk.ssk-lg,.ssk-lg>.ssk{padding:9px}.ssk.ssk-lg:before,.ssk-lg>.ssk:before,.ssk.ssk-lg .glyphicon,.ssk-lg>.ssk .glyphicon,.ssk.ssk-lg .fa,.ssk-lg>.ssk .fa{font-size:28px}.ssk:last-child{margin-right:0}.ssk:hover{background-color:#424242}.ssk:hover,.ssk:focus{color:#fff;text-decoration:none}.ssk.ssk-round,.ssk-round .ssk{border-radius:50%}.ssk.ssk-round:before,.ssk-round .ssk:before{text-indent:0;margin-right:0}.ssk.ssk-rounded,.ssk-rounded .ssk{border-radius:15%}.ssk.ssk-icon{color:#757575;padding:2px;font-size:24px}.ssk.ssk-icon,.ssk.ssk-icon:hover{background-color:transparent}.ssk.ssk-icon:hover{color:#424242}.ssk.ssk-icon.ssk-xs,.ssk-xs>.ssk.ssk-icon{font-size:16px}.ssk.ssk-icon.ssk-sm,.ssk-sm>.ssk.ssk-icon{font-size:20px}.ssk.ssk-icon.ssk-lg,.ssk-lg>.ssk.ssk-icon{font-size:28px}.ssk.ssk-text{overflow:hidden;font-size:17px;line-height:normal;padding-right:10px}.ssk.ssk-text:before,.ssk.ssk-text .glyphicon,.ssk.ssk-text .fa{margin:-7px 10px -7px -7px;padding:7px;background-color:rgba(0,0,0,0.15);vertical-align:bottom;text-indent:0}.ssk-block .ssk.ssk-text{display:block;margin-right:0;text-align:left}.ssk.ssk-text.ssk-xs,.ssk-xs>.ssk.ssk-text{font-size:12px;padding-right:6px}.ssk.ssk-text.ssk-xs:before,.ssk-xs>.ssk.ssk-text:before,.ssk.ssk-text.ssk-xs .glyphicon,.ssk-xs>.ssk.ssk-text .glyphicon,.ssk.ssk-text.ssk-xs .fa,.ssk-xs>.ssk.ssk-text .fa{margin:-4px 6px -4px -4px;padding:4px}.ssk.ssk-text.ssk-sm,.ssk-sm>.ssk.ssk-text{font-size:16px;padding-right:7px}.ssk.ssk-text.ssk-sm:before,.ssk-sm>.ssk.ssk-text:before,.ssk.ssk-text.ssk-sm .glyphicon,.ssk-sm>.ssk.ssk-text .glyphicon,.ssk.ssk-text.ssk-sm .fa,.ssk-sm>.ssk.ssk-text .fa{margin:-5px 7px -5px -5px;padding:5px}.ssk.ssk-text.ssk-lg,.ssk-lg>.ssk.ssk-text{font-size:22px;padding-right:13px}.ssk.ssk-text.ssk-lg:before,.ssk-lg>.ssk.ssk-text:before,.ssk.ssk-text.ssk-lg .glyphicon,.ssk-lg>.ssk.ssk-text .glyphicon,.ssk.ssk-text.ssk-lg .fa,.ssk-lg>.ssk.ssk-text .fa{margin:-9px 13px -9px -9px;padding:9px}.ssk-group,.ssk-sticky{font-size:0}.ssk-sticky{top:0;position:fixed;z-index:2000}.ssk-sticky .ssk{transition:padding .1s ease-out;-webkit-transition:padding .1s ease-out;-moz-transition:padding .1s ease-out;-ms-transition:padding .1s ease-out;-o-transition:padding .1s ease-out;margin:0}@media (min-width:768px){.ssk-sticky.ssk-left .ssk,.ssk-sticky.ssk-right .ssk{display:block;clear:both}.ssk-sticky.ssk-left.ssk-center,.ssk-sticky.ssk-right.ssk-center{top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%)}.ssk-sticky.ssk-left{left:0}.ssk-sticky.ssk-left .ssk{float:left}.ssk-sticky.ssk-left .ssk:hover{padding-left:15px}.ssk-sticky.ssk-right{right:0}.ssk-sticky.ssk-right .ssk{float:right}.ssk-sticky.ssk-right .ssk:hover{padding-right:15px}}.ssk-sticky.ssk-bottom{font-size:0;top:auto;bottom:0}.ssk-sticky.ssk-bottom.ssk-center{left:50%;right:auto;transform:translateX(-50%);-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%)}.ssk-sticky.ssk-bottom .ssk{vertical-align:bottom}.ssk-sticky.ssk-bottom .ssk:hover{padding-bottom:15px}.ssk-sticky.ssk-round.ssk-xs .ssk:hover{padding:8px}.ssk-sticky.ssk-round.ssk-sm .ssk:hover{padding:9px}.ssk-sticky.ssk-round .ssk:hover{padding:11px}.ssk-sticky.ssk-round.ssk-lg .ssk:hover{padding:13px}@media (max-width:767px){.ssk-sticky{left:0;right:0;bottom:0;top:auto;width:100%;display:flex !important;flex-direction:row;flex-wrap:nowrap}.ssk-sticky.ssk-sticky-hide-xs{display:none !important}.ssk-sticky .ssk{flex:1;width:auto}.ssk-sticky .ssk .ssk-num{display:none}}.ssk-count{padding-top:20px}.ssk-count .ssk{position:relative}.ssk-count .ssk-num{border-radius:4px;color:#8f8f8f;background-color:rgba(50,50,50,0.03);display:block;font-size:12px;left:0;line-height:20px;position:absolute;right:0;text-align:center;top:-20px}@media (min-width:768px){.ssk-count.ssk-sticky{padding-top:0}.ssk-count.ssk-sticky.ssk-left .ssk-num,.ssk-count.ssk-sticky.ssk-right .ssk-num{top:20%;background-color:transparent}.ssk-count.ssk-sticky.ssk-left .ssk-num{left:100%;margin-left:5px}.ssk-count.ssk-sticky.ssk-right .ssk-num{right:115%;margin-left:-100%;text-align:right}}.ssk-facebook{background-color:#3B5998}.ssk-grayscale>.ssk-facebook{background-color:#757575}.ssk-facebook:hover{background-color:#2d4373}.ssk-facebook:hover{background-color:#2d4373}.ssk-grayscale>.ssk-facebook:hover{background-color:#3B5998}.ssk-facebook.ssk-icon{color:#3B5998}.ssk-facebook.ssk-icon:hover{color:#2d4373}.ssk-facebook.ssk-icon:before{text-indent:0;margin-right:0}.ssk-twitter{background-color:#1DA1F2}.ssk-grayscale>.ssk-twitter{background-color:#757575}.ssk-twitter:hover{background-color:#0c85d0}.ssk-twitter:hover{background-color:#0c85d0}.ssk-grayscale>.ssk-twitter:hover{background-color:#1DA1F2}.ssk-twitter.ssk-icon{color:#1DA1F2}.ssk-twitter.ssk-icon:hover{color:#0c85d0}.ssk-google-plus{background-color:#EA4335}.ssk-grayscale>.ssk-google-plus{background-color:#757575}.ssk-google-plus:hover{background-color:#d62516}.ssk-google-plus:hover{background-color:#d62516}.ssk-grayscale>.ssk-google-plus:hover{background-color:#EA4335}.ssk-google-plus.ssk-icon{color:#EA4335}.ssk-google-plus.ssk-icon:hover{color:#d62516}.ssk-pinterest{background-color:#BD081C}.ssk-grayscale>.ssk-pinterest{background-color:#757575}.ssk-pinterest:hover{background-color:#8c0615}.ssk-pinterest:hover{background-color:#8c0615}.ssk-grayscale>.ssk-pinterest:hover{background-color:#BD081C}.ssk-pinterest.ssk-icon{color:#BD081C}.ssk-pinterest.ssk-icon:hover{color:#8c0615}.ssk-tumblr{background-color:#395773}.ssk-grayscale>.ssk-tumblr{background-color:#757575}.ssk-tumblr:hover{background-color:#283d51}.ssk-tumblr:hover{background-color:#283d51}.ssk-grayscale>.ssk-tumblr:hover{background-color:#395773}.ssk-tumblr.ssk-icon{color:#395773}.ssk-tumblr.ssk-icon:hover{color:#283d51}.ssk-email{background-color:#757575}.ssk-grayscale>.ssk-email{background-color:#757575}.ssk-email:hover{background-color:#5b5b5b}.ssk-email:hover{background-color:#5b5b5b}.ssk-grayscale>.ssk-email:hover{background-color:#757575}.ssk-grayscale>.ssk-email:hover{background-color:#5b5b5b}.ssk-email.ssk-icon{color:#757575}.ssk-email.ssk-icon:hover{color:#5b5b5b}.ssk-vk{background-color:#54769a}.ssk-grayscale>.ssk-vk{background-color:#757575}.ssk-vk:hover{background-color:#425d79}.ssk-vk:hover{background-color:#425d79}.ssk-grayscale>.ssk-vk:hover{background-color:#54769a}.ssk-vk.ssk-icon{color:#54769a}.ssk-vk.ssk-icon:hover{color:#425d79}.ssk-linkedin{background-color:#1c87bd}.ssk-grayscale>.ssk-linkedin{background-color:#757575}.ssk-linkedin:hover{background-color:#156791}.ssk-linkedin:hover{background-color:#156791}.ssk-grayscale>.ssk-linkedin:hover{background-color:#1c87bd}.ssk-linkedin.ssk-icon{color:#1c87bd}.ssk-linkedin.ssk-icon:hover{color:#156791}.ssk-whatsapp{background-color:#34AF23}.ssk-grayscale>.ssk-whatsapp{background-color:#757575}.ssk-whatsapp:hover{background-color:#27851a}.ssk-whatsapp:hover{background-color:#27851a}.ssk-grayscale>.ssk-whatsapp:hover{background-color:#34AF23}.ssk-whatsapp.ssk-icon{color:#34AF23}.ssk-whatsapp.ssk-icon:hover{color:#27851a}.ssk-reddit{background-color:#5f99cf}.ssk-grayscale>.ssk-reddit{background-color:#757575}.ssk-reddit:hover{background-color:#3a80c1}.ssk-reddit:hover{background-color:#3a80c1}.ssk-grayscale>.ssk-reddit:hover{background-color:#5f99cf}.ssk-reddit.ssk-icon{color:#5f99cf}.ssk-reddit.ssk-icon:hover{color:#3a80c1}.ssk-reddit2{background-color:#5f99cf}.ssk-grayscale>.ssk-reddit2{background-color:#757575}.ssk-reddit2:hover{background-color:#3a80c1}.ssk-reddit2:hover{background-color:#3a80c1}.ssk-grayscale>.ssk-reddit2:hover{background-color:#5f99cf}.ssk-reddit2.ssk-icon{color:#5f99cf}.ssk-reddit2.ssk-icon:hover{color:#3a80c1}.ssk-turquoise{background-color:#1abc9c}.ssk-turquoise:hover{background-color:#148f77}.ssk-emerald{background-color:#2ecc71}.ssk-emerald:hover{background-color:#25a25a}.ssk-peter-river{background-color:#3498db}.ssk-peter-river:hover{background-color:#217dbb}.ssk-belize-hole{background-color:#2980b9}.ssk-belize-hole:hover{background-color:#20638f}.ssk-amethyst{background-color:#9b59b6}.ssk-amethyst:hover{background-color:#804399}.ssk-wisteria{background-color:#8e44ad}.ssk-wisteria:hover{background-color:#703688}.ssk-wet-asphalt{background-color:#34495e}.ssk-wet-asphalt:hover{background-color:#222f3d}.ssk-midnight-blue{background-color:#2c3e50}.ssk-midnight-blue:hover{background-color:#1a242f}.ssk-green-sea{background-color:#16a085}.ssk-green-sea:hover{background-color:#107360}.ssk-nephritis{background-color:#27ae60}.ssk-nephritis:hover{background-color:#1e8449}.ssk-sunflower{background-color:#f1c40f}.ssk-sunflower:hover{background-color:#c29d0b}.ssk-orange{background-color:#f39c12}.ssk-orange:hover{background-color:#c87f0a}.ssk-carrot{background-color:#e67e22}.ssk-carrot:hover{background-color:#bf6516}.ssk-pumpkin{background-color:#d35400}.ssk-pumpkin:hover{background-color:#a04000}.ssk-alizarin{background-color:#e74c3c}.ssk-alizarin:hover{background-color:#d62c1a}.ssk-pomegranate{background-color:#c0392b}.ssk-pomegranate:hover{background-color:#962d22}.ssk-clouds{background-color:#cfd9db}.ssk-clouds:hover{background-color:#b1c2c6}.ssk-concrete{background-color:#95a5a6}.ssk-concrete:hover{background-color:#798d8f}.ssk-silver{background-color:#bdc3c7}.ssk-silver:hover{background-color:#a1aab0}.ssk-asbestos{background-color:#7f8c8d}.ssk-asbestos:hover{background-color:#667273}.ssk-dark-gray{background-color:#555}.ssk-dark-gray:hover{background-color:#3b3b3b}.ssk-black{background-color:#333}.ssk-black:hover{background-color:#1a1a1a}
+  </style>
+
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/terminal-small.png"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="header column">
+
+    <div class="container">
+        
+        <a href="/"><img class="logo" src="/img/terminal-small.png" alt="logo"></a>
+        
+        <div class="content">
+            <a href="/"><div class="name"><h1>~/.andy_winarko</h1></div></a>
+            <nav>
+                <ul>
+                    
+                            <li><a href="/blog/">Blog</a></li>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            <li><a href="/about/">About</a></li>
+                        
+                    
+                        
+                    
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="main post non-narrow zero-top-spacing column">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+    Public Apis
+    
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Thu Feb 21 2019 00:00:00 UTC">Feb 21, 2019</div>
+                    
+                        
+                        <div class="author middot" title="github">github</div>
+                        
+                    
+                    
+                    <div class="reading-time middot">28 minute read</div>
+                    
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="/tags/api">api</a> </li>
+                          
+                            <li class="middot"><a href="/tags/awesome-curated">awesome-curated</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    
+    
+
+<h1 id="public-apis-twitter-abgbm-https-img-shields-io-badge-contact-abgbm-blue-svg-style-flat-https-twitter-com-abgbm-build-status-https-travis-ci-org-abhishekbanthia-public-apis-svg-branch-master-https-travis-ci-org-abhishekbanthia-public-apis-prs-welcome-https-img-shields-io-badge-prs-welcome-brightgreen-svg-style-flat-square-http-makeapullrequest-com">Public-APIs <a href="https://twitter.com/abgbm"><img src="https://img.shields.io/badge/contact-@abgbm-blue.svg?style=flat" alt="Twitter: @abgbm" /></a> <a href="https://travis-ci.org/abhishekbanthia/Public-APIs"><img src="https://travis-ci.org/abhishekbanthia/Public-APIs.svg?branch=master" alt="Build Status" /></a> <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="PRs Welcome" /></a></h1>
+
+<p>This is an attempt to categorise different APIs scoured from the web which make their resources available for consumption.</p>
+
+<blockquote>
+<p>*Items marked with <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /> are open-source
+*Items marked with 💸 are trial based APIs</p>
+</blockquote>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#public-apis-twitter-abgbmhttpstwittercomabgbm-build-statushttpstravis-ciorgabhishekbanthiapublic-apis-prs-welcomehttpmakeapullrequestcom">Public-APIs <img src="https://twitter.com/abgbm" alt="Twitter: @abgbm" /> <img src="https://travis-ci.org/abhishekbanthia/Public-APIs" alt="Build Status" /> <img src="http://makeapullrequest.com" alt="PRs Welcome" /></a>
+
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#apis">APIs</a></li>
+<li><a href="#advertising">Advertising</a></li>
+<li><a href="#analytics">Analytics</a></li>
+<li><a href="#augmented-reality">Augmented Reality</a></li>
+<li><a href="#barcode">BarCode</a></li>
+<li><a href="#big-data-and-analytics">Big Data and Analytics</a></li>
+<li><a href="#bitcoinbitcoin-wallets">Bitcoin/Bitcoin Wallets</a></li>
+<li><a href="#calendar">Calendar</a></li>
+<li><a href="#captcha">Captcha</a></li>
+<li><a href="#check-in">Check-In</a></li>
+<li><a href="#commerce">Commerce</a></li>
+<li><a href="#communication">Communication</a></li>
+<li><a href="#content">Content</a></li>
+<li><a href="#currency">Currency</a></li>
+<li><a href="#data-science">Data Science</a></li>
+<li><a href="#design">Design</a></li>
+<li><a href="#dictionary">Dictionary</a></li>
+<li><a href="#entertainment">Entertainment</a></li>
+<li><a href="#events">Events</a></li>
+<li><a href="#face-recognition">Face Recognition</a></li>
+<li><a href="#file-storage-and-manipulation">File Storage and Manipulation</a></li>
+<li><a href="#finance">Finance</a></li>
+<li><a href="#fitness">Fitness</a></li>
+<li><a href="#google">Google</a></li>
+<li><a href="#identity-verification">Identity Verification</a></li>
+<li><a href="#image-moderation">Image Moderation</a></li>
+<li><a href="#iot">IoT</a></li>
+<li><a href="#legal">Legal</a>
+
+<ul>
+<li><a href="#open-licenses">Open Licenses</a></li>
+</ul></li>
+<li><a href="#login-authentication">Login Authentication</a></li>
+<li><a href="#machine-learning">Machine Learning</a></li>
+<li><a href="#maps">Maps</a></li>
+<li><a href="#math">Math</a></li>
+<li><a href="#medical">Medical</a></li>
+<li><a href="#miscellaneous">Miscellaneous</a></li>
+<li><a href="#movies">Movies</a></li>
+<li><a href="#music">Music</a></li>
+<li><a href="#music-analytics">Music Analytics</a></li>
+<li><a href="#music-discovery">Music Discovery</a></li>
+<li><a href="#music-identification">Music Identification</a></li>
+<li><a href="#music-lyrics">Music Lyrics</a></li>
+<li><a href="#music-stores">Music Stores</a></li>
+<li><a href="#news-services">News Services</a></li>
+<li><a href="#natural-language-processing">Natural Language Processing</a></li>
+<li><a href="#placeholder-images">Placeholder Images</a></li>
+<li><a href="#places">Places</a></li>
+<li><a href="#product">Product</a></li>
+<li><a href="#quotes">Quotes</a></li>
+<li><a href="#retail">Retail</a></li>
+<li><a href="#science">Science</a></li>
+<li><a href="#social-media">Social Media</a></li>
+<li><a href="#source-control">Source Control</a></li>
+<li><a href="#sport">Sport</a></li>
+<li><a href="#transportation">Transportation</a></li>
+<li><a href="#url-shorteners">URL Shorteners</a></li>
+<li><a href="#videogames">Videogames</a></li>
+<li><a href="#weather">Weather</a></li>
+<li><a href="#credits">Credits</a></li>
+<li><a href="#resources-for-design-and-discovery-of-apis">Resources For Design and Discovery of APIs</a></li>
+<li><a href="#more-resources">More Resources</a></li>
+<li><a href="#contributions">Contributions</a></li>
+</ul></li>
+<li><a href="#license">License</a></li>
+</ul>
+
+<h2 id="apis">APIs</h2>
+
+<h3 id="advertising">Advertising</h3>
+
+<ul>
+<li><a href="https://developer.amazon.com/mobile-ads">Amazon Mobile Ads</a> - Monetize across platforms with multiple ad formats.</li>
+<li><a href="https://developers.facebook.com/docs/marketing-apis">Facebook Marketing API</a> - Manage ads and campaigns using the Facebook API.</li>
+<li><a href="https://developers.google.com/adsense/?hl=en">Google AdSense</a> - Free, flexible way to earn money from your websites, mobile sites, and site search results.</li>
+<li><a href="https://developers.google.com/adwords/api/docs/guides/start">Google AdWords API</a> - Manage Google AdWords campaigns programmatically.</li>
+<li><a href="https://msdn.microsoft.com/en-us/library/bing-ads-api.aspx">Microsoft Advertising Platform - Bing Ads API</a> - Provides programmatic access to various advertising technologies.</li>
+<li><a href="https://developer.yahoo.com/gemini/">Yahoo Gemini API</a> - Allows advertisers to manage complex Gemini accounts and campaigns more efficiently.</li>
+</ul>
+
+<h3 id="analytics">Analytics</h3>
+
+<ul>
+<li><a href="https://aws.amazon.com/documentation/mobileanalytics/">Amazon Mobile Analytics</a> - Service for collecting, visualizing, and understanding app usage data at scale.</li>
+<li><a href="https://clicky.com/help/api">Clicky</a> - Allows you to extract your web site&rsquo;s traffic data into several formats, making it easy to integrate, analyze, or store your data within your own application.</li>
+<li><a href="http://resources.count.ly/reference">Countly</a> - Self-hosted or private cloud mobile, web and desktop analytics. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://get.fabric.io/">Fabric</a> - A platform that helps your mobile team build better apps, understand your users, and grow your business.</li>
+<li><a href="https://developer.yahoo.com/flurry/docs/api/">Flurry</a> - Yahoo’s Flurry provides you with a number of APIs enabling you to export your data.</li>
+<li><a href="https://developers.google.com/analytics/?hl=en">Google Analytics</a> - Google Analytics provides APIs to collect, configure, and report on user-interactions with your online content.</li>
+<li><a href="http://docs.localytics.com/dev/query-api.html#query-api">Localytics</a> - Interface to Localytics analytics platform.</li>
+<li><a href="https://mixpanel.com/help/reference">MixPanel</a> - Analytics for mobile and web which helps you analyze the actions people take in your application.</li>
+<li><a href="https://github.com/padams/Open-Web-Analytics/wiki/Data-Access-API">Open Web Analytics</a> - Provides a way to request and work with your data outside of the OWA reporting interface.</li>
+<li><a href="https://ticksel.com">Ticksel</a> - Friendly website analytics made for humans. Secure and powerful yet simple to use.</li>
+<li><a href="https://www.woopra.com/docs/developer/analytics-api/">Woopra</a> - Real-time website analysis tool that targets customer engagement.</li>
+<li><a href="https://zohoreportsapi.wiki.zoho.com/">Zoho Reports API</a> - Build powerful reporting and analytical capabilities into your application.</li>
+</ul>
+
+<h3 id="augmented-reality">Augmented Reality</h3>
+
+<ul>
+<li><a href="https://library.vuforia.com/">Vuforia</a> - Solid SDK with robust development options. 💸</li>
+<li><a href="http://www.wikitude.com/download/">Wikitude</a> - Wikitude’s all-in-one AR solution includes image recognition &amp; tracking, 3D model rendering, video overlay, location based AR. 💸</li>
+</ul>
+
+<h3 id="barcode">BarCode</h3>
+
+<ul>
+<li><a href="https://developers.google.com/vision/barcodes-overview?hl=en">Google Barcode</a> - The Barcode API detects barcodes in real-time, on device, in any orientation. It can also detect multiple barcodes at once.</li>
+</ul>
+
+<h3 id="big-data-and-analytics">Big Data and Analytics</h3>
+
+<ul>
+<li><a href="https://developers.google.com/chart/interactive/docs/">Google Charts</a> - Free tool with a wide range of capabilities for visualizing data from a website.</li>
+<li><a href="https://keen.io/docs/api/">Keen IO</a> - Keen IO is a powerful, flexible, and scaleable solution that’s literally Big Data, easy-to-implement and at your fingertips.</li>
+<li><a href="https://github.com/mongodb">Mongo DB</a> - mongoDB is ideal for developers who want precise control over the final results and processes for handling Big Data.</li>
+<li><a href="http://www.ryft.com/api">Ryft</a> - integrate the Ryft ONE’s data analysis capabilities into existing big data environments for faster data analysis and real-time intelligence.</li>
+<li><a href="http://linkeddata.center/home/gdaas">LinkedData.Center</a> - a RDF graph database as a service with W3C SPARQL query and SPARQL update apis. 💸</li>
+</ul>
+
+<h3 id="bitcoin-bitcoin-wallets">Bitcoin/Bitcoin Wallets</h3>
+
+<ul>
+<li><a href="https://bitcoin.org/en/developer-documentation">Bitcoin</a> - Find useful resources, guides and reference material for developers.</li>
+<li><a href="https://bitcoincharts.com/about/markets-api/">Bitcoincharts</a> - You can use this API to include markets data in your websites, mobile apps or desktop applets.</li>
+<li><a href="https://bitpay.com/developers">bitpay</a> - A simple, RESTful API to the most powerful bitcoin infrastructure on the planet.</li>
+<li><a href="https://block.io/">Block</a> - The most versatile and secure wallet for all your coins.</li>
+<li><a href="https://www.blockcypher.com/">BlockCypher</a> - BlockCypher is the infrastructure fabric for blockchain applications</li>
+<li><a href="https://developers.coinbase.com/">Coinbase</a> - Coinbase APIs and developer tools make building bitcoin and blockchain apps much easier.</li>
+<li><a href="http://www.coindesk.com/api/">CoinDesk</a> - Bitcoin Price Index</li>
+<li><a href="https://coinkite.com/developers">Coinkite</a> - Coinkite&rsquo;s Bitcoin API provides simple and powerful REST integrations for adding bitcoin functions into your business / application.</li>
+<li><a href="https://coinmarketcap.com/api/">CoinMarketCap</a> - Cryptocurrencies Prices</li>
+<li><a href="https://api.coinpaprika.com">coinpaprika</a> - Cryptocurrencies prices, market capitalization, volume and more.</li>
+<li><a href="https://www.cryptocompare.com/api">CryptoCompare</a> - Cryptocurrencies Comparison</li>
+<li><a href="https://cryptostandardizer.com">CryptoStandardizer</a> - Standardizes crypto coin symbols (e.g. BTC, XBT) across exchanges.</li>
+<li><a href="https://www.cryptonator.com/api/">Cryptonator</a> - Cryptocurrencies Exchange Rates</li>
+<li><a href="https://coinigy.docs.apiary.io">Coinigy</a> - Interact with Coinigy Accounts and Exchange Accounts Directly</li>
+<li><a href="https://blockchain.info/api/exchange_rates_api">Exchange Rates API</a> - Market Prices and exchanges rates api.</li>
+<li><a href="https://shapeshift.io/">ShapeShift.io</a> - Exchange between cryptocurrencies without an account.  Well documented API for easy use.</li>
+<li><a href="https://poloniex.com/support/api/">Poloniex</a> - US based digital asset exchange</li>
+</ul>
+
+<h3 id="calendar">Calendar</h3>
+
+<ul>
+<li><a href="https://www.calendarindex.com">CalendarIndex</a> - Worldwide Holidays and Working Days API.</li>
+</ul>
+
+<h3 id="captcha">Captcha</h3>
+
+<ul>
+<li><a href="https://anti-captcha.com/apidoc">Anti-Captcha</a> - Access to Anti-Captcha’s API.</li>
+<li><a href="https://developers.naver.com/products/captcha">Naver Captcha</a> - Access to Naver’s Captcha API.</li>
+<li><a href="https://developers.google.com/recaptcha/intro?hl=en">Google reCAPTCHA</a> - ReCAPTCHA lets you embed a CAPTCHA in your web pages in order to protect them against spam and other types of automated abuse.</li>
+</ul>
+
+<h3 id="check-in">Check-In</h3>
+
+<ul>
+<li><a href="https://developers.facebook.com/docs/graph-api/reference/v2.3/checkin">Facebook Check-In</a> - A check-in made to a location-based Page.</li>
+<li><a href="https://developers.google.com/places/?hl=en">Google Places</a> - Access to Google Places’ API.</li>
+<li><a href="https://developer.foursquare.com/docs/checkins/add">Foursquare Check-In</a> - Allows you to check in to a place.</li>
+</ul>
+
+<h3 id="commerce">Commerce</h3>
+
+<ul>
+<li><a href="https://www.envoice.in">envoice</a> - Invoicing for online businesses. Simplify your invoicing process and get paid online with a debit or credit card via your payment gateway.</li>
+<li><a href="http://business.koomalooma.com">koomalooma</a> - A Loyalty BPaaS (Business Process as a Service) for mobile and web companies. Merchants issue points for actions their customers/users make, for example a purchase or a referral. koomalooma takes care of all the rest, from signing up users, keeping track of points and delivering rewards in over 80 countries.💸</li>
+<li><a href="https://www.marketcloud.it">Marketcloud</a> - eCommerce APIs for developers. It covers inventory and database, carts and checkout, payments, user authentication, and more. You just bring the frontend.</li>
+<li><a href="https://www.moltin.com/developers">Moltin</a> - Unified APIs for inventory, carts, the checkout process, payments and more, so you can focus on creating seamless customer experiences at any scale.</li>
+<li><a href="https://stripe.com/docs/api">Stripe</a> - Allows both private individuals and businesses to accept payments over the Internet.</li>
+<li><a href="https://developers.braintreepayments.com">Braintree</a> - Specializes in mobile and web payment systems for ecommerce companies.</li>
+</ul>
+
+<h3 id="communication">Communication</h3>
+
+<ul>
+<li><a href="https://africastalking.com/">Africa&rsquo;s Talking</a> - Access African telco services through a HTTP API.💸</li>
+<li><a href="https://www.ip1sms.com/en/developer/">iP1sms</a> - Send and recieve SMS messages worldwide.💸</li>
+<li><a href="https://mailgun.com">MailGun</a> - Transactional Email API Service For Developers. Free first 10000 emails per month.💸</li>
+<li><a href="https://developer.nexmo.com">Nexmo</a> - Make and receive phone calls, send and receive SMS worldwide. Libraries in Node, Ruby, Java, PHP, .NET &amp; Python.💸</li>
+<li><a href="https://thesmsworks.co.uk/sms-api">The SMS Works</a> - The SMS Works provides a low-cost, reliable SMS API for developers. Pay only for delivered texts, all failed messages are refunded.💸</li>
+</ul>
+
+<h3 id="content">Content</h3>
+
+<ul>
+<li><a href="https://www.perfecttense.com/developers">Perfect Tense API</a> - The Perfect Tense API is the only spelling and grammar checking API that uses artificial intelligence to automatically correct all of your text in one call.💸</li>
+<li><a href="https://github.com/egfx/qKast">qKast Channel Content</a> - Access live content collections sourced from any page around the web.</li>
+<li><a href="https://en.wikipedia.org/w/api.php">Wikipedia</a> - Free multilingual Encyclopedia.</li>
+</ul>
+
+<h3 id="currency">Currency</h3>
+
+<ul>
+<li><a href="https://1forge.com/">1Forge.com</a> - Real-time forex and crypto quotes via JSON and WebSocket.</li>
+<li><a href="http://fixer.io/">Fixer.io</a> - JSON API for foreign exchange rates and currency conversion.  End of day data only.</li>
+<li><a href="http://www.openrates.io/">OpenRates.io</a> - Live exchange rates and currency conversion API.</li>
+</ul>
+
+<h3 id="data-science">Data Science</h3>
+
+<ul>
+<li><a href="https://github.com/petewarden/dstk">Data Science Toolkit</a> - A collection of the best open data sets and open-source tools for data science.</li>
+</ul>
+
+<h3 id="design">Design</h3>
+
+<ul>
+<li><a href="http://developer.dribbble.com/">Dribbble</a> - Dribbble is a community of designers answering that question each day.</li>
+<li><a href="https://www.behance.net/dev/api/endpoints/">Behance</a> - Behance is the leading online platform to showcase &amp; discover creative work.</li>
+<li><a href="https://www.pexels.com/api/">Pexels</a> - Pexels provides high quality and completely free stock photos licensed under the Creative Commons Zero (CC0) license.</li>
+</ul>
+
+<h3 id="dictionary">Dictionary</h3>
+
+<ul>
+<li><a href="http://dictionary.cambridge.org/license.html">Cambridge Dictionaries Online</a> - Access to Cambridge’s custom-developed API. 💸</li>
+<li><a href="http://services.aonaware.com/DictService/DictService.asmx">DictService</a> - This Web Service allows you to access dictionary definitions from the dict.org service.</li>
+<li><a href="https://glosbe.com/a-api">Glosbe API</a> - Dictionary API and Translation Memory API description.</li>
+<li><a href="http://www.dictionaryapi.com/">Merriam-Webster Dictionary API</a> - Gives developers access to a big ass resource of dictionary and thesaurus content as well as specialized medical, Spanish, ESL, and student-friendly vocabulary.</li>
+<li><a href="https://developer.oxforddictionaries.com/">Oxford Dictionary API</a> - Access to Oxford Dictionary services with several different subscription options including a free tier. 💸</li>
+<li><a href="http://developer.pearson.com/apis/dictionaries">Pearson Dictionaries API</a> - (<em>BETA</em>) Gives access to a very large database of words and phrases with thorough explanations - free usage for up to 4 million calls/month.</li>
+<li><a href="http://developer.wordnik.com/docs.html#!/word">Wordnik</a> - Dictionary functions.</li>
+<li><a href="https://www.wordsapi.com/">Words API</a> - Use it to find definitions for more than 150,000 words.</li>
+<li><a href="https://en.wiktionary.org/w/api.php">Wiktionary API</a> - Collaborative, free-content multilingual dictionary.</li>
+</ul>
+
+<h3 id="entertainment">Entertainment</h3>
+
+<ul>
+<li><a href="https://cataas.com/#/">Cat as a Service (CATAAS)</a> - Is a REST API to spread peace and love (or not) thanks to cats.</li>
+<li><a href="http://comicvine.gamespot.com/api/">Comic Vine</a> - An extremely mature, well organized and continuely updated resource of comic information.</li>
+<li><a href="https://github.com/comichron-data/api">Comichron Data</a> - API for comic sales data from comichron.com. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://danbooru.donmai.us/posts?tags=help%3Aapi">Danbooru</a> - Get images cartegorized by tags.</li>
+<li><a href="https://dwcheckapi.azurewebsites.net/swagger/">DwCheckApi</a> - A Discworld API featuring data on Books, Characters, and each Series. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://developer.marvel.com/">Marvel</a> - Access over 70 years of comic data with Marvel&rsquo;s official developer API.</li>
+<li><a href="https://pokeapi.co/">Pokéapi</a> - All the Pokémon data you&rsquo;ll ever need, in one place. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://rickandmortyapi.com/">Rick and Morty</a> - All the Rick and Morty information, including images. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://ghibliapi.herokuapp.com/">Studio Ghibli</a> - Resources from Studio Ghibli films. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://swapi.co/documentation">Swapi</a> - Star Wars API with data you didn&rsquo;t even know existed, or that you needed to know.</li>
+</ul>
+
+<h3 id="events">Events</h3>
+
+<ul>
+<li><a href="http://developer.picatic.com/?utm_medium=web&amp;utm_source=github&amp;utm_campaign=public-apis%20repo&amp;utm_content=abhishekbanthia">Picatic</a> - Sell tickets directly from your app or website.</li>
+</ul>
+
+<h3 id="face-recognition">Face Recognition</h3>
+
+<ul>
+<li><a href="https://www.kairos.com/">Kairos</a> - Face recognition, emotion analysis and measuring engagement of people in images or videos for any mobile or web application. 30 Day Trial 💸</li>
+<li><a href="https://www.skybiometry.com">Skybiometry</a> - Face detection, emotional analysis, face grouping, recognition service and tagging the photo.</li>
+</ul>
+
+<h3 id="file-storage-and-manipulation">File Storage and Manipulation</h3>
+
+<ul>
+<li><a href="https://aws.amazon.com/de/documentation/s3/">Amazon S3</a> - API that provides access to stored files and can be added easily to any service - and it&rsquo;s free for twelve months.</li>
+<li><a href="http://cloudinary.com/documentation">Cloudinary</a> - API for image and video storage and manipulation - free for up to 75,000 images and 7,500 manipulations per month, good documentation, it can also manipulate GIFs and PDFs.</li>
+<li><a href="https://www.digitalocean.com/products/spaces">DigitalOcean Spaces</a> - API that provides easy access to store and receive files as simple object storage with easy to understand pricing. 2 Month Free Trial 💸</li>
+<li><a href="https://www.dropbox.com/developers">Dropbox</a> - API for accessing stored files and pictures which is easy to use and free for small amounts of data.</li>
+<li><a href="https://filestack.com/docs/getting-started">Filestack</a> - API for image and file manipulation, 250 uploads and 500 uploads per month for free, free CDN, HTML widget.</li>
+<li><a href="https://graph.microsoft.io/en-us/docs/api-reference/v1.0/resources/onedrive">Microsoft Graph</a> - API for accessing stored files and photos for personal and enterprise users with high resolution thumbnails and Microsoft Office APIs.</li>
+<li><a href="http://www.verizon.com/cloudstorageapi">Verizon Cloud</a> - API for accessing stored pictures and other files stored by users of Verizon Cloud app.</li>
+</ul>
+
+<h3 id="finance">Finance</h3>
+
+<ul>
+<li><a href="https://iextrading.com/developer/">IEX</a> - Free Stocks and Market Data</li>
+<li>Central Banks
+
+<ul>
+<li><a href="https://www.rba.gov.au/statistics/tables/">Australia</a> - plenty of kinds of data in CSV format.</li>
+<li><a href="https://www.bankofcanada.ca/rates/">Canada</a> - daily exchange rates and statistical data tables in CSV, XML or JSON formats.</li>
+<li><a href="https://exchangeratesapi.io/">Exchange Rates</a> - Foreign exchange rates API with currency conversion. JSON &amp; CORS. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://nbg.gov.ge/api.html">Georgia</a> - currency exchange rates available via SOAP API.</li>
+<li><a href="https://data.gov.ie/data/search?publisher=central-bank-of-ireland">Ireland</a> - variety of data mainly in <a href="https://en.wikipedia.org/wiki/Microsoft_Excel#File_formats">XLS</a> format.</li>
+<li><a href="http://forex.cbm.gov.mm/api/">Myanmar</a> - currency exchange rates in JSON format.</li>
+<li><a href="https://bnm.md/en/content/official-exchange-rates">Moldova</a> - currency exchange rates in XML, JSON and XLS formats.</li>
+<li><a href="https://www.rbnz.govt.nz/statistics">New Zealand</a> - variety of data in XLS format.</li>
+<li><a href="https://www.cbn.gov.ng/rates/">Nigeria</a> - not only exchange rates, but also other info in CSV format.</li>
+<li><a href="http://www.bcrp.gob.pe/statistics.html">Peru</a> - variety of data in <a href="https://en.wikipedia.org/wiki/Microsoft_Excel#File_formats">XLSX</a> format.</li>
+<li><a href="https://api.nbp.pl">Poland</a> - Currency exchange rates and gold prices in the XML and JSON formats.</li>
+<li><a href="https://data.snb.ch/en">Switzerland</a> - rich variety of datan in XLS and CSV formats.</li>
+<li><a href="https://bank.gov.ua/control/en/publish/article?art_id=25365630">Ukraine</a> - exchange rates and bond placements in JSON and XML formats.</li>
+</ul></li>
+</ul>
+
+<h3 id="fitness">Fitness</h3>
+
+<ul>
+<li><a href="https://dev.fitbit.com/docs/">FitBit</a> - Web API for accessing data from Fitbit activity trackers, Aria scale, and manually entered logs.</li>
+<li><a href="https://runkeeper.com/developer/healthgraph/registration-authorization">HealthGraph</a> - RunKeeper&rsquo;s web-based HealthGraph API presents Health Graph data, and provides information about a user and friends.</li>
+<li><a href="https://strava.github.io/api/">Strava</a> - API for accessing and managing data about athletes, activities and segments.</li>
+<li><a href="http://oauth.withings.com/api">Withings</a> - Access to data from Withings activity trackers and body measures.</li>
+<li><a href="https://ndb.nal.usda.gov/ndb/doc/index">USDA API</a> - United States Department of Agriculture Open Source API for gathering nutritional data, and food reports.</li>
+</ul>
+
+<h3 id="google">Google</h3>
+
+<ul>
+<li><a href="https://developers.google.com/gmail/api/?hl=en">Gmail API</a> - The Gmail REST API. <em>v1</em></li>
+<li><a href="https://cloud.google.com/bigquery/docs/reference/rest/v2/">Google BigQuery API</a> - A data platform for customers to create, manage, share and query data. <em>v2</em></li>
+<li><a href="https://developers.google.com/books/">Google Books API</a> - Lets you search for books and manage your Google Books library. <em>v1</em></li>
+<li><a href="https://developers.google.com/google-apps/calendar/?hl=en">Google Calendar API</a> - Lets you manipulate events and other calendar data. <em>v3</em></li>
+<li><a href="https://developers.google.com/classroom/?hl=en">Google Classroom API</a> - The Google Classroom API. <em>v1</em></li>
+<li><a href="https://developers.google.com/custom-search/json-api/v1/overview">Google CustomSearch API</a> - Lets you search over a website or collection of websites. <em>v1</em></li>
+<li><a href="https://developers.google.com/drive/v2/reference/">Google Drive API</a> - The API to interact with Google Drive. <em>v3</em></li>
+<li><a href="https://developers.google.com/fit/?hl=en">Google Fitness API</a> - The Fit API. <em>v1</em></li>
+<li><a href="https://developers.google.com/fonts/?hl=en">The Google Fonts Developer API.</a> - The Google Fonts API helps you add fonts to any web page. <em>v1</em></li>
+<li><a href="https://cloud.google.com/genomics/reference/rest/">Google Genomics API</a> - Provides access to Genomics data. <em>v1beta2</em></li>
+<li><a href="https://developers.google.com/identity/">Google Identity Toolkit API.</a> - Helps third party sites implement federated login. <em>v1</em></li>
+<li><a href="https://cloud.google.com/monitoring/api/v3/">Google Monitoring API</a> - API for accessing Google Cloud and API monitoring data. <em>v2beta2</em></li>
+</ul>
+
+<h3 id="identity-verification">Identity Verification</h3>
+
+<ul>
+<li><a href="https://docs.blockscore.com/">BlockScore</a> - A real-time API for verifying an identity by name, address, date of birth, and social security number.</li>
+<li><a href="https://cognitohq.com/docs">Cognito</a> - A powerful API for verifying and retrieving identity information. Can take a customer&rsquo;s cellphone number and return name, address history, full SSN, and date of birth.</li>
+<li><a href="https://pro.whitepages.com/">Whitepages Pro</a> - Global Identity Verification API. Get a clearer picture of your customer. Instantly know if a name, address, phone number, email, and IP all belong to the same person. Every country in the world supported. 💸</li>
+</ul>
+
+<h3 id="image-moderation">Image Moderation</h3>
+
+<ul>
+<li><a href="https://developer.clarifai.com/docs/">Clarifai</a> - AI API that analyzes images and videos and returns probability scores on the likelihood that the image contains pornography.</li>
+<li><a href="http://www.nullnude.com/">NullNude.com</a> - The adult content detection API. Free for 600 images per month. 💸</li>
+<li><a href="https://www.webpurify.com/image-moderation/">WebPurify</a> - Provides live image moderation by humans. Free for first 100 images. 2¢ per image after. 💸</li>
+</ul>
+
+<h3 id="iot">IoT</h3>
+
+<ul>
+<li><a href="http://dev.lelylan.com/api">Lelylan</a> - Open Source Internet of Things Cloud Platform. Microservices Architecture. For Developers. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://docs.particle.io/reference/api/">Particle</a> - API to manage Particle devices (including their own Arduino-compatible ones and the Raspberry Pi) and control them. Free for up to 25 devices and 250k events/month.</li>
+<li><a href="https://www.pubnub.com/docs">PubNub</a> - API to make realtime applications with variety of hardware devices including Arduino, RPi, Kinoma, Atmel, Samsung Smart TV WebOS, and more. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://developers.meethue.com/documentation/getting-started">Philips Hue</a> - Registration (free) and local Hue Bridge (not free) required - Control Hue brand lights made by Philips.  API calls are made to the Hue Bridge residing on local network.  Includes a web based UI.</li>
+<li><a href="http://developer.smartthings.com/">SmartThings</a> - API for Samsung SmartThings Smart Home Hub products (ZigBee, Z-Wave, IP).</li>
+<li><a href="https://temboo.com/download">Temboo SDK</a> - This platform acts as a layer on top of third-party APIs, using code snippets to trigger complex processes that run through their cloud platform.</li>
+<li><a href="https://github.com/iobridge/ThingSpeak">ThingSpeak</a> - “Internet of Things” application and API to store and retrieve data from things using HTTP over the Internet or via a Local Area Network.</li>
+<li><a href="https://developer.xively.com/reference">Xively</a> - Uses free and open libraries to let you connect different types of hardware, using a variety of languages to their cloud service.</li>
+<li><a href="http://www.zettajs.org/">Zetta</a> - An open source platform built on Node.js for creating IoT servers that run across geo-distributed computers and the cloud. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+</ul>
+
+<h3 id="legal">Legal</h3>
+
+<h4 id="open-licenses">Open Licenses</h4>
+
+<ul>
+<li><a href="https://developer.github.com/v3/licenses/">GitHub Licenses API</a></li>
+<li><a href="https://tosdr.org/api.html">ToSDR terms of service API</a></li>
+<li><a href="https://tldrlegal.com/api/license">TLDRLegal Licenses API</a></li>
+</ul>
+
+<h3 id="login-authentication">Login Authentication</h3>
+
+<ul>
+<li><a href="https://auth0.com">Auth0</a> - Authenticate and authorize apps and APIs with any identity provider running on any stack any device or cloud. Free for 700 active users.</li>
+<li><a href="https://developers.facebook.com/docs/facebook-login">Facebook Login for Apps</a> - Secure, fast, convenient way to login in your app/website.</li>
+<li><a href="https://firebase.google.com/docs/reference/">Firebase</a> - Authentication, analytics, cloud messaging, crash reporting, ads and more.</li>
+<li><a href="https://developer.github.com/guides/basics-of-authentication/">GitHub Authentication</a> - Access to GitHub’s Authentication API.</li>
+<li><a href="https://www.instagram.com/developer/authentication/">Instagram</a> - Access to Instagram’s OAuth API.</li>
+<li><a href="https://developers.kakao.com/features/platform">Kakao Login for Apps</a> - Access to Kakao’s Authentication API.</li>
+<li><a href="https://developer.linkedin.com/docs/signin-with-linkedin">LinkedIn</a> - Make it convenient for your users to sign in with their professional identity.</li>
+<li><a href="https://developers.naver.com/products/login/api">Naver Login for Apps</a> - Access to Naver’s Authentication API.</li>
+<li><a href="https://developer.paypal.com/docs/integration/direct/identity/log-in-with-paypal/">PayPal</a> - Enables your customers to sign in to your web site quickly and securely using their PayPal login credentials.</li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_authentication.htm">Salesforce</a> - Salesforce uses the OAuth protocol to allow users of applications to securely access data without having to reveal username and password credentials.</li>
+<li><a href="https://dev.twitter.com/web/sign-in">Twitter Sign-in</a> - Works on websites, iOS, mobile and desktop applications.</li>
+</ul>
+
+<h3 id="machine-learning">Machine Learning</h3>
+
+<ul>
+<li><a href="http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html">Amazon MI API</a> - Amazon Machine Learning API simplifies the process of making predictions that require lots of expertise around model building, data cleansing and statistical analysis.</li>
+<li><a href="http://aylien.com/">AYLIEN</a> - AYLIEN Text Analysis API is a package of Natural Language Processing, Information Retrieval and Machine Learning tools for extracting meaning and insight from textual and visual content with ease.</li>
+<li><a href="http://bigml.com/api/">Big ML</a> - BigML is user-friendly and developer-friendly Machine learning API that mainly concentrates on decision trees.</li>
+<li><a href="https://cloud.google.com/ml-engine/docs/">Cloud Machine Learning Engine</a> - Cloud-based machine learning and pattern matching tool.</li>
+<li><a href="https://developer.ibm.com/watson/">IBM Watson</a> - Simplifies the process of preparing data and makes it easier to run predictive analysis.</li>
+<li><a href="https://azure.microsoft.com/en-us/services/cognitive-services/">Microsoft Azure Machine Learning API</a> - Helps data scientists publish in minutes which once used to take days after they had developed a feasible model.</li>
+<li><a href="http://unplu.gg/test_api.html">Unplugg</a> - Automated Forecasting API for timeseries data which can be used to forecast energy consumption, temperature, or any other timeseries data which has some seasonality effect.</li>
+</ul>
+
+<h3 id="maps">Maps</h3>
+
+<ul>
+<li><a href="https://developer.amazon.com/maps">Amazon Maps API v2</a> - Add interactive 3D maps, graphics, and custom overlays to your Fire Tablet and Fire phone apps.</li>
+<li><a href="https://www.microsoft.com/maps/choose-your-bing-maps-API.aspx">Bing Maps</a> - Bing Maps platform provides multiple API options for your application.</li>
+<li><a href="https://carto.com/developers/#apis">CartoDB</a> - Allows you to generate maps based on data hosted in your CartoDB account.</li>
+<li><a href="http://apis.map.daum.net/">Daum Maps API</a> - Daum Maps provide multiple APIs for Korean map.</li>
+<li><a href="https://developers.google.com/maps/?hl=en">Google Maps API</a> - Google Maps APIs are available for Android, iOS, web browsers and through HTTP web services. <a href="https://github.com/googlemaps/">Clients can be found here.</a></li>
+<li><a href="https://developer.here.com/">HERE Maps API</a> - Wide range of APIs available through JavaScript, iOS, Android, or REST services.</li>
+<li><a href="http://leafletjs.com/">Leaflet.js</a> - An open-source JavaScript library for mobile-friendly interactive maps. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://www.mapbox.com/developers/api/maps/">Mapbox</a> - Access to MapBox’s API.</li>
+<li><a href="https://developers.naver.com/products/map">Naver Maps API</a> - Naver Maps provide multiple APIs for Korean map.</li>
+<li><a href="http://wiki.openstreetmap.org/wiki/API">Open Street Map</a> - API access to OSM.</li>
+<li><a href="https://www.scribblemaps.com/api/">Scribble</a> - The Scribble Maps API is a cross browser, mobile ready, HTML5/JavaScript, interactive map builder.</li>
+<li><a href="https://developer.yahoo.com/maps/">Yahoo Maps</a> - Yahoo Maps lets you easily embed rich and interactive maps using your choice of platform.</li>
+<li><a href="https://tech.yandex.com/maps/">Yandex</a> - API for installing Yandex.Maps and the necessary tools for working it on your web app or site.</li>
+</ul>
+
+<h3 id="math">Math</h3>
+
+<ul>
+<li><a href="https://www.programmableweb.com/api/matlab">Matlab</a> - The MATLAB RESTful API enables you to evaluate MATLAB functions on remote servers using JSON representation of MATLAB data types.</li>
+<li><a href="https://newton.now.sh/">Newton</a> - An API for Arithmetic and Symbolic Math. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+</ul>
+
+<h3 id="medical">Medical</h3>
+
+<ul>
+<li><a href="https://developer.infermedica.com/docs/introduction">Infermedica</a> - AI-based engine for patient triage and preliminary medical diagnosis. <em>v2</em></li>
+<li><a href="https://docs.lexigram.io/v1/welcome">Lexigram</a> - NLP that extracts mentions of clinical concepts from text, gives access to clinical ontology. <em>v1</em></li>
+</ul>
+
+<h3 id="miscellaneous">Miscellaneous</h3>
+
+<ul>
+<li><a href="https://www.aadhaarbridge.com/">Aadhaar Bridge</a> - Aadhaar is a 12-digit unique identification number issued by the Indian government to every individual resident of India. API allows you to authenticate and perform ekYC and eSign using Aadhar. 💸</li>
+<li><a href="https://addons-server.readthedocs.io/en/latest/topics/api/index.html">Mozilla Addons</a> - Mozilla&rsquo;s catalogue of addons for Firefox-compatible web browsers. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://apiflash.com/">ApiFlash</a> - Chrome based screenshot API to convert URLs to images.</li>
+<li><a href="https://apility.io/apidocs/">Apility.io</a> - IP addresses, Domains and Emails anti-abuse API blocklist and Geo IP location. 💸</li>
+<li><a href="https://bhagavadgita.io/">Bhagavad Gita</a> - Bhagavad Gita in various languages. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://callook.info">Callook.info</a> - Look up information about United States ham radio callsigns.</li>
+<li><a href="https://api.chucknorris.io">ChuckNorris.io</a> - A free JSON API for hand curated Chuch Norris facts. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://domainsdb.info">Domainsdb.info</a> - Registered domain names search checks the lists of registered domains for names containing particular words/phrases/numbers or symbols.</li>
+<li><a href="https://evilinsult.com/api/">Evil Insult Generator</a> - Offers the most evil insults. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="http://www.freedb.org/">FreeDB</a> - Look up CD information using the freed database. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://developers.giphy.com/docs/">Giphy</a> - Worlds largest library of GIFs.</li>
+<li><a href="https://ipsidekick.com">IP Sidekick</a> - IP Sidekick is an API that returns information about an IP address. You can use it to customize your content based on the visitor&rsquo;s location or display their country.</li>
+<li><a href="https://jsonbin.io/api-reference">JSONbin.io</a> - Free JSON data storage service, ideal for small scale web apps, website, mobile apps.</li>
+<li><a href="https://api.judge0.com/">Judge0 API</a> - Compile and run source code. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://www.labs64.de/confluence/x/pwCo">Labs64 NetLicensing</a> (<a href="http://io.labs64.com/NetLicensing-API/">API Test Center</a>) - Innovative License Management Solution.</li>
+<li><a href="https://launchlibrary.net/docs/1.3/api.html">LaunchLibrary</a> - Aggregated info about space launches.</li>
+<li><a href="https://github.com/letsvalidate/api">LetsValidate</a> - Uncovers the technologies used on websites and URL to thumbnail.</li>
+<li><a href="https://www.linkpreview.net">LinkPreview</a> - RESTful API that returns JSON formatted summary with title, description and preview image for any requested URL. Free &amp; paid plans.</li>
+<li><a href="https://developers.livechatinc.com/">LiveChat</a> - Online Customer Service software with customizable chat, embeddable widgets, help desk and web analytics tools. APIs include webhooks support, SDKs and open-source libraries to build on. 💸</li>
+<li><a href="http://strains.evanbusse.com/">Marijuana Strain API</a> - Documentation on over 2000 Marijuana strains including races, flavors, and effects.</li>
+<li><a href="http://pastebin.com/api">Pastebin</a> - Quickly share text or code, with support for over 250 languages for syntax highlighting.</li>
+<li><a href="https://rocketium.com/api/?utm_source=github&amp;utm_medium=repository&amp;utm_campaign=abhishekbanthia&amp;utm_content=api_solution">Rocketium Video API</a> - Rocketium Video API allows you to create Buzzfeed-like videos programmatically. 💸</li>
+<li><a href="https://www.scraperapi.com">Scraper API</a> - Scraper API handles proxies, browsers, and CAPTCHAs so developers can easily build scalable web scrapers.</li>
+<li><a href="https://developers.spreaker.com/">Spreaker</a> - Enables developers to read and write data to Spreaker.</li>
+<li><a href="https://api.stackexchange.com/">StackExchange</a> - The StackExchange API provides RESTful services to all the sites on the StackExchange domain.</li>
+<li><a href="https://randomuser.me/">RandomUserGenerator</a> - An API for generating random user data. Like Lorem Ipsum, but for people.<img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://restcountries.eu">RestCountries</a> - Get information about countries via a RESTful API.</li>
+<li><a href="https://developer.typeform.com/">Typeform</a> - Typeform&rsquo;s APIs allow you to create and edit Typeform surveys, and retrieve survey responses on demand.</li>
+<li><a href="https://www.who-hosts-this.com/API">Who Hosts This</a> - Detect the hosting provider powering any web site</li>
+<li><a href="http://products.wolframalpha.com/api/">WolframAlpha</a> - Integrate top of the line computational knowledge into your applications through the WolframAlpha API. 💸</li>
+<li><a href="http://worldtimeapi.org">WorldTimeAPI</a> - A JSON/plain-text which returns the (approx) current time for a provided timezone or IP. Targetted at limited-compute IoT devices.</li>
+<li><a href="https://developer.wunderlist.com/">Wunderlist</a> - The Wunderlist API provides REST-based storage and synchronization of a user’s lists across multiple platforms and devices.</li>
+</ul>
+
+<h3 id="movies">Movies</h3>
+
+<ul>
+<li><a href="https://www.omdbapi.com/">OMDB</a> - OMDb provides a subscription based web service to obtain information and metadata about movies. 💸</li>
+<li><a href="https://www.themoviedb.org/documentation/api">TMDb</a> - TMDb provides powerful searches as well as powerful movie discovery.</li>
+<li><a href="https://trakt.docs.apiary.io/">Trakt</a> - Trakt collect lots of information about what tv shows and movies everyone is watching.</li>
+<li><a href="https://www.tvmaze.com/api">TVmaze</a> - TV Show and web series database. Episode guide, cast, crew and character information. Recaps, reviews, episode trailers, celebrity photos and more.</li>
+</ul>
+
+<h3 id="music">Music</h3>
+
+<ul>
+<li><a href="https://aimastering.com/api_docs/">AI Mastering</a> - AI Mastering API provides automated audio mastering service. You can upload your audio, master it, and download the mastered audio.</li>
+<li><a href="http://developers.deezer.com/api">Deezer</a> - Deezer API provides a nice set of services to build up web applications allowing the discovery of Deezer&rsquo;s music catalogue.</li>
+<li><a href="https://www.discogs.com/developers/">Discogs</a> - Access database of artists, labels, releases, marketplace and more.</li>
+<li><a href="http://www.last.fm/api">Last.fm</a> -  The Last.fm API allows anyone to build their own programs using Last.fm data, whether they&rsquo;re on the web, the desktop or mobile devices.</li>
+<li><a href="http://developers.musescore.com/">MuseScore</a> - REST based API which provides music metadata.</li>
+<li><a href="https://github.com/LIU9293/musicAPI">musicApi</a> - Centralized Node.JS API SDK for Xiami, Netease, and QQ music - The Top 3 music providers in China.</li>
+<li><a href="https://developer.musicgraph.com">MusicGraph</a> - Search through more than 7 billion music facts and connections.</li>
+<li><a href="http://www.npr.org/api/index">NPR API</a> - NPR&rsquo;s API is a content API, which essentially provides a structured way for other computer applications to get NPR stories in a predictable, flexible and powerful way.</li>
+<li><a href="http://quantonemusic.com/">QuantOneMusic</a> - Answers the need for digital music data.</li>
+<li><a href="https://developer.rhapsody.com/">Rhapsody</a> - Access metadata, user’s entire library of music and do much more.</li>
+<li><a href="https://developers.soundcloud.com">SoundCloud</a> - Using the SoundCloud API, you can build applications that take sound on the web to the next level.</li>
+<li><a href="https://beta.developer.spotify.com/documentation/web-api">Spotify</a> - Spotify’s Web API lets your applications fetch data from the Spotify music catalog, manage users&rsquo; playlists and saved music, get recommendations, control Spotify Connect, and more.</li>
+<li><a href="http://www.theaudiodb.com">TheAudioDB</a> - Free JSON API for music data, artwork, charting, ratings and hashes. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+</ul>
+
+<h3 id="music-analytics">Music Analytics</h3>
+
+<ul>
+<li><a href="https://api3.nextbigsound.com/">Next Big Sound</a> - API offers a very simple interface to access data from NBS. Ruby wrapper available.</li>
+</ul>
+
+<h3 id="music-discovery">Music Discovery</h3>
+
+<ul>
+<li><a href="https://developers.rovicorp.com/">Rovi</a> - Access to Metadata, search capabilities and recommendations.</li>
+<li><a href="https://api.setlist.fm/docs/1.0/index.html">Setlist.fm</a> - The setlist.fm API has been designed to give you easy access to setlist data in order to build fancy websites and other applications.</li>
+<li><a href="http://www.tunefind.com/api">TuneFind</a> - Allows developers to enhance their services with song, show, and movie data from TuneFind.</li>
+<li><a href="https://docs.genius.com/#/getting-started-h1">Genius</a> - Allows users to find details about Genius artists and songs.</li>
+</ul>
+
+<h3 id="music-identification">Music Identification</h3>
+
+<ul>
+<li><a href="https://acoustid.org/webservice">Acoustid</a> - Supports searching through their fingerprint database. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://developer.gracenote.com/">Gracenote</a> - Largest source of music and video metadata on the planet.</li>
+</ul>
+
+<h3 id="music-lyrics">Music Lyrics</h3>
+
+<ul>
+<li><a href="http://www.chartlyrics.com/api.aspx">ChartLyrics Lyrics API</a> - Allows users to search for lyrics using the artist name, song title, or lyric text.</li>
+<li><a href="http://api.lololyrics.com/">Lololyrics API</a> - Given an artist and track name, obtains its lyrics and metadata such as the year released and album art. Specializes more in electronic dance music genres such as hardstyle.</li>
+<li><a href="https://developer.musixmatch.com/">Musixmatch</a> - Power your music project by licensing access to the world’s most authoritative lyrics DB.</li>
+</ul>
+
+<h3 id="music-stores">Music Stores</h3>
+
+<ul>
+<li><a href="https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/">iTunes Search</a> - The Search API allows you to place search fields in your website to search for content within the iTunes Store, App Store, iBooks Store and Mac App Store.</li>
+<li><a href="https://dev.reverb.com/">Reverb</a> - Sell and buy music related merchandise.</li>
+</ul>
+
+<h3 id="news-services">News Services</h3>
+
+<ul>
+<li><a href="http://www.faroo.com/hp/api/api.html">Faroo</a> - Alternative to Google Web Search API / Google News Search API, allows you to search news within dates, fetch trending news, topics and terms.</li>
+<li><a href="http://developer.nytimes.com/">New York Times</a> - Article search, best sellers, campaign finance, community, most popular, real estate, movie reviews, NY state legislature, Times newswire, tags, people</li>
+<li><a href="https://newsapi.org/">NewsAPI</a> - 70+ news sources and their headlines, one API.</li>
+<li><a href="http://open-platform.theguardian.com/">The Guardian</a> - Access a huge range of content from The Guardian.</li>
+</ul>
+
+<h3 id="natural-language-processing">Natural Language Processing</h3>
+
+<ul>
+<li><a href="http://www.alchemyapi.com/api">AlchemyAPI - IBM Company</a> - Uses NLP and ML algorithms to extract semantic meta-data from content.</li>
+<li><a href="https://dialogflow.com/">DialogFlow</a> - Natural Language Interactions for Bots, Applications, Services, and Devices</li>
+<li><a href="http://www.datumbox.com/machine-learning-api/">Datum Box</a> - Datumbox offers a powerful open-source Machine Learning Framework written in Java. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://www.luis.ai/">LUIS AI</a> - Language Understanding Intelligent Service offers a fast and effective way of adding language understanding to applications.</li>
+<li><a href="https://www.meaningcloud.com">MeaningCloud</a> - Text analysis APIs for topic extraction, sentiment analysis, automatic classification, morphosyntactic analysis, language detection and more. Several languages are supported.</li>
+<li><a href="http://www.opencalais.com/opencalais-api/">Open Calais</a> - Good entity extraction, no sentiment analysis.</li>
+<li><a href="https://recast.ai">Recast.AI</a> - Recast.AI provide an NLP API for text analysis and entity extraction. Recast.AI is the leading platform to build, connect and monitor bots.</li>
+<li><a href="https://www.summarizebot.com/summarization_business.html">SummarizeBot API</a> - AI web data extraction and analysis. Multilingual summarization, keywords and sentiment analysis, language recognition, article extraction, comments identification, multimedia analysis, image and face recognition solutions. 💸</li>
+<li><a href="https://www.lexalytics.com/">Semantria</a> - SAAS API based on Lexalytics engine. #Paid</li>
+<li><a href="https://www.textrazor.com/plans">TextRazor</a> - Helps you extract and understand the Who, What, Why, and How from your supplied text. #FreeToUse</li>
+<li><a href="http://www.voicerss.org/">VoiceRSS</a> - An API to convert Text to Speech, supporting 15+ major languages.</li>
+<li><a href="https://wit.ai/">Wit AI</a> - Provides an intent-based NLP API to easily build text and audio based chat bots. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://wordassociations.net/en/api">Word Associations API</a> - Provides service to get associations for a word or phrase. Words are grouped by semantics, meaning, and psychological perception.</li>
+</ul>
+
+<h3 id="placeholder-images">Placeholder Images</h3>
+
+<ul>
+<li><a href="https://dummyimage.com/">DummyImage</a> - Particularly nice, when compared to some of its competitors, in that it offers a great deal of flexibility.</li>
+<li><a href="https://pixabay.com/api/docs/">Pixabay</a> - Restful API for searching and retrieving free images and videos.</li>
+<li><a href="https://placehold.it/">Placehold</a> - A quick and simple image placeholder service.</li>
+<li><a href="https://placekitten.com/">PlaceKitten</a> - A quick and simple service for getting pictures of kittens for use as placeholders in your designs or code.</li>
+<li><a href="http://satyr.io/">Satyr</a> - Free powerful API for generating dummy images with unique features like delay, aspect ratio, variable resolution, themes, flags and offline mode.</li>
+<li><a href="https://unsplash.it/">Unsplash</a> - Beautiful placeholders using images from the popular <a href="https://unsplash.com/">Unsplash</a></li>
+</ul>
+
+<h3 id="places">Places</h3>
+
+<ul>
+<li><a href="http://docs.citygridmedia.com/display/citygridv2/Places+API">CityGrid</a> - Enables developers to create web and mobile applications that find local businesses, organizations, and points of interest by a variety of search criteria.</li>
+<li><a href="https://fabian7593.github.io/CountryAPI/">CountryAPI</a> - Gets all the countries, and obtain the most important information of these.</li>
+<li><a href="http://developer.factual.com/get-started/">Factual</a> - Providing a places search that can be searched by latitude/longitude, and “where” using full text search query string.</li>
+<li><a href="https://developer.foursquare.com/overview/venues">Foursquare Venue</a> - Providing a places search that can be searched by  hierarchical list of categories, longitude/latitude etc.</li>
+<li><a href="https://developers.google.com/places/documentation/?csw=1">Google Places API</a> - Providing a places search that can be searched by latitude/longitude, keyword matched against all fields, name of place, type of place restricted by radius.</li>
+<li><a href="https://developer.here.com/develop/javascript-api">Nokia</a> - Providing a JavaScript places search that can be searched by search term, with a detail search for display by JS widget.</li>
+<li><a href="https://cy30l4lai7.execute-api.eu-west-2.amazonaws.com/api">Property listings</a> - Search for properties currently for sale and to rent in the UK.</li>
+<li><a href="https://www.yelp.com/developers/documentation/v3/">Yelp</a> - You can search location using longitude and latitude, neighborhood, address or city and filter listings by “where”, using a list of support categories.</li>
+</ul>
+
+<h3 id="product">Product</h3>
+
+<ul>
+<li><a href="https://api.producthunt.com/v1/docs">Product Hunt</a> - The best new products, every day.</li>
+</ul>
+
+<h3 id="quotes">Quotes</h3>
+
+<ul>
+<li><a href="https://favqs.com/api">FavQs</a> - FavQs allows you to collect, discover, and share your favorite quotes.</li>
+<li><a href="http://api.forismatic.com/api/1.0/">Forismatic</a> - Gives you a random quote per click.</li>
+<li><a href="https://quotesondesign.com/api-v4-0/">Quotes on Design</a> - Gives a random design quote by a famous personality.</li>
+<li><a href="http://quotes.rest/qod.json?category=inspire">They Said So</a> - Gives you a random quote per day.</li>
+</ul>
+
+<h3 id="retail">Retail</h3>
+
+<ul>
+<li><a href="http://docs.aws.amazon.com/AWSECommerceService/latest/DG/Welcome.html">Amazon Product Advertising API</a> - Get access to the data used by Amazon including items for sale, customer reviews, seller reviews, item search, product promotions, and more.</li>
+</ul>
+
+<h3 id="science">Science</h3>
+
+<ul>
+<li><a href="https://api.nasa.gov/index.html">NASA</a> - Get NASA data, including imagery, list of asteroids based on their closest approach date to Earth and much more.</li>
+<li><a href="https://osf.io/y9jdt/wiki/home/">Open Science Framework</a> - A free, open source workflow/project management system for storing, collaborating on, and sharing research across the scholarly life cycle. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="http://share-research.readthedocs.io/en/latest/">SHARE</a> - A free, open dataset of scholarly research activity across the scholarly lifecycle. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+</ul>
+
+<h3 id="social-media">Social Media</h3>
+
+<ul>
+<li><a href="https://developer.dailymotion.com/">Daily Motion</a> - Build applications centered around DailyMotion.</li>
+<li><a href="https://github.com/domainersuitedev/delicious-api">Delicious</a> - Access to Delicious’s API.</li>
+<li><a href="https://www.deviantart.com/developers/">DeviantArt</a> - The largest social networking website for artists and art enthusiasts.</li>
+<li><a href="https://github.com/eventbrite/eventbrite-sdk-python">EventBrite</a> - The Eventbrite Python SDK makes it trivial to interact with the Eventbrite API. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://developers.facebook.com/">Facebook</a> - For ads, games, payments, login, sharing stats, and user data.</li>
+<li><a href="https://www.flickr.com/services/api/">Flickr</a> - Search through user Flickr content, contacts, upload or replace photos.</li>
+<li><a href="https://developer.foursquare.com/">Foursquare</a> - Access to Foursquare database and ability to interact with Foursquare users.</li>
+<li><a href="https://www.goodreads.com/api">GoodReads</a> - Allows developers access to Goodreads data in order to help websites or applications that deal with books.</li>
+<li><a href="https://developers.google.com/+/web/api/rest/">Google+</a> - Enables apps to login to Google+ view connections, groups, posts, and contact information.</li>
+<li><a href="https://en.gravatar.com/site/implement/">Gravatar</a> - Create profiles and avatars using this web service.</li>
+<li><a href="https://github.com/HackerNews/API">Hacker News</a> - Anything that good hackers would find interesting.</li>
+<li><a href="https://api.imgur.com/">Imgur</a> - Imgur&rsquo;s API exposes the entire Imgur infrastructure via a standardized programmatic interface.</li>
+<li><a href="https://www.instagram.com/developer/">Instagram</a> - Search photos by location, user, tags, view trending photos, and make custom items.</li>
+<li><a href="https://developers.kakao.com/features/kakao">Kakao</a> - Access to Kakao’s APIs.</li>
+<li><a href="https://developer.linkedin.com/">LinkedIn</a> - Enables apps to connect to user accounts, data, connections,groups, communications, and social streams.</li>
+<li><a href="https://github.com/tootsuite/documentation/blob/master/Using-the-API/API.md">Mastodon</a> - Access to <a href="https://github.com/tootsuite/mastodon">Mastodon</a>’s APIs, the Open-source twitter competitor. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://microlink.io">Microlink</a> - Turns any link into information. Take screenshots, extract predominant palette colors.</li>
+<li><a href="https://mysocialapp.io">MySocialApp</a> - Seamless Social Networking features, API, SDK for any app.</li>
+<li><a href="https://www.pinterest.com/login/?next=http%3A%2F%2Fdevelopers.pinterest.com%2Fapi_docs%2F">Pinterest</a> - Enables apps to view the most clicked-through or repinned Pins, view related posts, and user profiles.</li>
+<li><a href="https://github.com/reddit/reddit/wiki/API">Reddit</a> - API to build clients, crawlers, scrapers, and browser extensions. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="https://github.com/mgp25/SC-API">Snapchat</a> - PHP library of Snapchat’s private API. #Private</li>
+<li><a href="https://core.telegram.org/">Telegram</a> - The Telegram API allows you to build your own customized Telegram clients.</li>
+<li><a href="https://trashnothing.com/developer">Trash Nothing</a> - Build apps on top of one of the largest freecycling and reuse communities with millions of people giving away thousands of free items every day.</li>
+<li><a href="https://dev.twitch.tv/docs">Twitch</a> - The Twitch API enables you to develop your own applications using the rich feature set that Twitch provides.</li>
+<li><a href="https://dev.twitter.com/">Twitter</a> - Enables an app to interact with most of Twitter’s functions.</li>
+<li><a href="https://www.tumblr.com/docs/en/api/v2">Tumblr</a> - Create new ways to use Tumblr with access to content, likes, followers, and drafts.</li>
+<li><a href="https://developer.vimeo.com/">Vimeo</a> - Access to Vimeo’s API.</li>
+<li><a href="https://vk.com/dev">VK</a> - Access to VKontakte&rsquo;s API. This has a variety of features such as authorization via VK, embedding VK comments for things like blogs, and taking payments via VK. Additionally, you may use the VK API to control much of the functionality on the website (for example, adjusting shop inventory in your VK community&rsquo;s market section).</li>
+<li><a href="http://open.weibo.com/wiki/API%E6%96%87%E6%A1%A3/en">Weibo</a> - Programmatic access to China’s most popular microblogging site.</li>
+<li><a href="https://www.whatsapp.com/faq/en/iphone/23559013">Whatsapp Document Interaction</a> - If your application creates photos, videos or audio notes and you’d like your users to share these media using WhatsApp. #Limited</li>
+<li><a href="https://codex.wordpress.org/WordPress_APIs">Wordpress</a> - Access to Wordpress’ API.</li>
+<li><a href="https://untappd.com/api/docs">Untappd</a> - Untappd is a mobile web app that allows you to socially share beers that you&rsquo;re enjoying.</li>
+<li><a href="https://developers.google.com/youtube/">YouTube</a> - Add YouTube functionality to your sites and apps.</li>
+<li><a href="https://developers.zomato.com/api">Zomato</a> - Zomato APIs give you access to the freshest and most exhaustive information for over 1.5 million restaurants across 10,000 cities globally.</li>
+</ul>
+
+<h3 id="source-control">Source Control</h3>
+
+<ul>
+<li><a href="https://developer.atlassian.com/bitbucket/api/2/reference/">Bitbucket</a> - Access to Bitbucket&rsquo;s API.</li>
+<li><a href="https://developer.github.com/v3/">GitHub</a> - Build real-world GitHub applications right from authentication, to manipulating results, to combining results with other service.</li>
+<li><a href="https://developer.github.com/v3/gists/">GitHub Gists</a> - Access to GitHub’s Gists API.</li>
+<li><a href="https://docs.gitlab.com/ce/api/README.html">GitLab</a> - Access to GitLab&rsquo;s API.</li>
+<li><a href="https://www.mercurial-scm.org/wiki/MercurialApi">Mercurial</a> - Access to Mercurial’s API.</li>
+<li><a href="https://subversion.apache.org/docs/api/1.8/">SVN</a> - Collection of modular libraries written in the C programming language.</li>
+<li><a href="https://www.visualstudio.com/en-us/docs/integrate/get-started/overview">Team Foundation Server</a> - TFS APIs are based on REST, OAuth, Json and service hooks.</li>
+</ul>
+
+<h3 id="sport">Sport</h3>
+
+<ul>
+<li><a href="http://ergast.com/mrd/">Ergast Formula 1</a> - Provides access to current and historical Formula 1 race data from 1950 to today.</li>
+<li><a href="http://www.thesportsdb.com/">TheSportsDB</a> - Various sports events, results, players, teams and high quality artwork.</li>
+</ul>
+
+<h3 id="transportation">Transportation</h3>
+
+<ul>
+<li><a href="https://www.adsbexchange.com/data/">ADS-B Exchange</a> - Access real-time and historical data of any and all airborne aircraft.</li>
+<li><a href="https://www.aftership.com/docs/api/4/overview">AfterShip</a> - Provides multi-carrier shipment tracking APIs.</li>
+<li><a href="http://developer.edmunds.com/">Edmunds</a> - A dataset containing all the car makes.</li>
+<li><a href="https://www.lyft.com/developers">Lyft</a> - Get real-time ETAs, availability, price estimates, ride status through the Lyft API.</li>
+<li><a href="https://www.developers.moovitapp.com/">Moovit</a> - Connect users from your app to the Moovit app with a specific action through deeplinks.</li>
+<li><a href="https://docs.postmen.com/">Postmen</a> - Add shipping capability of FedEx, UPS, DHL, USPS and over 40 carriers worldwide.</li>
+<li><a href="https://postmates.com/developer/docs">Postmates</a> - Build on-demand delivery into your app or website.</li>
+<li><a href="https://developer.uber.com/">Uber</a> - Uber provides API for customizing trip experiences, requesting rides, powering logistics, creating bots and so much more.</li>
+</ul>
+
+<h3 id="url-shorteners">URL Shorteners</h3>
+
+<ul>
+<li><a href="https://anon.click/api/">Anon.click</a> - Shorten long URLs and optionally protect them with passwords or captcha. No registration required.</li>
+<li><a href="http://dev.bitly.com/links.html">Bitly</a> - Access to Bitly’s API.</li>
+<li><a href="https://developers.google.com/url-shortener/v1/">Google URL Shortener</a> - Service that takes long URLs and squeezes them into fewer characters.</li>
+<li><a href="https://developers.naver.com/products/shortenurl">Naver URL Shortener</a> - Access to Naver’s URL shortening API.</li>
+<li><a href="https://post.zendesk.com/hc/en-us/articles/200328516-Po-st-REST-API">Po.st</a> - Shorten URLs, Expand shortened URLs, see statistics etc.</li>
+<li><a href="https://yourls.org/#API">Yourls</a> - Generate or get existing short URLs, with sequential or custom keyword.</li>
+</ul>
+
+<h3 id="videogames">Videogames</h3>
+
+<ul>
+<li><a href="https://github.com/martincarrera/clash-royale-api">Clash Royale</a> - API that provides informations about Clash Royale game.</li>
+<li><a href="http://www.giantbomb.com/api/">GiantBomb</a> - API to query the GiantBomb database for videogames, characters, companies, genres and many more.</li>
+<li><a href="https://www.igdb.com/api">IGDB</a> - Access the International Games Database and get information about videogames, characters, companies, genres and many more. Commercial usage is allowed.</li>
+<li><a href="http://wiki.thegamesdb.net/index.php?title=API_Introduction">TheGamesDB.net</a> - Free API to access information about videogames, platforms, genres and ratings.</li>
+</ul>
+
+<h3 id="weather">Weather</h3>
+
+<ul>
+<li><a href="https://www.aerisweather.com">AerisWeather</a> - Global weather data and imagery APIs, with a free developer subscription tier, boasting detailed documentation for simple to advanced queries, free SDKs and a Map Builder to get you up and running faster.</li>
+<li><a href="https://darksky.net/dev/docs">Forecast</a> - The same API that powers Forecast.io and Dark Sky for iOS.</li>
+<li><a href="http://openweathermap.org/api">Open Weather</a> - Access current weather data for any location on Earth including over 200,000 cities!</li>
+<li><a href="https://stormglass.io">Storm Glass Marine Weather API</a> - Global marine weather data from multiple sources in one single API!</li>
+<li><a href="https://www.weatherbit.io/api">Weatherbit</a> - Access forecasts, current weather, and historical weather data for any point on the Earth!</li>
+<li><a href="http://weathersource.com/weather-api">Weather Source</a> - Powerful Weather API built for systems that demand speed, reliability and heavy load.</li>
+<li><a href="https://www.wunderground.com/weather/api/">Wunderground API</a> - Reliable data, accurate forecast, &amp; global coverage in 80 languages.</li>
+<li><a href="https://developer.yahoo.com/weather/">Yahoo Weather API</a> - Get up-to-date information for any location, including 5-day forecast, wind, atmosphere, astronomy conditions, and more.</li>
+</ul>
+
+<h3 id="credits">Credits</h3>
+
+<ul>
+<li><a href="http://www.computersciencezone.org/50-most-useful-apis-for-developers/">Computer Science Zone</a></li>
+<li><a href="http://www.louisdorard.com/blog/machine-learning-apis-comparison">Louis Dorrad</a></li>
+<li><a href="https://musicmachinery.com/music-apis/">Music Machinery</a></li>
+<li><a href="http://thenewstack.io/the-different-flavors-of-iot-apis/">NewStack</a></li>
+</ul>
+
+<h3 id="resources-for-design-and-discovery-of-apis">Resources For Design and Discovery of APIs</h3>
+
+<ul>
+<li><a href="https://apiary.io/">Apiary</a> - Collaborative tool to design APIs. 💸</li>
+<li><a href="https://www.openapis.org">OpenAPI</a> - Standard, language-agnostic interface to REST APIs (based on <a href="http://swagger.io/">Swagger</a>). <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+<li><a href="http://swagger.io/">Swagger</a> - Tools for designing, building, and documenting RESTful APIs. <img src="https://raw.githubusercontent.com/abhishekbanthia/Public-APIs/master/opensource.png" alt="Open Source" title="Open Source" /></li>
+</ul>
+
+<h3 id="more-resources">More Resources</h3>
+
+<ul>
+<li><a href="https://apis.guru/">APIs.guru</a></li>
+<li><a href="https://github.com/Kikobeats/awesome-api">More Awesome APIs</a></li>
+<li><a href="https://www.programmableweb.com/apis/directory">Programmable Web</a></li>
+<li><a href="https://www.getpostman.com/docs/postman/postman_api/intro_api">Postman API Tools</a></li>
+</ul>
+
+<h3 id="contributions">Contributions</h3>
+
+<p>Pull requests are welcome. Please adhere to the <a href="https://github.com/abhishekbanthia/Public-APIs/blob/master/CONTRIBUTING.md">guidelines</a>.</p>
+
+<h1 id="license">License</h1>
+
+<p><a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</p>
+
+
+            </div>
+            
+            <br>
+            <div class="share">
+                  
+                  <a href="" class="ssk ssk-facebook"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-twitter"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-google-plus"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-linkedin"></a>
+                  
+            </div>
+            
+            
+            <br>
+            <div class="navigation">
+                
+                <div>
+                    <img class="icon" src="/img/back.svg" alt="back" />
+                    <a href="/blog/install-fira-code-font/">Install Fira-Code font</a>
+                </div>
+                
+                <div style="width: 100%;"></div>
+                
+                <div>
+                    <a href="/blog/golang-cheat-sheet/">Golang Cheat Sheet</a>
+                    <img class="icon" src="/img/next.svg" alt="next" />
+                </div>
+                
+            </div>
+            
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "winarkoandy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+
+            
+
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer column">
+    <div class="container">
+
+        
+
+        <div class="copyright">
+
+        
+            
+                <a href="/license">Copyright © 2019 Andy Winarko</a>
+            
+        
+
+        </div>
+        <div class="icons">
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="https://facebook.com/masAndywinarko" rel=me target="_blank">
+                <img class="icon" src="/img/facebook.svg" alt="facebook" />
+            </a>
+        
+
+        
+            <a href="https://github.com/winarcooo" rel=me target="_blank">
+                <img class="icon" src="/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+
+        
+            <a href="https://www.linkedin.com/in/andywinarko" rel=me target="_blank">
+                <img class="icon" src="/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+
+        
+            <a href="mailto:winarcooo@gmail.com">
+                <img class="icon" src="/img/email.svg" alt="email" />
+            </a>
+        
+
+        
+            <a href="/index.xml">
+                <img class="icon" src="/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
+    }
+  });
+</script>
+
+
+
+  <script src="/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="/js/progressively.min.js" defer></script>
+
+
+
+  <script src="/js/social-share-kit.min.js" defer></script>
+
+
+
+
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+    
+      SocialShareKit.init({
+        twitter: {
+            text: '',
+            
+        }
+      });
+    
+  };
+</script>
+
+
+
+
+</body>
+</html>
+

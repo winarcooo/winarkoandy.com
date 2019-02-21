@@ -1,0 +1,3196 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="I&#39;m a Web Developer">
+
+
+<meta property="og:site_name" content="~/.andy_winarko" />
+<meta property="og:locale" content="en-US" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/modern-javascript-cheat-sheet/" />
+<meta property="og:title" content="Modern Javascript Cheat Sheet" />
+<meta property="twitter:title" content="Modern Javascript Cheat Sheet">
+
+    <meta property="og:image" content="/img/terminal-small.png">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:image" content="/img/terminal-small.png">
+
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     ~/.andy_winarko - Modern Javascript Cheat Sheet 
+
+</title>
+<link rel="canonical" href="/blog/modern-javascript-cheat-sheet/">
+
+
+<style media="screen">
+  @font-face {
+  font-family: 'Nexa Bold';
+  src: url('/fonts/Nexa Bold.otf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, div.column {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+a,
+a:visited,
+a:focus,
+a:active {
+  text-decoration: none;
+}
+html {
+  height: 100%;
+  font-size: 16px;
+}
+body {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 100%;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  color: #111111;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility !important;
+}
+.icon {
+  text-rendering: geometricPrecision !important;
+}
+section {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+div.column {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+.container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  width: 100%;
+}
+div.header .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+div.header .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.header .container .logo {
+  
+  max-width: 100px;
+  
+  margin-left: -2em;
+}
+div.header .name {
+  padding-top: 20px;
+  font-size: 28px;
+  font-family: 'Nexa Bold', 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  
+      
+  text-transform: lowercase;
+      
+  
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+}
+div.header nav {
+  margin-bottom: 16px;
+}
+div.header nav ul {
+  list-style: none;
+  text-align: center;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: -ms-inline-flex;
+  display: inline-flex;
+}
+div.header nav ul li {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+div.header nav ul li:first-child {
+  margin-left: 0;
+}
+div.header nav ul li:last-child {
+  margin-right: 0;
+}
+div.header nav ul a {
+  color: #555555;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.header nav ul a:hover {
+  color: #111111;
+}
+div.footer .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+  width: 100%;
+  text-align: center;
+}
+div.footer .container a {
+  font-size: 14px;
+  margin-left: 6px;
+  margin-right: 6px;
+  opacity: 0.6;
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.footer .container a:first-child {
+  margin-left: 0;
+}
+div.footer .container a:last-child {
+  margin-right: 0;
+}
+div.footer .container a:hover {
+  opacity: 0.8;
+}
+div.footer .container a .icon {
+  width: 16px;
+  height: 16px;
+}
+div.footer .container .copyright {
+  flex-grow: 0.5;
+  text-align: start;
+}
+div.footer .container .icons {
+  flex-grow: 0.5;
+  text-align: end;
+}
+div.main .container {
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+}
+div.main .content {
+  color: #111111;
+  font-size: 16px;
+}
+div.main .content .title-container {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+div.main .content .posts {
+  
+  
+}
+div.main .content .page-heading {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  margin-bottom: 16px;
+}
+div.main .content .front-matter .page-heading {
+  margin-bottom: 0;
+}
+div.main .content .front-matter .meta {
+  font-size: 14px;
+  color: #666666;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  margin-bottom: 32px;
+}
+div.main .content .front-matter .date,
+div.main .content .front-matter .author,
+div.main .content .front-matter .tags,
+div.main .content .front-matter .word-count,
+div.main .content .front-matter .middot:before {
+  display: none;
+}
+div.main .content .front-matter .middot:before {
+  font-size: 6px;
+  margin: 0 6px;
+  vertical-align: middle;
+  content: "•";
+}
+div.main .content .front-matter .tags ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.main .content .front-matter .tags ul li {
+  -webkit-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: opacity 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+div.main .content .front-matter .tags ul li:hover {
+  opacity: 0.7;
+}
+div.main .content .front-matter .tags ul li a {
+  color: #666666;
+}
+div.main .container.f04 {
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+div.main .container.f04 .content {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+}
+div.main .container.f04 .content .num {
+  margin: 30px 0px 30px 0;
+  font-weight: 400;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: 50px;
+}
+div.main .container.f04 .content .detail {
+  margin-bottom: 40px;
+}
+div.main .container .content .groupby {
+  margin-top: 1em;
+  padding-left: 0.5em;
+}
+div.main .container .content .post-item {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  display: list-item;
+  list-style: disc inside;
+}
+div.main .container .content .post-item .meta {
+  font-size: 14px;
+  color: #666666;
+  display: none;
+  min-width: 100px;
+}
+div.main .container .content .see-more {
+  font-style: italic;
+  float: right;
+  font-size: 0.9em;
+  margin-top: 2em;
+  color: #313537;
+}
+div.main .container .content .see-more:hover {
+  color: #666;
+}
+section {
+  padding: 0 16px;
+}
+div.column {
+  padding: 0 16px;
+}
+div.header {
+  padding-top: 10px;
+}
+div.header-home {
+  padding-top: 36px;
+}
+div.main {
+  padding-top: 32px;
+}
+div.main .container .content .post-item .meta {
+    display: block;
+}
+div.main .container .content .post-item {
+    display: flex;
+    list-style: none;
+}
+a {
+  color: #428bca;
+  -webkit-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -moz-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -ms-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+  -o-transition: color 0.1s cubic-bezier(0.47, 0, 0.75, 0.72);
+}
+a:hover {
+  color: #2a6496;
+}
+img {
+  max-width: 100%;
+}
+div.main .content {
+    width: 100%;
+}
+div.main .content .markdown {
+  font-size: 1.1em;
+  line-height: 1.75em;
+  color: #313537;
+  font-family: serif;
+  font-weight: 300;
+}
+div.main .content .markdown h1,
+div.main .content .markdown h2,
+div.main .content .markdown h3,
+div.main .content .markdown h4,
+div.main .content .markdown h5,
+div.main .content .markdown h6 {
+  font-size: 22px;
+  font-family: 'Helvetica Neue', 'Arial', sans-serif;
+  letter-spacing: -0.005rem;
+  font-weight: 700;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  color: #333333;
+  text-transform: none;
+  margin-top: 1.75rem;
+}
+div.main .content .markdown h1 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+div.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+div.main .content .markdown h3 {
+  font-size: 1em;
+  margin-bottom: 1rem;
+}
+div.main .content .markdown h4,
+div.main .content .markdown h5,
+div.main .content .markdown h6 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: none;
+}
+div.main .content .markdown code,
+div.main .content .markdown pre {
+  font-family: 'Menlo', monospace;
+  font-size: 0.98rem;
+  background-color: #f7f7f7;
+}
+div.main .content .markdown code {
+  /* enclosed by single backtick (`) */
+  padding: .15em .5em;
+  border-radius: 2px;
+}
+div.main .content .markdown pre {
+  /* Hugo specific: consider using the 'highlight' shortcode */
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  line-height: 1.5em;
+  white-space: pre;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+div.main .content .markdown pre code {
+  /* enclosed by 4 backticks (````) */
+  padding: 0;
+  font-size: 0.9rem;
+}
+div.main .content .markdown a code {
+  color: #428bca !important;
+}
+div.main .content .markdown a code:hover {
+  text-decoration: underline;
+}
+div.main .content .markdown p {
+  
+  text-align: justify;
+  
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+div.main .content .markdown ul,
+div.main .content .markdown ol,
+div.main .content .markdown dl {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+div.main .content .markdown dt {
+  font-weight: bold;
+}
+div.main .content .markdown dd {
+  margin-bottom: .5rem;
+}
+div.main .content .markdown ul {
+  list-style-type: disc;
+  list-style-position: outside;
+  margin-bottom: 1.25rem;
+}
+div.main .content .markdown ol {
+  list-style-type: decimal;
+  margin-bottom: 1.25rem;
+}
+div.main .content .markdown li {
+  margin-left: 2em;
+}
+div.main .content .markdown em {
+  font-style: italic;
+}
+div.main .content .markdown strong {
+  font-weight: 700;
+}
+div.main .content .markdown hr {
+  position: relative;
+  margin: 1.75rem 0;
+  border: 0;
+  border-top: 1px solid #808080;
+  border-top: 1px solid #999999;
+}
+div.main .content .markdown abbr {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666666;
+  text-transform: uppercase;
+}
+div.main .content .markdown abbr[title] {
+  cursor: help;
+  border-bottom: 1px dotted #808080;
+}
+div.main .content .markdown blockquote {
+  padding: .5rem 1rem;
+  margin: .8rem 0;
+  color: #7a7a7a;
+  border-left: .25rem solid #e5e5e5;
+}
+div.main .content .markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+div.main .content .markdown figure {
+  width: 100%;
+  background: #fff;
+  margin-bottom: 1em;
+}
+div.main .content .markdown figure img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  position: static;
+  margin: auto;
+}
+div.main .content .markdown table {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-collapse: collapse;
+}
+div.main .content .markdown td,
+div.main .content .markdown th {
+  padding: .25rem .5rem;
+  border: 1px solid #e5e5e5;
+}
+div.main .content .markdown tbody tr:nth-child(odd) td,
+div.main .content .markdown tbody tr:nth-child(odd) th {
+  background-color: #f7f7f7;
+}
+div.main .content .markdown .footnotes ol {
+  list-style-type: decimal;
+  margin-left: 16px;
+}
+div.main .content .markdown .footnotes li {
+  list-style-type: unset;
+}
+div.main .content .markdown .footnote-ref {
+  font-size: 0.7em;
+}
+div.main .content .navigation {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  padding: 2em;
+}
+div.main .content .navigation div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  margin-top: 1em;
+}
+div.main .content .navigation .icon {
+  width: 16px;
+  height: 16px;
+}
+div.main .content .navigation a {
+  width: 250px;
+  margin: 0 1em;
+  text-align: center;
+  font-style: italic;
+  color: #313537;
+}
+div.main .content .share, div.main .content .share div {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  justify-content: center;
+}
+div.main .content .share {
+  background-color: rgba(152, 152, 152, 0.07);
+  padding: 1em 0;
+}
+div.main .content .share a {
+  margin: 0 6px;
+}
+kbd {
+  padding: 0.1em 0.6em;
+  border: 1px solid #ccc;
+  font-size: 11px;
+  font-family: Arial,Helvetica,sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  -moz-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  box-shadow: 0 1px 0px rgba(0, 0, 0, 0.2),0 0 0 2px #ffffff inset;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: inline-block;
+  margin: 0 0.1em;
+  text-shadow: 0 1px 0 #fff;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* Fonts */
+
+
+.wf-raleway-n4-active body, 
+.wf-raleway-n4-active div.header nav ul a,
+.wf-raleway-n7-active div.main .content .page-heading,
+.wf-raleway-n2-active div.main .container.f04 .content .num,
+.wf-raleway-n7-active div.main .content .markdown h1,
+.wf-raleway-n7-active div.main .content .markdown h2,
+.wf-raleway-n7-active div.main .content .markdown h3,
+.wf-raleway-n7-active div.main .content .markdown h4,
+.wf-raleway-n7-active div.main .content .markdown h5,
+.wf-raleway-n7-active div.main .content .markdown h6 {
+      font-family: 'Raleway';
+}
+
+.wf-merriweather-n3-active div.main .content .markdown {
+      font-family: 'Merriweather';
+}
+
+.wf-ubuntu-mono-n4-active div.main .content .markdown code,
+.wf-ubuntu-mono-n4-active div.main .content .markdown pre {
+      font-family: 'Ubuntu Mono';
+}
+
+
+</style>
+<style media="(min-width: 600px)">
+  body {
+-webkit-justify-content: center;
+-moz-justify-content: center;
+-ms-justify-content: center;
+justify-content: center;
+}
+.non-narrow.zero-top-spacing {
+padding-top: 0 !important;
+}
+section {
+padding: 0 16px;
+margin-left: 100px;
+margin-right: 100px;
+
+max-width: 750px;
+
+}
+div.column {
+padding: 0 16px;
+
+max-width: 750px;
+
+}
+div.header {
+background-color: transparent;
+}
+div.header .container {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+div.header .container .logo {
+margin: 0;
+}
+div.header-home .container .logo {
+max-width: 216px;
+margin-left: 24px;
+}
+div.header-home .name-home {
+padding-top: 30px;
+font-size: 40px;
+}
+div.header-home nav ul a {
+font-size: 18px;
+}
+div.header .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+div.header .name {
+color: #333333;
+}
+div.header nav {
+font-size: 14px;
+margin-bottom: 0;
+}
+div.header nav ul {
+text-align: left;
+}
+div.header nav ul a {
+color: #666666;
+}
+div.header nav ul a:hover {
+color: #333333;
+}
+div.footer {
+background-color: transparent;
+}
+div.footer .container {
+flex-direction: row;
+}
+div.footer .container a {
+margin-left: 3px;
+margin-right: 3px;
+color: #666666;
+}
+div.footer .container a:hover {
+color: #333333;
+}
+div.footer .container a .icon {
+font-size: 18px;
+}
+div.footer .container a .icon.larger {
+font-size: 20px;
+}
+div.main .content .front-matter .date,
+div.main .content .front-matter .author,
+div.main .content .front-matter .tags,
+div.main .content .front-matter .word-count,
+div.main .content .front-matter .middot:before {
+display: initial;
+}
+div.main .container.f04 {
+-webkit-justify-content: flex-start;
+-moz-justify-content: flex-start;
+-ms-justify-content: flex-start;
+justify-content: flex-start;
+}
+div.main .container.f04 .content {
+-webkit-align-items: flex-start;
+-moz-align-items: flex-start;
+-ms-align-items: flex-start;
+align-items: flex-start;
+}
+div.main .container.f04 .content .num {
+margin: 0 0 10px 0;
+font-size: 32px;
+}
+div.main .container.f04 .content .detail {
+margin-bottom: 30px;
+}
+.container {
+padding: 0 30px;
+}
+div.header {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+div.footer {
+padding-top: 60px;
+padding-bottom: 60px;
+}
+div.main {
+padding-top: 0;
+}
+div.main .content {
+  
+  font-size: 16px;
+  
+}
+div.main .container .content .post-item {
+display: flex;
+list-style: none;
+padding-left: 1.5em;
+}
+div.main .container .content .post-item .meta {
+display: block;
+}
+div.main .content .markdown blockquote {
+padding-right: 5rem;
+padding-left: 1.25rem;
+}
+div.main .content .navigation {
+-webkit-flex-direction: row;
+-moz-flex-direction: row;
+-ms-flex-direction: row;
+flex-direction: row;
+}
+div.main .content .navigation div {
+margin-top: 0em;
+}
+
+</style>
+<style media="(min-width: 769px)">
+  div.main .content .markdown figure {
+width: 110%;
+margin-left: -4%;
+}
+div.main .content .markdown img {
+max-width: 110%;
+width: 110%;
+margin-left: -4%;
+}
+div.main .content .markdown pre {
+width: 110%;
+margin-left: -4%;
+}
+
+</style>
+
+<noscript>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700" rel="stylesheet">
+</noscript>
+
+
+  <style type="text/css" media="screen">
+    .hljs{display:block;background:white;padding:0.5em;color:#333333;overflow-x:auto}.hljs-comment,.hljs-meta{color:#969896}.hljs-string,.hljs-variable,.hljs-template-variable,.hljs-strong,.hljs-emphasis,.hljs-quote{color:#df5000}.hljs-keyword,.hljs-selector-tag,.hljs-type{color:#a71d5d}.hljs-literal,.hljs-symbol,.hljs-bullet,.hljs-attribute{color:#0086b3}.hljs-section,.hljs-name{color:#63a35c}.hljs-tag{color:#333333}.hljs-title,.hljs-attr,.hljs-selector-id,.hljs-selector-class,.hljs-selector-attr,.hljs-selector-pseudo{color:#795da3}.hljs-addition{color:#55a532;background-color:#eaffea}.hljs-deletion{color:#bd2c00;background-color:#ffecec}.hljs-link{text-decoration:underline}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    .progressive{overflow:hidden;position:relative;background:#efefef}.progressive__img{width:100%;height:100%;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0)}.progressive--not-loaded{filter:blur(30px);-webkit-filter:blur(30px)}.progressive--is-loaded{filter:blur(20px);-webkit-filter:blur(20px);-webkit-animation:sharpen .5s both;animation:sharpen .5s both}@-webkit-keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}@keyframes sharpen{from{filter:blur(20px);-webkit-filter:blur(20px)}to{filter:blur(0);-webkit-filter:blur(0)}}
+  </style>
+
+
+
+  <style type="text/css" media="screen">
+    /*!
+ * Social Share Kit v1.0.7 (http://socialsharekit.com)
+ * Copyright 2015 Social Share Kit / Kaspars Sprogis.
+ * Licensed under Creative Commons Attribution-NonCommercial 3.0 license:
+ * https://github.com/darklow/social-share-kit/blob/master/LICENSE
+ * ---
+ */@font-face{font-family:'social-share-kit';src:url('/fonts/social-share-kit.eot');src:url('/fonts/social-share-kit.eot?#iefix') format('embedded-opentype'),url('/fonts/social-share-kit.woff') format('woff'),url('/fonts/social-share-kit.ttf') format('truetype'),url('/fonts/social-share-kit.svg#social-share-kit') format('svg');font-weight:normal;font-style:normal}.ssk:before{display:inline-block;font-family:"social-share-kit" !important;font-style:normal !important;font-weight:normal !important;font-variant:normal !important;text-transform:none !important;speak:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.ssk-facebook:before{content:"a";text-indent:4px;margin-right:-4px}.ssk-twitter:before{content:"b"}.ssk-google-plus:before{content:"v"}.ssk-google-plus-old:before{content:"c"}.ssk-email:before{content:"d";top:-1px;position:relative}.ssk-pinterest:before{content:"e"}.ssk-tumblr:before{content:"f"}.ssk-linkedin:before{content:"g"}.ssk-github:before{content:"h"}.ssk-vk:before{content:"i"}.ssk-instagram:before{content:"j"}.ssk-amazon:before{content:"k"}.ssk-skype:before{content:"s"}.ssk-youtube:before{content:"x"}.ssk-vimeo:before{content:"u"}.ssk-ebay:before{content:"p"}.ssk-apple:before{content:"l"}.ssk-behance:before{content:"q"}.ssk-dribble:before{content:"n"}.ssk-android:before{content:"o"}.ssk-whatsapp:before{content:"m"}.ssk-reddit:before{content:"r"}.ssk-reddit2:before{content:"t"}.ssk-link:before{content:"w"}.ssk{background-color:#757575;color:white;display:inline-block;font-size:22px;line-height:1px;margin-right:2px;margin-bottom:2px;padding:7px;text-align:center;text-decoration:none;transition:background-color .1s;-webkit-transition:background-color .1s;-moz-transition:background-color .1s;-ms-transition:background-color .1s;-o-transition:background-color .1s}.ssk:before,.ssk .glyphicon,.ssk .fa{position:relative;font-size:22px;top:0;vertical-align:middle}.ssk.ssk-xs,.ssk-xs>.ssk{padding:4px}.ssk.ssk-xs:before,.ssk-xs>.ssk:before,.ssk.ssk-xs .glyphicon,.ssk-xs>.ssk .glyphicon,.ssk.ssk-xs .fa,.ssk-xs>.ssk .fa{font-size:15px}.ssk.ssk-sm,.ssk-sm>.ssk{padding:5px}.ssk.ssk-sm:before,.ssk-sm>.ssk:before,.ssk.ssk-sm .glyphicon,.ssk-sm>.ssk .glyphicon,.ssk.ssk-sm .fa,.ssk-sm>.ssk .fa{font-size:20px}.ssk.ssk-lg,.ssk-lg>.ssk{padding:9px}.ssk.ssk-lg:before,.ssk-lg>.ssk:before,.ssk.ssk-lg .glyphicon,.ssk-lg>.ssk .glyphicon,.ssk.ssk-lg .fa,.ssk-lg>.ssk .fa{font-size:28px}.ssk:last-child{margin-right:0}.ssk:hover{background-color:#424242}.ssk:hover,.ssk:focus{color:#fff;text-decoration:none}.ssk.ssk-round,.ssk-round .ssk{border-radius:50%}.ssk.ssk-round:before,.ssk-round .ssk:before{text-indent:0;margin-right:0}.ssk.ssk-rounded,.ssk-rounded .ssk{border-radius:15%}.ssk.ssk-icon{color:#757575;padding:2px;font-size:24px}.ssk.ssk-icon,.ssk.ssk-icon:hover{background-color:transparent}.ssk.ssk-icon:hover{color:#424242}.ssk.ssk-icon.ssk-xs,.ssk-xs>.ssk.ssk-icon{font-size:16px}.ssk.ssk-icon.ssk-sm,.ssk-sm>.ssk.ssk-icon{font-size:20px}.ssk.ssk-icon.ssk-lg,.ssk-lg>.ssk.ssk-icon{font-size:28px}.ssk.ssk-text{overflow:hidden;font-size:17px;line-height:normal;padding-right:10px}.ssk.ssk-text:before,.ssk.ssk-text .glyphicon,.ssk.ssk-text .fa{margin:-7px 10px -7px -7px;padding:7px;background-color:rgba(0,0,0,0.15);vertical-align:bottom;text-indent:0}.ssk-block .ssk.ssk-text{display:block;margin-right:0;text-align:left}.ssk.ssk-text.ssk-xs,.ssk-xs>.ssk.ssk-text{font-size:12px;padding-right:6px}.ssk.ssk-text.ssk-xs:before,.ssk-xs>.ssk.ssk-text:before,.ssk.ssk-text.ssk-xs .glyphicon,.ssk-xs>.ssk.ssk-text .glyphicon,.ssk.ssk-text.ssk-xs .fa,.ssk-xs>.ssk.ssk-text .fa{margin:-4px 6px -4px -4px;padding:4px}.ssk.ssk-text.ssk-sm,.ssk-sm>.ssk.ssk-text{font-size:16px;padding-right:7px}.ssk.ssk-text.ssk-sm:before,.ssk-sm>.ssk.ssk-text:before,.ssk.ssk-text.ssk-sm .glyphicon,.ssk-sm>.ssk.ssk-text .glyphicon,.ssk.ssk-text.ssk-sm .fa,.ssk-sm>.ssk.ssk-text .fa{margin:-5px 7px -5px -5px;padding:5px}.ssk.ssk-text.ssk-lg,.ssk-lg>.ssk.ssk-text{font-size:22px;padding-right:13px}.ssk.ssk-text.ssk-lg:before,.ssk-lg>.ssk.ssk-text:before,.ssk.ssk-text.ssk-lg .glyphicon,.ssk-lg>.ssk.ssk-text .glyphicon,.ssk.ssk-text.ssk-lg .fa,.ssk-lg>.ssk.ssk-text .fa{margin:-9px 13px -9px -9px;padding:9px}.ssk-group,.ssk-sticky{font-size:0}.ssk-sticky{top:0;position:fixed;z-index:2000}.ssk-sticky .ssk{transition:padding .1s ease-out;-webkit-transition:padding .1s ease-out;-moz-transition:padding .1s ease-out;-ms-transition:padding .1s ease-out;-o-transition:padding .1s ease-out;margin:0}@media (min-width:768px){.ssk-sticky.ssk-left .ssk,.ssk-sticky.ssk-right .ssk{display:block;clear:both}.ssk-sticky.ssk-left.ssk-center,.ssk-sticky.ssk-right.ssk-center{top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-moz-transform:translateY(-50%);-ms-transform:translateY(-50%);-o-transform:translateY(-50%)}.ssk-sticky.ssk-left{left:0}.ssk-sticky.ssk-left .ssk{float:left}.ssk-sticky.ssk-left .ssk:hover{padding-left:15px}.ssk-sticky.ssk-right{right:0}.ssk-sticky.ssk-right .ssk{float:right}.ssk-sticky.ssk-right .ssk:hover{padding-right:15px}}.ssk-sticky.ssk-bottom{font-size:0;top:auto;bottom:0}.ssk-sticky.ssk-bottom.ssk-center{left:50%;right:auto;transform:translateX(-50%);-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%)}.ssk-sticky.ssk-bottom .ssk{vertical-align:bottom}.ssk-sticky.ssk-bottom .ssk:hover{padding-bottom:15px}.ssk-sticky.ssk-round.ssk-xs .ssk:hover{padding:8px}.ssk-sticky.ssk-round.ssk-sm .ssk:hover{padding:9px}.ssk-sticky.ssk-round .ssk:hover{padding:11px}.ssk-sticky.ssk-round.ssk-lg .ssk:hover{padding:13px}@media (max-width:767px){.ssk-sticky{left:0;right:0;bottom:0;top:auto;width:100%;display:flex !important;flex-direction:row;flex-wrap:nowrap}.ssk-sticky.ssk-sticky-hide-xs{display:none !important}.ssk-sticky .ssk{flex:1;width:auto}.ssk-sticky .ssk .ssk-num{display:none}}.ssk-count{padding-top:20px}.ssk-count .ssk{position:relative}.ssk-count .ssk-num{border-radius:4px;color:#8f8f8f;background-color:rgba(50,50,50,0.03);display:block;font-size:12px;left:0;line-height:20px;position:absolute;right:0;text-align:center;top:-20px}@media (min-width:768px){.ssk-count.ssk-sticky{padding-top:0}.ssk-count.ssk-sticky.ssk-left .ssk-num,.ssk-count.ssk-sticky.ssk-right .ssk-num{top:20%;background-color:transparent}.ssk-count.ssk-sticky.ssk-left .ssk-num{left:100%;margin-left:5px}.ssk-count.ssk-sticky.ssk-right .ssk-num{right:115%;margin-left:-100%;text-align:right}}.ssk-facebook{background-color:#3B5998}.ssk-grayscale>.ssk-facebook{background-color:#757575}.ssk-facebook:hover{background-color:#2d4373}.ssk-facebook:hover{background-color:#2d4373}.ssk-grayscale>.ssk-facebook:hover{background-color:#3B5998}.ssk-facebook.ssk-icon{color:#3B5998}.ssk-facebook.ssk-icon:hover{color:#2d4373}.ssk-facebook.ssk-icon:before{text-indent:0;margin-right:0}.ssk-twitter{background-color:#1DA1F2}.ssk-grayscale>.ssk-twitter{background-color:#757575}.ssk-twitter:hover{background-color:#0c85d0}.ssk-twitter:hover{background-color:#0c85d0}.ssk-grayscale>.ssk-twitter:hover{background-color:#1DA1F2}.ssk-twitter.ssk-icon{color:#1DA1F2}.ssk-twitter.ssk-icon:hover{color:#0c85d0}.ssk-google-plus{background-color:#EA4335}.ssk-grayscale>.ssk-google-plus{background-color:#757575}.ssk-google-plus:hover{background-color:#d62516}.ssk-google-plus:hover{background-color:#d62516}.ssk-grayscale>.ssk-google-plus:hover{background-color:#EA4335}.ssk-google-plus.ssk-icon{color:#EA4335}.ssk-google-plus.ssk-icon:hover{color:#d62516}.ssk-pinterest{background-color:#BD081C}.ssk-grayscale>.ssk-pinterest{background-color:#757575}.ssk-pinterest:hover{background-color:#8c0615}.ssk-pinterest:hover{background-color:#8c0615}.ssk-grayscale>.ssk-pinterest:hover{background-color:#BD081C}.ssk-pinterest.ssk-icon{color:#BD081C}.ssk-pinterest.ssk-icon:hover{color:#8c0615}.ssk-tumblr{background-color:#395773}.ssk-grayscale>.ssk-tumblr{background-color:#757575}.ssk-tumblr:hover{background-color:#283d51}.ssk-tumblr:hover{background-color:#283d51}.ssk-grayscale>.ssk-tumblr:hover{background-color:#395773}.ssk-tumblr.ssk-icon{color:#395773}.ssk-tumblr.ssk-icon:hover{color:#283d51}.ssk-email{background-color:#757575}.ssk-grayscale>.ssk-email{background-color:#757575}.ssk-email:hover{background-color:#5b5b5b}.ssk-email:hover{background-color:#5b5b5b}.ssk-grayscale>.ssk-email:hover{background-color:#757575}.ssk-grayscale>.ssk-email:hover{background-color:#5b5b5b}.ssk-email.ssk-icon{color:#757575}.ssk-email.ssk-icon:hover{color:#5b5b5b}.ssk-vk{background-color:#54769a}.ssk-grayscale>.ssk-vk{background-color:#757575}.ssk-vk:hover{background-color:#425d79}.ssk-vk:hover{background-color:#425d79}.ssk-grayscale>.ssk-vk:hover{background-color:#54769a}.ssk-vk.ssk-icon{color:#54769a}.ssk-vk.ssk-icon:hover{color:#425d79}.ssk-linkedin{background-color:#1c87bd}.ssk-grayscale>.ssk-linkedin{background-color:#757575}.ssk-linkedin:hover{background-color:#156791}.ssk-linkedin:hover{background-color:#156791}.ssk-grayscale>.ssk-linkedin:hover{background-color:#1c87bd}.ssk-linkedin.ssk-icon{color:#1c87bd}.ssk-linkedin.ssk-icon:hover{color:#156791}.ssk-whatsapp{background-color:#34AF23}.ssk-grayscale>.ssk-whatsapp{background-color:#757575}.ssk-whatsapp:hover{background-color:#27851a}.ssk-whatsapp:hover{background-color:#27851a}.ssk-grayscale>.ssk-whatsapp:hover{background-color:#34AF23}.ssk-whatsapp.ssk-icon{color:#34AF23}.ssk-whatsapp.ssk-icon:hover{color:#27851a}.ssk-reddit{background-color:#5f99cf}.ssk-grayscale>.ssk-reddit{background-color:#757575}.ssk-reddit:hover{background-color:#3a80c1}.ssk-reddit:hover{background-color:#3a80c1}.ssk-grayscale>.ssk-reddit:hover{background-color:#5f99cf}.ssk-reddit.ssk-icon{color:#5f99cf}.ssk-reddit.ssk-icon:hover{color:#3a80c1}.ssk-reddit2{background-color:#5f99cf}.ssk-grayscale>.ssk-reddit2{background-color:#757575}.ssk-reddit2:hover{background-color:#3a80c1}.ssk-reddit2:hover{background-color:#3a80c1}.ssk-grayscale>.ssk-reddit2:hover{background-color:#5f99cf}.ssk-reddit2.ssk-icon{color:#5f99cf}.ssk-reddit2.ssk-icon:hover{color:#3a80c1}.ssk-turquoise{background-color:#1abc9c}.ssk-turquoise:hover{background-color:#148f77}.ssk-emerald{background-color:#2ecc71}.ssk-emerald:hover{background-color:#25a25a}.ssk-peter-river{background-color:#3498db}.ssk-peter-river:hover{background-color:#217dbb}.ssk-belize-hole{background-color:#2980b9}.ssk-belize-hole:hover{background-color:#20638f}.ssk-amethyst{background-color:#9b59b6}.ssk-amethyst:hover{background-color:#804399}.ssk-wisteria{background-color:#8e44ad}.ssk-wisteria:hover{background-color:#703688}.ssk-wet-asphalt{background-color:#34495e}.ssk-wet-asphalt:hover{background-color:#222f3d}.ssk-midnight-blue{background-color:#2c3e50}.ssk-midnight-blue:hover{background-color:#1a242f}.ssk-green-sea{background-color:#16a085}.ssk-green-sea:hover{background-color:#107360}.ssk-nephritis{background-color:#27ae60}.ssk-nephritis:hover{background-color:#1e8449}.ssk-sunflower{background-color:#f1c40f}.ssk-sunflower:hover{background-color:#c29d0b}.ssk-orange{background-color:#f39c12}.ssk-orange:hover{background-color:#c87f0a}.ssk-carrot{background-color:#e67e22}.ssk-carrot:hover{background-color:#bf6516}.ssk-pumpkin{background-color:#d35400}.ssk-pumpkin:hover{background-color:#a04000}.ssk-alizarin{background-color:#e74c3c}.ssk-alizarin:hover{background-color:#d62c1a}.ssk-pomegranate{background-color:#c0392b}.ssk-pomegranate:hover{background-color:#962d22}.ssk-clouds{background-color:#cfd9db}.ssk-clouds:hover{background-color:#b1c2c6}.ssk-concrete{background-color:#95a5a6}.ssk-concrete:hover{background-color:#798d8f}.ssk-silver{background-color:#bdc3c7}.ssk-silver:hover{background-color:#a1aab0}.ssk-asbestos{background-color:#7f8c8d}.ssk-asbestos:hover{background-color:#667273}.ssk-dark-gray{background-color:#555}.ssk-dark-gray:hover{background-color:#3b3b3b}.ssk-black{background-color:#333}.ssk-black:hover{background-color:#1a1a1a}
+  </style>
+
+
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="/img/terminal-small.png"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="header column">
+
+    <div class="container">
+        
+        <a href="/"><img class="logo" src="/img/terminal-small.png" alt="logo"></a>
+        
+        <div class="content">
+            <a href="/"><div class="name"><h1>~/.andy_winarko</h1></div></a>
+            <nav>
+                <ul>
+                    
+                            <li><a href="/blog/">Blog</a></li>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            <li><a href="/about/">About</a></li>
+                        
+                    
+                        
+                    
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="main post non-narrow zero-top-spacing column">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+    Modern Javascript Cheat Sheet
+    
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Thu Feb 21 2019 00:00:00 UTC">Feb 21, 2019</div>
+                    
+                        
+                        <div class="author middot" title="github">github</div>
+                        
+                    
+                    
+                    <div class="reading-time middot">39 minute read</div>
+                    
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="/tags/javascript">javascript</a> </li>
+                          
+                            <li class="middot"><a href="/tags/cheatsheet">cheatsheet</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+    
+    
+
+<hr />
+
+<h1 id="modern-javascript-cheatsheet">Modern JavaScript Cheatsheet</h1>
+
+<p><img src="https://i.imgur.com/aexPxMb.png" alt="Modern JavaScript cheatsheet" />
+<small>Image Credits: <a href="https://github.com/ahmadawais">Ahmad Awais ⚡️</a></small></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<h3 id="motivation">Motivation</h3>
+
+<p>This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.</p>
+
+<p>This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let&rsquo;s say to learn React for instance) because of the JavaScript concepts used.</p>
+
+<p>Besides, I will sometimes provide personal tips that may be debatable but will take care to mention that it&rsquo;s a personal recommendation when I do so.</p>
+
+<blockquote>
+<p><strong>Note:</strong> Most of the concepts introduced here are coming from a JavaScript language update (ES2015, often called ES6). You can find new features added by this update <a href="http://es6-features.org">here</a>; it&rsquo;s very well done.</p>
+</blockquote>
+
+<h3 id="complementary-resources">Complementary Resources</h3>
+
+<p>When you struggle to understand a notion, I suggest you look for answers on the following resources:</p>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/search?q=">MDN (Mozilla Developer Network)</a></li>
+<li><a href="https://github.com/getify/You-Dont-Know-JS">You don&rsquo;t know JS (book)</a></li>
+<li><a href="http://es6-features.org">ES6 Features with examples</a></li>
+<li><a href="http://wesbos.com/category/es6/">WesBos blog (ES6)</a></li>
+<li><a href="https://www.udacity.com/course/javascript-basics--ud804">Javascript Basics for Beginners</a> - a free Udacity course</li>
+<li><a href="https://www.reddit.com/r/javascript/">Reddit (JavaScript)</a></li>
+<li><a href="https://www.google.com/">Google</a> to find specific blog and resources</li>
+<li><a href="https://stackoverflow.com/questions/tagged/javascript">StackOverflow</a></li>
+</ul>
+
+<h2 id="table-of-contents">Table of Contents</h2>
+
+<ul>
+<li><a href="#modern-javascript-cheatsheet">Modern JavaScript Cheatsheet</a>
+
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#complementary-resources">Complementary Resources</a></li>
+<li><a href="#table-of-contents">Table of Contents</a></li>
+<li><a href="#notions">Notions</a></li>
+<li><a href="#variable-declaration-var-const-let">Variable declaration: var, const, let</a>
+
+<ul>
+<li><a href="#short-explanation">Short explanation</a></li>
+<li><a href="#sample-code">Sample code</a></li>
+<li><a href="#detailed-explanation">Detailed explanation</a></li>
+<li><a href="#var">var</a></li>
+<li><a href="#let">let</a></li>
+<li><a href="#const">const</a></li>
+<li><a href="#external-resource">External resource</a></li>
+</ul></li>
+<li><a href="#a-name%22arrowfuncconcept%22a-arrow-function"><a name="arrow_func_concept"></a> Arrow function</a>
+
+<ul>
+<li><a href="#sample-code-1">Sample code</a></li>
+<li><a href="#detailed-explanation-1">Detailed explanation</a></li>
+<li><a href="#concision">Concision</a></li>
+<li><a href="#this-reference"><em>this</em> reference</a></li>
+<li><a href="#useful-resources">Useful resources</a></li>
+</ul></li>
+<li><a href="#function-default-parameter-value">Function default parameter value</a>
+
+<ul>
+<li><a href="#external-resource-1">External resource</a></li>
+</ul></li>
+<li><a href="#destructuring-objects-and-arrays">Destructuring objects and arrays</a>
+
+<ul>
+<li><a href="#explanation-with-sample-code">Explanation with sample code</a></li>
+<li><a href="#useful-resources-1">Useful resources</a></li>
+</ul></li>
+<li><a href="#array-methods---map--filter--reduce">Array methods - map / filter / reduce</a>
+
+<ul>
+<li><a href="#sample-code-2">Sample code</a></li>
+<li><a href="#explanation">Explanation</a></li>
+<li><a href="#arrayprototypemap">Array.prototype.map()</a></li>
+<li><a href="#arrayprototypefilter">Array.prototype.filter()</a></li>
+<li><a href="#arrayprototypereduce">Array.prototype.reduce()</a>
+
+<ul>
+<li><a href="#at-first-iteration-step">At first iteration step</a></li>
+<li><a href="#at-second-iteration-step">At second iteration step</a></li>
+<li><a href="#at-third-iteration-step">At third iteration step</a></li>
+<li><a href="#at-fourth-iteration-step">At fourth iteration step</a></li>
+<li><a href="#at-last-iteration-step">[&hellip;] At last iteration step</a></li>
+</ul></li>
+<li><a href="#external-resource">External Resource</a></li>
+</ul></li>
+<li><a href="#spread-operator-%22%22">Spread operator &ldquo;&hellip;&rdquo;</a>
+
+<ul>
+<li><a href="#sample-code-3">Sample code</a></li>
+<li><a href="#explanation-1">Explanation</a></li>
+<li><a href="#in-iterables-like-arrays">In iterables (like arrays)</a></li>
+<li><a href="#function-rest-parameter">Function rest parameter</a></li>
+<li><a href="#object-properties-spreading">Object properties spreading</a></li>
+<li><a href="#external-resources">External resources</a></li>
+</ul></li>
+<li><a href="#object-property-shorthand">Object property shorthand</a>
+
+<ul>
+<li><a href="#explanation-2">Explanation</a></li>
+<li><a href="#external-resources-1">External resources</a></li>
+</ul></li>
+<li><a href="#promises">Promises</a>
+
+<ul>
+<li><a href="#sample-code-4">Sample code</a></li>
+<li><a href="#explanation-3">Explanation</a></li>
+<li><a href="#create-the-promise">Create the promise</a></li>
+<li><a href="#promise-handlers-usage">Promise handlers usage</a></li>
+<li><a href="#external-resources">External Resources</a></li>
+</ul></li>
+<li><a href="#template-literals">Template literals</a>
+
+<ul>
+<li><a href="#sample-code-5">Sample code</a></li>
+<li><a href="#external-resources-2">External resources</a></li>
+</ul></li>
+<li><a href="#tagged-template-literals">Tagged template literals</a>
+
+<ul>
+<li><a href="#external-resources-3">External resources</a></li>
+</ul></li>
+<li><a href="#imports--exports">Imports / Exports</a>
+
+<ul>
+<li><a href="#explanation-with-sample-code-1">Explanation with sample code</a></li>
+<li><a href="#named-exports">Named exports</a></li>
+<li><a href="#default-import--export">Default import / export</a></li>
+<li><a href="#external-resources-4">External resources</a></li>
+</ul></li>
+<li><a href="#a-name%22thisdef%22a-javascript-this"><a name="this_def"></a> JavaScript <em>this</em></a>
+
+<ul>
+<li><a href="#external-resources-5">External resources</a></li>
+</ul></li>
+<li><a href="#class">Class</a>
+
+<ul>
+<li><a href="#samples">Samples</a></li>
+<li><a href="#external-resources-6">External resources</a></li>
+</ul></li>
+<li><a href="#extends-and-super-keywords"><code>Extends</code> and <code>super</code> keywords</a>
+
+<ul>
+<li><a href="#sample-code">Sample Code</a></li>
+<li><a href="#external-resources-1">External Resources</a></li>
+</ul></li>
+<li><a href="#async-await">Async Await</a>
+
+<ul>
+<li><a href="#sample-code-6">Sample code</a></li>
+<li><a href="#explanation-with-sample-code-2">Explanation with sample code</a></li>
+<li><a href="#error-handling">Error handling</a></li>
+<li><a href="#external-resources-7">External resources</a></li>
+</ul></li>
+<li><a href="#truthy--falsy">Truthy / Falsy</a>
+
+<ul>
+<li><a href="#external-resources-8">External resources</a></li>
+</ul></li>
+<li><a href="#anamorphisms-and-catamorphisms">Anamorphisms and Catamorphisms</a>
+
+<ul>
+<li><a href="#anamorphisms">Anamorphisms</a></li>
+<li><a href="#catamorphisms">Catamorphisms</a></li>
+<li><a href="#external-resources-9">External resources</a></li>
+</ul></li>
+<li><a href="#generators">Generators</a>
+
+<ul>
+<li><a href="#external-resources-10">External resources</a></li>
+</ul></li>
+<li><a href="#static-methods">Static Methods</a>
+
+<ul>
+<li><a href="#short-explanation-1">Short explanation</a></li>
+<li><a href="#sample-code-7">Sample code</a></li>
+<li><a href="#detailed-explanation-2">Detailed explanation</a></li>
+<li><a href="#calling-other-static-methods-from-a-static-method">Calling other static methods from a static method.</a></li>
+<li><a href="#calling-static-methods-from-non-static-methods">Calling static methods from non-static methods.</a></li>
+<li><a href="#external-resources-11">External resources</a></li>
+</ul></li>
+<li><a href="#glossary">Glossary</a></li>
+<li><a href="#a-name%22scopedef%22a-scope"><a name="scope_def"></a> Scope</a></li>
+<li><a href="#a-name%22mutationdef%22a-variable-mutation"><a name="mutation_def"></a> Variable mutation</a></li>
+</ul></li>
+</ul>
+
+<h2 id="notions">Notions</h2>
+
+<h3 id="variable-declaration-var-const-let">Variable declaration: var, const, let</h3>
+
+<p>In JavaScript, there are three keywords available to declare a variable, and each has its differences. Those are <code>var</code>, <code>let</code> and <code>const</code>.</p>
+
+<h4 id="short-explanation">Short explanation</h4>
+
+<p>Variables declared with <code>const</code> keyword can&rsquo;t be reassigned, while <code>let</code> and <code>var</code> can.</p>
+
+<p>I recommend always declaring your variables with <code>const</code> by default, and with <code>let</code> if you need to <em>mutate</em> it or reassign it later.</p>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Scope</th>
+    <th>Reassignable</th>
+    <th>Mutable</th>
+   <th><a href="#tdz_sample">Temporal Dead Zone</a></th>
+  </tr>
+  <tr>
+    <th>const</th>
+    <td>Block</td>
+    <td>No</td>
+    <td><a href="#const_mutable_sample">Yes</a></td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <th>let</th>
+    <td>Block</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+   <tr>
+    <th>var</th>
+    <td>Function</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+</table>
+
+<h4 id="sample-code">Sample code</h4>
+
+<pre><code class="language-javascript">const person = &quot;Nick&quot;;
+person = &quot;John&quot; // Will raise an error, person can't be reassigned
+</code></pre>
+
+<pre><code class="language-javascript">let person = &quot;Nick&quot;;
+person = &quot;John&quot;;
+console.log(person) // &quot;John&quot;, reassignment is allowed with let
+</code></pre>
+
+<h4 id="detailed-explanation">Detailed explanation</h4>
+
+<p>The <a href="#scope_def"><em>scope</em></a> of a variable roughly means &ldquo;where is this variable available in the code&rdquo;.</p>
+
+<h5 id="var">var</h5>
+
+<p><code>var</code> declared variables are <em>function scoped</em>, meaning that when a variable is created in a function, everything in that function can access that variable. Besides, a <em>function scoped</em> variable created in a function can&rsquo;t be accessed outside this function.</p>
+
+<p>I recommend you to picture it as if an <em>X scoped</em> variable meant that this variable was a property of X.</p>
+
+<pre><code class="language-js">function myFunction() {
+  var myVar = &quot;Nick&quot;;
+  console.log(myVar); // &quot;Nick&quot; - myVar is accessible inside the function
+}
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+</code></pre>
+
+<p>Still focusing on the variable scope, here is a more subtle example:</p>
+
+<pre><code class="language-javascript">function myFunction() {
+  var myVar = &quot;Nick&quot;;
+  if (true) {
+    var myVar = &quot;John&quot;;
+    console.log(myVar); // &quot;John&quot;
+    // actually, myVar being function scoped, we just erased the previous myVar value &quot;Nick&quot; for &quot;John&quot;
+  }
+  console.log(myVar); // &quot;John&quot; - see how the instructions in the if block affected this value
+}
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+</code></pre>
+
+<p>Besides, <em>var</em> declared variables are moved to the top of the scope at execution. This is what we call <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting">var hoisting</a>.</p>
+
+<p>This portion of code:</p>
+
+<pre><code class="language-js">console.log(myVar) // undefined -- no error raised
+var myVar = 2;
+</code></pre>
+
+<p>is understood at execution like:</p>
+
+<pre><code class="language-js">var myVar;
+console.log(myVar) // undefined -- no error raised
+myVar = 2;
+</code></pre>
+
+<h5 id="let">let</h5>
+
+<p><code>var</code> and <code>let</code> are about the same, but <code>let</code> declared variables</p>
+
+<ul>
+<li>are <em>block scoped</em></li>
+<li>are <strong>not</strong> accessible before they are assigned</li>
+<li>can&rsquo;t be re-declared in the same scope</li>
+</ul>
+
+<p>Let&rsquo;s see the impact of block-scoping taking our previous example:</p>
+
+<pre><code class="language-javascript">function myFunction() {
+  let myVar = &quot;Nick&quot;;
+  if (true) {
+    let myVar = &quot;John&quot;;
+    console.log(myVar); // &quot;John&quot;
+    // actually, myVar being block scoped, we just created a new variable myVar.
+    // this variable is not accessible outside this block and totally independent
+    // from the first myVar created !
+  }
+  console.log(myVar); // &quot;Nick&quot;, see how the instructions in the if block DID NOT affect this value
+}
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+</code></pre>
+
+<p><a name="tdz_sample"></a> Now, what it means for <em>let</em> (and <em>const</em>) variables for not being accessible before being assigned:</p>
+
+<pre><code class="language-js">console.log(myVar) // raises a ReferenceError !
+let myVar = 2;
+</code></pre>
+
+<p>By contrast with <em>var</em> variables, if you try to read or write on a <em>let</em> or <em>const</em> variable before they are assigned an error will be raised. This phenomenon is often called <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let"><em>Temporal dead zone</em></a> or <em>TDZ</em>.</p>
+
+<blockquote>
+<p><strong>Note:</strong> Technically, <em>let</em> and <em>const</em> variables declarations are being hoisted too, but not their assignation. Since they&rsquo;re made so that they can&rsquo;t be used before assignation, it intuitively feels like there is no hoisting, but there is. Find out more on this <a href="http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified">very detailed explanation here</a> if you want to know more.</p>
+</blockquote>
+
+<p>In addition, you can&rsquo;t re-declare a <em>let</em> variable:</p>
+
+<pre><code class="language-js">let myVar = 2;
+let myVar = 3; // Raises a SyntaxError
+</code></pre>
+
+<h5 id="const">const</h5>
+
+<p><code>const</code> declared variables behave like <em>let</em> variables, but also they can&rsquo;t be reassigned.</p>
+
+<p>To sum it up, <em>const</em> variables:</p>
+
+<ul>
+<li>are <em>block scoped</em></li>
+<li>are not accessible before being assigned</li>
+<li>can&rsquo;t be re-declared in the same scope</li>
+<li>can&rsquo;t be reassigned</li>
+</ul>
+
+<pre><code class="language-js">const myVar = &quot;Nick&quot;;
+myVar = &quot;John&quot; // raises an error, reassignment is not allowed
+</code></pre>
+
+<pre><code class="language-js">const myVar = &quot;Nick&quot;;
+const myVar = &quot;John&quot; // raises an error, re-declaration is not allowed
+</code></pre>
+
+<p><a name="const_mutable_sample"></a> But there is a subtlety : <code>const</code> variables are not <a href="#mutation_def"><strong>immutable</strong></a> ! Concretely, it means that <em>object</em> and <em>array</em> <code>const</code> declared variables <strong>can</strong> be mutated.</p>
+
+<p>For objects:</p>
+
+<pre><code class="language-js">const person = {
+  name: 'Nick'
+};
+person.name = 'John' // this will work ! person variable is not completely reassigned, but mutated
+console.log(person.name) // &quot;John&quot;
+person = &quot;Sandra&quot; // raises an error, because reassignment is not allowed with const declared variables
+</code></pre>
+
+<p>For arrays:</p>
+
+<pre><code class="language-js">const person = [];
+person.push('John'); // this will work ! person variable is not completely reassigned, but mutated
+console.log(person[0]) // &quot;John&quot;
+person = [&quot;Nick&quot;] // raises an error, because reassignment is not allowed with const declared variables
+</code></pre>
+
+<h4 id="external-resource">External resource</h4>
+
+<ul>
+<li><a href="http://wesbos.com/javascript-scoping/">How let and const are scoped in JavaScript - WesBos</a></li>
+<li><a href="http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified">Temporal Dead Zone (TDZ) Demystified</a></li>
+</ul>
+
+<h3 id="a-name-arrow-func-concept-a-arrow-function"><a name="arrow_func_concept"></a> Arrow function</h3>
+
+<p>The ES6 JavaScript update has introduced <em>arrow functions</em>, which is another way to declare and use functions. Here are the benefits they bring:</p>
+
+<ul>
+<li>More concise</li>
+<li><em>this</em> is picked up from surroundings</li>
+<li>implicit return</li>
+</ul>
+
+<h4 id="sample-code-1">Sample code</h4>
+
+<ul>
+<li>Concision and implicit return</li>
+</ul>
+
+<pre><code class="language-js">function double(x) { return x * 2; } // Traditional way
+console.log(double(2)) // 4
+</code></pre>
+
+<pre><code class="language-js">const double = x =&gt; x * 2; // Same function written as an arrow function with implicit return
+console.log(double(2)) // 4
+</code></pre>
+
+<ul>
+<li><em>this</em> reference</li>
+</ul>
+
+<p>In an arrow function, <em>this</em> is equal to the <em>this</em> value of the enclosing execution context. Basically, with arrow functions, you don&rsquo;t have to do the &ldquo;that = this&rdquo; trick before calling a function inside a function anymore.</p>
+
+<pre><code class="language-js">function myFunc() {
+  this.myVar = 0;
+  setTimeout(() =&gt; {
+    this.myVar++;
+    console.log(this.myVar) // 1
+  }, 0);
+}
+</code></pre>
+
+<h4 id="detailed-explanation-1">Detailed explanation</h4>
+
+<h5 id="concision">Concision</h5>
+
+<p>Arrow functions are more concise than traditional functions in many ways. Let&rsquo;s review all the possible cases:</p>
+
+<ul>
+<li>Implicit VS Explicit return</li>
+</ul>
+
+<p>An <strong>explicit return</strong> is a function where the <em>return</em> keyword is used in its body.</p>
+
+<pre><code class="language-js">  function double(x) {
+    return x * 2; // this function explicitly returns x * 2, *return* keyword is used
+  }
+</code></pre>
+
+<p>In the traditional way of writing functions, the return was always explicit. But with arrow functions, you can do <em>implicit return</em> which means that you don&rsquo;t need to use the keyword <em>return</em> to return a value.</p>
+
+<pre><code class="language-js">  const double = (x) =&gt; {
+    return x * 2; // Explicit return here
+  }
+</code></pre>
+
+<p>Since this function only returns something (no instructions before the <em>return</em> keyword) we can do an implicit return.</p>
+
+<pre><code class="language-js">  const double = (x) =&gt; x * 2; // Correct, returns x*2
+</code></pre>
+
+<p>To do so, we only need to <strong>remove the brackets</strong> and the <strong>return</strong> keyword. That&rsquo;s why it&rsquo;s called an <em>implicit</em> return, the <em>return</em> keyword is not there, but this function will indeed return <code>x * 2</code>.</p>
+
+<blockquote>
+<p><strong>Note:</strong> If your function does not return a value (with <em>side effects</em>), it doesn&rsquo;t do an explicit nor an implicit return.</p>
+</blockquote>
+
+<p>Besides, if you want to implicitly return an <em>object</em> you <strong>must have parentheses around it</strong> since it will conflict with the block braces:</p>
+
+<pre><code class="language-js">const getPerson = () =&gt; ({ name: &quot;Nick&quot;, age: 24 })
+console.log(getPerson()) // { name: &quot;Nick&quot;, age: 24 } -- object implicitly returned by arrow function
+</code></pre>
+
+<ul>
+<li>Only one argument</li>
+</ul>
+
+<p>If your function only takes one parameter, you can omit the parentheses around it. If we take back the above <em>double</em> code:</p>
+
+<pre><code class="language-js">  const double = (x) =&gt; x * 2; // this arrow function only takes one parameter
+</code></pre>
+
+<p>Parentheses around the parameter can be avoided:</p>
+
+<pre><code class="language-js">  const double = x =&gt; x * 2; // this arrow function only takes one parameter
+</code></pre>
+
+<ul>
+<li>No arguments</li>
+</ul>
+
+<p>When there is no argument provided to an arrow function, you need to provide parentheses, or it won&rsquo;t be valid syntax.</p>
+
+<pre><code class="language-js">  () =&gt; { // parentheses are provided, everything is fine
+    const x = 2;
+    return x;
+  }
+</code></pre>
+
+<pre><code class="language-js">  =&gt; { // No parentheses, this won't work!
+    const x = 2;
+    return x;
+  }
+</code></pre>
+
+<h5 id="this-reference"><em>this</em> reference</h5>
+
+<p>To understand this subtlety introduced with arrow functions, you must know how <a href="#this_def">this</a> behaves in JavaScript.</p>
+
+<p>In an arrow function, <em>this</em> is equal to the <em>this</em> value of the enclosing execution context. What it means is that an arrow function doesn&rsquo;t create a new <em>this</em>, it grabs it from its surrounding instead.</p>
+
+<p>Without arrow function, if you wanted to access a variable from <em>this</em> in a function inside a function, you had to use the <em>that = this</em> or <em>self = this</em> trick.</p>
+
+<p>For instance, using setTimeout function inside myFunc:</p>
+
+<pre><code class="language-js">function myFunc() {
+  this.myVar = 0;
+  var that = this; // that = this trick
+  setTimeout(
+    function() { // A new *this* is created in this function scope
+      that.myVar++;
+      console.log(that.myVar) // 1
+
+      console.log(this.myVar) // undefined -- see function declaration above
+    },
+    0
+  );
+}
+</code></pre>
+
+<p>But with arrow function, <em>this</em> is taken from its surrounding:</p>
+
+<pre><code class="language-js">function myFunc() {
+  this.myVar = 0;
+  setTimeout(
+    () =&gt; { // this taken from surrounding, meaning myFunc here
+      this.myVar++;
+      console.log(this.myVar) // 1
+    },
+    0
+  );
+}
+</code></pre>
+
+<h4 id="useful-resources">Useful resources</h4>
+
+<ul>
+<li><a href="http://wesbos.com/arrow-functions/">Arrow functions introduction - WesBos</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">JavaScript arrow function - MDN</a></li>
+<li><a href="https://hackernoon.com/javascript-es6-arrow-functions-and-lexical-this-f2a3e2a5e8c4">Arrow function and lexical <em>this</em></a></li>
+</ul>
+
+<h3 id="function-default-parameter-value">Function default parameter value</h3>
+
+<p>Starting from ES2015 JavaScript update, you can set default value to your function parameters using the following syntax:</p>
+
+<pre><code class="language-js">function myFunc(x = 10) {
+  return x;
+}
+console.log(myFunc()) // 10 -- no value is provided so x default value 10 is assigned to x in myFunc
+console.log(myFunc(5)) // 5 -- a value is provided so x is equal to 5 in myFunc
+
+console.log(myFunc(undefined)) // 10 -- undefined value is provided so default value is assigned to x
+console.log(myFunc(null)) // null -- a value (null) is provided, see below for more details
+</code></pre>
+
+<p>The default parameter is applied in two and only two situations:</p>
+
+<ul>
+<li>No parameter provided</li>
+<li><em>undefined</em> parameter provided</li>
+</ul>
+
+<p>In other words, if you pass in <em>null</em> the default parameter <strong>won&rsquo;t be applied</strong>.</p>
+
+<blockquote>
+<p><strong>Note:</strong> Default value assignment can be used with destructured parameters as well (see next notion to see an example)</p>
+</blockquote>
+
+<h4 id="external-resource-1">External resource</h4>
+
+<ul>
+<li><a href="http://es6-features.org/#DefaultParameterValues">Default parameter value - ES6 Features</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters">Default parameters - MDN</a></li>
+</ul>
+
+<h3 id="destructuring-objects-and-arrays">Destructuring objects and arrays</h3>
+
+<p><em>Destructuring</em> is a convenient way of creating new variables by extracting some values from data stored in objects or arrays.</p>
+
+<p>To name a few use cases, <em>destructuring</em> can be used to destructure function parameters or <em>this.props</em> in React projects for instance.</p>
+
+<h4 id="explanation-with-sample-code">Explanation with sample code</h4>
+
+<ul>
+<li>Object</li>
+</ul>
+
+<p>Let&rsquo;s consider the following object for all the samples:</p>
+
+<pre><code class="language-js">const person = {
+  firstName: &quot;Nick&quot;,
+  lastName: &quot;Anderson&quot;,
+  age: 35,
+  sex: &quot;M&quot;
+}
+</code></pre>
+
+<p>Without destructuring</p>
+
+<pre><code class="language-js">const first = person.firstName;
+const age = person.age;
+const city = person.city || &quot;Paris&quot;;
+</code></pre>
+
+<p>With destructuring, all in one line:</p>
+
+<pre><code class="language-js">const { firstName: first, age, city = &quot;Paris&quot; } = person; // That's it !
+
+console.log(age) // 35 -- A new variable age is created and is equal to person.age
+console.log(first) // &quot;Nick&quot; -- A new variable first is created and is equal to person.firstName
+console.log(firstName) // ReferenceError -- person.firstName exists BUT the new variable created is named first
+console.log(city) // &quot;Paris&quot; -- A new variable city is created and since person.city is undefined, city is equal to the default value provided &quot;Paris&quot;.
+</code></pre>
+
+<p><strong>Note :</strong> In <code>const { age } = person;</code>, the brackets after <em>const</em> keyword are not used to declare an object nor a block but is the <em>destructuring</em> syntax.</p>
+
+<ul>
+<li>Function parameters</li>
+</ul>
+
+<p><em>Destructuring</em> is often used to destructure objects parameters in functions.</p>
+
+<p>Without destructuring</p>
+
+<pre><code class="language-js">function joinFirstLastName(person) {
+  const firstName = person.firstName;
+  const lastName = person.lastName;
+  return firstName + '-' + lastName;
+}
+
+joinFirstLastName(person); // &quot;Nick-Anderson&quot;
+</code></pre>
+
+<p>In destructuring the object parameter <em>person</em>, we get a more concise function:</p>
+
+<pre><code class="language-js">function joinFirstLastName({ firstName, lastName }) { // we create firstName and lastName variables by destructuring person parameter
+  return firstName + '-' + lastName;
+}
+
+joinFirstLastName(person); // &quot;Nick-Anderson&quot;
+</code></pre>
+
+<p>Destructuring is even more pleasant to use with <a href="#arrow_func_concept">arrow functions</a>:</p>
+
+<pre><code class="language-js">const joinFirstLastName = ({ firstName, lastName }) =&gt; firstName + '-' + lastName;
+
+joinFirstLastName(person); // &quot;Nick-Anderson&quot;
+</code></pre>
+
+<ul>
+<li>Array</li>
+</ul>
+
+<p>Let&rsquo;s consider the following array:</p>
+
+<pre><code class="language-js">const myArray = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+</code></pre>
+
+<p>Without destructuring</p>
+
+<pre><code class="language-js">const x = myArray[0];
+const y = myArray[1];
+</code></pre>
+
+<p>With destructuring</p>
+
+<pre><code class="language-js">const [x, y] = myArray; // That's it !
+
+console.log(x) // &quot;a&quot;
+console.log(y) // &quot;b&quot;
+</code></pre>
+
+<h4 id="useful-resources-1">Useful resources</h4>
+
+<ul>
+<li><a href="http://es6-features.org/#ArrayMatching">ES6 Features - Destructuring Assignment</a></li>
+<li><a href="http://wesbos.com/destructuring-objects/">Destructuring Objects - WesBos</a></li>
+<li><a href="http://exploringjs.com/es6/ch_destructuring.html">ExploringJS - Destructuring</a></li>
+</ul>
+
+<h3 id="array-methods-map-filter-reduce">Array methods - map / filter / reduce</h3>
+
+<p><em>Map</em>, <em>filter</em> and <em>reduce</em> are array methods that are coming from a programming paradigm named <a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0"><em>functional programming</em></a>.</p>
+
+<p>To sum it up:</p>
+
+<ul>
+<li><strong>Array.prototype.map()</strong> takes an array, does something on its elements and returns an array with the transformed elements.</li>
+<li><strong>Array.prototype.filter()</strong> takes an array, decides element by element if it should keep it or not and returns an array with the kept elements only</li>
+<li><strong>Array.prototype.reduce()</strong> takes an array and aggregates the elements into a single value (which is returned)</li>
+</ul>
+
+<p>I recommend to use them as much as possible in following the principles of functional programming because they are composable, concise and elegant.</p>
+
+<p>With those three methods, you can avoid the use of <em>for</em> and <em>forEach</em> loops in most situations. When you are tempted to do a <em>for</em> loop, try to do it with <em>map</em>, <em>filter</em> and <em>reduce</em> composed. You might struggle to do it at first because it requires you to learn a new way of thinking, but once you&rsquo;ve got it things get easier.</p>
+
+<h4 id="sample-code-2">Sample code</h4>
+
+<pre><code class="language-js">const numbers = [0, 1, 2, 3, 4, 5, 6];
+const doubledNumbers = numbers.map(n =&gt; n * 2); // [0, 2, 4, 6, 8, 10, 12]
+const evenNumbers = numbers.filter(n =&gt; n % 2 === 0); // [0, 2, 4, 6]
+const sum = numbers.reduce((prev, next) =&gt; prev + next, 0); // 21
+</code></pre>
+
+<p>Compute total grade sum for students with grades 10 or above by composing map, filter and reduce:</p>
+
+<pre><code class="language-js">const students = [
+  { name: &quot;Nick&quot;, grade: 10 },
+  { name: &quot;John&quot;, grade: 15 },
+  { name: &quot;Julia&quot;, grade: 19 },
+  { name: &quot;Nathalie&quot;, grade: 9 },
+];
+
+const aboveTenSum = students
+  .map(student =&gt; student.grade) // we map the students array to an array of their grades
+  .filter(grade =&gt; grade &gt;= 10) // we filter the grades array to keep those 10 or above
+  .reduce((prev, next) =&gt; prev + next, 0); // we sum all the grades 10 or above one by one
+
+console.log(aboveTenSum) // 44 -- 10 (Nick) + 15 (John) + 19 (Julia), Nathalie below 10 is ignored
+</code></pre>
+
+<h4 id="explanation">Explanation</h4>
+
+<p>Let&rsquo;s consider the following array of numbers for our examples:</p>
+
+<pre><code class="language-js">const numbers = [0, 1, 2, 3, 4, 5, 6];
+</code></pre>
+
+<h5 id="array-prototype-map">Array.prototype.map()</h5>
+
+<pre><code class="language-js">const doubledNumbers = numbers.map(function(n) {
+  return n * 2;
+});
+console.log(doubledNumbers); // [0, 2, 4, 6, 8, 10, 12]
+</code></pre>
+
+<p>What&rsquo;s happening here? We are using .map on the <em>numbers</em> array, the map is iterating on each element of the array and passes it to our function. The goal of the function is to produce and return a new value from the one passed so that map can replace it.</p>
+
+<p>Let&rsquo;s extract this function to make it more clear, just for this once:</p>
+
+<pre><code class="language-js">const doubleN = function(n) { return n * 2; };
+const doubledNumbers = numbers.map(doubleN);
+console.log(doubledNumbers); // [0, 2, 4, 6, 8, 10, 12]
+</code></pre>
+
+<p><strong>Note</strong> : You will frequently encounter this method used in combination with <a href="#-arrow-function">arrow functions</a></p>
+
+<pre><code class="language-js">const doubledNumbers = numbers.map(n =&gt; n * 2);
+console.log(doubledNumbers); // [0, 2, 4, 6, 8, 10, 12]
+</code></pre>
+
+<p><code>numbers.map(doubleN)</code> produces <code>[doubleN(0), doubleN(1), doubleN(2), doubleN(3), doubleN(4), doubleN(5), doubleN(6)]</code> which is equal to <code>[0, 2, 4, 6, 8, 10, 12]</code>.</p>
+
+<blockquote>
+<p><strong>Note:</strong> If you do not need to return a new array and just want to do a loop that has side effects, you might just want to use a for / forEach loop instead of a map.</p>
+</blockquote>
+
+<h5 id="array-prototype-filter">Array.prototype.filter()</h5>
+
+<pre><code class="language-js">const evenNumbers = numbers.filter(function(n) {
+  return n % 2 === 0; // true if &quot;n&quot; is par, false if &quot;n&quot; isn't
+});
+console.log(evenNumbers); // [0, 2, 4, 6]
+</code></pre>
+
+<p><strong>Note</strong> : You will frequently encounter this method used in combination with <a href="#-arrow-function">arrow functions</a></p>
+
+<pre><code class="language-js">const evenNumbers = numbers.filter(n =&gt; n % 2 === 0);
+console.log(evenNumbers); // [0, 2, 4, 6]
+</code></pre>
+
+<p>We are using .filter on the <em>numbers</em> array, filter is iterating on each element of the array and passes it to our function. The goal of the function is to return a boolean that will determine whether the current value will be kept or not. Filter then returns the array with only the kept values.</p>
+
+<h5 id="array-prototype-reduce">Array.prototype.reduce()</h5>
+
+<p>The reduce method goal is to <em>reduce</em> all elements of the array it iterates on into a single value. How it aggregates those elements is up to you.</p>
+
+<pre><code class="language-js">const sum = numbers.reduce(
+  function(acc, n) {
+    return acc + n;
+  },
+  0 // accumulator variable value at first iteration step
+);
+
+console.log(sum) // 21
+</code></pre>
+
+<p><strong>Note</strong> : You will frequently encounter this method used in combination with <a href="#-arrow-function">arrow functions</a></p>
+
+<pre><code class="language-js">const sum = numbers.reduce((acc, n) =&gt; acc + n, 0);
+console.log(sum) // 21
+</code></pre>
+
+<p>Just like for .map and .filter methods, .reduce is applied on an array and takes a function as the first parameter.</p>
+
+<p>This time though, there are changes:</p>
+
+<ul>
+<li>.reduce takes two parameters</li>
+</ul>
+
+<p>The first parameter is a function that will be called at each iteration step.</p>
+
+<p>The second parameter is the value of the accumulator variable (<em>acc</em> here) at the first iteration step (read next point to understand).</p>
+
+<ul>
+<li>Function parameters</li>
+</ul>
+
+<p>The function you pass as the first parameter of .reduce takes two parameters. The first one (<em>acc</em> here) is the accumulator variable, whereas the second parameter (<em>n</em>) is the current element.</p>
+
+<p>The accumulator variable is equal to the return value of your function at the <strong>previous</strong> iteration step. At the first step of the iteration, <em>acc</em> is equal to the value you passed as .reduce second parameter.</p>
+
+<h6 id="at-first-iteration-step">At first iteration step</h6>
+
+<p><code>acc = 0</code> because we passed in 0 as the second parameter for reduce</p>
+
+<p><code>n = 0</code> first element of the <em>number</em> array</p>
+
+<p>Function returns <em>acc</em> + <em>n</em> &ndash;&gt; 0 + 0 &ndash;&gt; 0</p>
+
+<h6 id="at-second-iteration-step">At second iteration step</h6>
+
+<p><code>acc = 0</code> because it&rsquo;s the value the function returned at the previous iteration step</p>
+
+<p><code>n = 1</code> second element of the <em>number</em> array</p>
+
+<p>Function returns <em>acc</em> + <em>n</em> &ndash;&gt; 0 + 1 &ndash;&gt; 1</p>
+
+<h6 id="at-third-iteration-step">At third iteration step</h6>
+
+<p><code>acc = 1</code> because it&rsquo;s the value the function returned at the previous iteration step</p>
+
+<p><code>n = 2</code> third element of the <em>number</em> array</p>
+
+<p>Function returns <em>acc</em> + <em>n</em> &ndash;&gt; 1 + 2 &ndash;&gt; 3</p>
+
+<h6 id="at-fourth-iteration-step">At fourth iteration step</h6>
+
+<p><code>acc = 3</code> because it&rsquo;s the value the function returned at the previous iteration step</p>
+
+<p><code>n = 3</code> fourth element of the <em>number</em> array</p>
+
+<p>Function returns <em>acc</em> + <em>n</em> &ndash;&gt; 3 + 3 &ndash;&gt; 6</p>
+
+<h6 id="at-last-iteration-step">[&hellip;] At last iteration step</h6>
+
+<p><code>acc = 15</code> because it&rsquo;s the value the function returned at the previous iteration step</p>
+
+<p><code>n = 6</code> last element of the <em>number</em> array</p>
+
+<p>Function returns <em>acc</em> + <em>n</em> &ndash;&gt; 15 + 6 &ndash;&gt; 21</p>
+
+<p>As it is the last iteration step, <strong>.reduce</strong> returns 21.</p>
+
+<h4 id="external-resource-2">External Resource</h4>
+
+<ul>
+<li><a href="https://hackernoon.com/understanding-map-filter-and-reduce-in-javascript-5df1c7eee464">Understanding map / filter / reduce in JS</a></li>
+</ul>
+
+<h3 id="spread-operator">Spread operator &ldquo;&hellip;&rdquo;</h3>
+
+<p>The spread operator <code>...</code> has been introduced with ES2015 and is used to expand elements of an iterable (like an array) into places where multiple elements can fit.</p>
+
+<h4 id="sample-code-3">Sample code</h4>
+
+<pre><code class="language-js">const arr1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+const arr2 = [...arr1, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]; // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+</code></pre>
+
+<pre><code class="language-js">function myFunc(x, y, ...params) {
+  console.log(x);
+  console.log(y);
+  console.log(params)
+}
+
+myFunc(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;)
+// &quot;a&quot;
+// &quot;b&quot;
+// [&quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+</code></pre>
+
+<pre><code class="language-js">const { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
+console.log(x); // 1
+console.log(y); // 2
+console.log(z); // { a: 3, b: 4 }
+
+const n = { x, y, ...z };
+console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
+</code></pre>
+
+<h4 id="explanation-1">Explanation</h4>
+
+<h5 id="in-iterables-like-arrays">In iterables (like arrays)</h5>
+
+<p>If we have the two following arrays:</p>
+
+<pre><code class="language-js">const arr1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+const arr2 = [arr1, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]; // [[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;], &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+</code></pre>
+
+<p><em>arr2</em> the first element is an array because <em>arr1</em> is injected as is into <em>arr2</em>. But what we want is <em>arr2</em> to be an array of letters. To do so, we can <em>spread</em> the elements of <em>arr1</em> into <em>arr2</em>.</p>
+
+<p>With spread operator</p>
+
+<pre><code class="language-js">const arr1 = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+const arr2 = [...arr1, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]; // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+</code></pre>
+
+<h5 id="function-rest-parameter">Function rest parameter</h5>
+
+<p>In function parameters, we can use the rest operator to inject parameters into an array we can loop in. There is already an <strong>arguments</strong> object bound to every function that is equal to an array of all the parameters passed into the function.</p>
+
+<pre><code class="language-js">function myFunc() {
+  for (var i = 0; i &lt; arguments.length; i++) {
+    console.log(arguments[i]);
+  }
+}
+
+myFunc(&quot;Nick&quot;, &quot;Anderson&quot;, 10, 12, 6);
+// &quot;Nick&quot;
+// &quot;Anderson&quot;
+// 10
+// 12
+// 6
+</code></pre>
+
+<p>But let&rsquo;s say that we want this function to create a new student with its grades and with its average grade. Wouldn&rsquo;t it be more convenient to extract the first two parameters into two separate variables, and then have all the grades in an array we can iterate over?</p>
+
+<p>That&rsquo;s exactly what the rest operator allows us to do!</p>
+
+<pre><code class="language-js">function createStudent(firstName, lastName, ...grades) {
+  // firstName = &quot;Nick&quot;
+  // lastName = &quot;Anderson&quot;
+  // [10, 12, 6] -- &quot;...&quot; takes all other parameters passed and creates a &quot;grades&quot; array variable that contains them
+
+  const avgGrade = grades.reduce((acc, curr) =&gt; acc + curr, 0) / grades.length; // computes average grade from grades
+
+  return {
+    firstName: firstName,
+    lastName: lastName,
+    grades: grades,
+    avgGrade: avgGrade
+  }
+}
+
+const student = createStudent(&quot;Nick&quot;, &quot;Anderson&quot;, 10, 12, 6);
+console.log(student);
+// {
+//   firstName: &quot;Nick&quot;,
+//   lastName: &quot;Anderson&quot;,
+//   grades: [10, 12, 6],
+//   avgGrade: 9,33
+// }
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> createStudent function is bad because we don&rsquo;t check if grades.length exists or is different from 0. But it&rsquo;s easier to read this way, so I didn&rsquo;t handle this case.</p>
+</blockquote>
+
+<h5 id="object-properties-spreading">Object properties spreading</h5>
+
+<p>For this one, I recommend you read previous explanations about the rest operator on iterables and function parameters.</p>
+
+<pre><code class="language-js">const myObj = { x: 1, y: 2, a: 3, b: 4 };
+const { x, y, ...z } = myObj; // object destructuring here
+console.log(x); // 1
+console.log(y); // 2
+console.log(z); // { a: 3, b: 4 }
+
+// z is the rest of the object destructured: myObj object minus x and y properties destructured
+
+const n = { x, y, ...z };
+console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
+
+// Here z object properties are spread into n
+</code></pre>
+
+<h4 id="external-resources">External resources</h4>
+
+<ul>
+<li><a href="https://github.com/tc39/proposal-object-rest-spread">TC39 - Object rest/spread</a></li>
+<li><a href="https://github.com/wesbos/es6-articles/blob/master/28%20-%20Spread%20Operator%20Introduction.md">Spread operator introduction - WesBos</a></li>
+<li><a href="https://codeburst.io/javascript-the-spread-operator-a867a71668ca">JavaScript &amp; the spread operator</a></li>
+<li><a href="https://davidwalsh.name/spread-operator">6 Great uses of the spread operator</a></li>
+</ul>
+
+<h3 id="object-property-shorthand">Object property shorthand</h3>
+
+<p>When assigning a variable to an object property, if the variable name is equal to the property name, you can do the following:</p>
+
+<pre><code class="language-js">const x = 10;
+const myObj = { x };
+console.log(myObj.x) // 10
+</code></pre>
+
+<h4 id="explanation-2">Explanation</h4>
+
+<p>Usually (pre-ES2015) when you declare a new <em>object literal</em> and want to use variables as object properties values, you would write this kind of code:</p>
+
+<pre><code class="language-js">const x = 10;
+const y = 20;
+
+const myObj = {
+  x: x, // assigning x variable value to myObj.x
+  y: y // assigning y variable value to myObj.y
+};
+
+console.log(myObj.x) // 10
+console.log(myObj.y) // 20
+</code></pre>
+
+<p>As you can see, this is quite repetitive because the properties name of myObj are the same as the variable names you want to assign to those properties.</p>
+
+<p>With ES2015, when the variable name is the same as the property name, you can do this shorthand:</p>
+
+<pre><code class="language-js">const x = 10;
+const y = 20;
+
+const myObj = {
+  x,
+  y
+};
+
+console.log(myObj.x) // 10
+console.log(myObj.y) // 20
+</code></pre>
+
+<h4 id="external-resources-1">External resources</h4>
+
+<ul>
+<li><a href="http://es6-features.org/#PropertyShorthand">Property shorthand - ES6 Features</a></li>
+</ul>
+
+<h3 id="promises">Promises</h3>
+
+<p>A promise is an object which can be returned synchronously from an asynchronous function (<a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#3cd0">ref</a>).</p>
+
+<p>Promises can be used to avoid <a href="http://callbackhell.com/">callback hell</a>, and they are more and more frequently encountered in modern JavaScript projects.</p>
+
+<h4 id="sample-code-4">Sample code</h4>
+
+<pre><code class="language-js">const fetchingPosts = new Promise((res, rej) =&gt; {
+  $.get(&quot;/posts&quot;)
+    .done(posts =&gt; res(posts))
+    .fail(err =&gt; rej(err));
+});
+
+fetchingPosts
+  .then(posts =&gt; console.log(posts))
+  .catch(err =&gt; console.log(err));
+</code></pre>
+
+<h4 id="explanation-3">Explanation</h4>
+
+<p>When you do an <em>Ajax request</em> the response is not synchronous because you want a resource that takes some time to come. It even may never come if the resource you have requested is unavailable for some reason (404).</p>
+
+<p>To handle that kind of situation, ES2015 has given us <em>promises</em>. Promises can have three different states:</p>
+
+<ul>
+<li>Pending</li>
+<li>Fulfilled</li>
+<li>Rejected</li>
+</ul>
+
+<p>Let&rsquo;s say we want to use promises to handle an Ajax request to fetch the resource X.</p>
+
+<h5 id="create-the-promise">Create the promise</h5>
+
+<p>We firstly are going to create a promise. We will use the jQuery get method to do our Ajax request to X.</p>
+
+<pre><code class="language-js">const xFetcherPromise = new Promise( // Create promise using &quot;new&quot; keyword and store it into a variable
+  function(resolve, reject) { // Promise constructor takes a function parameter which has resolve and reject parameters itself
+    $.get(&quot;X&quot;) // Launch the Ajax request
+      .done(function(X) { // Once the request is done...
+        resolve(X); // ... resolve the promise with the X value as parameter
+      })
+      .fail(function(error) { // If the request has failed...
+        reject(error); // ... reject the promise with the error as parameter
+      });
+  }
+)
+</code></pre>
+
+<p>As seen in the above sample, the Promise object takes an <em>executor</em> function which takes two parameters <strong>resolve</strong> and <strong>reject</strong>. Those parameters are functions which when called are going to move the promise <em>pending</em> state to respectively a <em>fulfilled</em> and <em>rejected</em> state.</p>
+
+<p>The promise is in pending state after instance creation and its <em>executor</em> function is executed immediately. Once one of the function <em>resolve</em> or <em>reject</em> is called in the <em>executor</em> function, the promise will call its associated handlers.</p>
+
+<h5 id="promise-handlers-usage">Promise handlers usage</h5>
+
+<p>To get the promise result (or error), we must attach to it handlers by doing the following:</p>
+
+<pre><code class="language-js">xFetcherPromise
+  .then(function(X) {
+    console.log(X);
+  })
+  .catch(function(err) {
+    console.log(err)
+  })
+</code></pre>
+
+<p>If the promise succeeds, <em>resolve</em> is executed and the function passed as <code>.then</code> parameter is executed.</p>
+
+<p>If it fails, <em>reject</em> is executed and the function passed as <code>.catch</code> parameter is executed.</p>
+
+<blockquote>
+<p><strong>Note :</strong> If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Description">(Ref: MDN)</a></p>
+</blockquote>
+
+<h4 id="external-resources-2">External Resources</h4>
+
+<ul>
+<li><a href="https://scotch.io/tutorials/javascript-promises-for-dummies">JavaScript Promises for dummies - Jecelyn Yeen</a></li>
+<li><a href="https://davidwalsh.name/promises">JavaScript Promise API - David Walsh</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Using promises - MDN</a></li>
+<li><a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261">What is a promise - Eric Elliott</a></li>
+<li><a href="https://developers.google.com/web/fundamentals/getting-started/primers/promises">JavaScript Promises: an Introduction - Jake Archibald</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise documentation - MDN</a></li>
+</ul>
+
+<h3 id="template-literals">Template literals</h3>
+
+<p>Template literals is an <a href="https://en.wikipedia.org/wiki/String_interpolation"><em>expression interpolation</em></a> for single and multiple-line strings.</p>
+
+<p>In other words, it is a new string syntax in which you can conveniently use any JavaScript expressions (variables for instance).</p>
+
+<h4 id="sample-code-5">Sample code</h4>
+
+<pre><code class="language-js">const name = &quot;Nick&quot;;
+`Hello ${name}, the following expression is equal to four : ${2+2}`;
+
+// Hello Nick, the following expression is equal to four: 4
+</code></pre>
+
+<h4 id="external-resources-3">External resources</h4>
+
+<ul>
+<li><a href="http://es6-features.org/#StringInterpolation">String interpolation - ES6 Features</a></li>
+<li><a href="https://developers.google.com/web/updates/2015/01/ES6-Template-Strings">ES6 Template Strings - Addy Osmani</a></li>
+</ul>
+
+<h3 id="tagged-template-literals">Tagged template literals</h3>
+
+<p>Template tags are <em>functions that can be prefixed to a <a href="#template-literals">template literal</a></em>. When a function is called this way, the first parameter is an array of the <em>strings</em> that appear between the template&rsquo;s interpolated variables, and the subsequent parameters are the interpolated values. Use a spread operator <code>...</code> to capture all of them. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals">(Ref: MDN)</a>.</p>
+
+<blockquote>
+<p><strong>Note :</strong> A famous library named <a href="https://www.styled-components.com/">styled-components</a> heavily relies on this feature.</p>
+</blockquote>
+
+<p>Below is a toy example on how they work.</p>
+
+<pre><code class="language-js">function highlight(strings, ...values) {
+  const interpolation = strings.reduce((prev, current) =&gt; {
+    return prev + current + (values.length ? &quot;&lt;mark&gt;&quot; + values.shift() + &quot;&lt;/mark&gt;&quot; : &quot;&quot;);
+  }, &quot;&quot;);
+
+  return interpolation;
+}
+
+const condiment = &quot;jam&quot;;
+const meal = &quot;toast&quot;;
+
+highlight`I like ${condiment} on ${meal}.`;
+// &quot;I like &lt;mark&gt;jam&lt;/mark&gt; on &lt;mark&gt;toast&lt;/mark&gt;.&quot;
+</code></pre>
+
+<p>A more interesting example:</p>
+
+<pre><code class="language-js">function comma(strings, ...values) {
+  return strings.reduce((prev, next) =&gt; {
+    let value = values.shift() || [];
+    value = value.join(&quot;, &quot;);
+    return prev + next + value;
+  }, &quot;&quot;);
+}
+
+const snacks = ['apples', 'bananas', 'cherries'];
+comma`I like ${snacks} to snack on.`;
+// &quot;I like apples, bananas, cherries to snack on.&quot;
+</code></pre>
+
+<h4 id="external-resources-4">External resources</h4>
+
+<ul>
+<li><a href="http://wesbos.com/tagged-template-literals/">Wes Bos on Tagged Template Literals</a></li>
+<li><a href="https://github.com/declandewet/common-tags">Library of common template tags</a></li>
+</ul>
+
+<h3 id="imports-exports">Imports / Exports</h3>
+
+<p>ES6 modules are used to access variables or functions in a module explicitly exported by the modules it imports.</p>
+
+<p>I highly recommend to take a look at MDN resources on import/export (see external resources below), it is both straightforward and complete.</p>
+
+<h4 id="explanation-with-sample-code-1">Explanation with sample code</h4>
+
+<h5 id="named-exports">Named exports</h5>
+
+<p>Named exports are used to export several values from a module.</p>
+
+<blockquote>
+<p><strong>Note :</strong> You can only name-export <a href="https://en.wikipedia.org/wiki/First-class_citizen">first-class citizens</a> that have a name.</p>
+</blockquote>
+
+<pre><code class="language-js">// mathConstants.js
+export const pi = 3.14;
+export const exp = 2.7;
+export const alpha = 0.35;
+
+// -------------
+
+// myFile.js
+import { pi, exp } from './mathConstants.js'; // Named import -- destructuring-like syntax
+console.log(pi) // 3.14
+console.log(exp) // 2.7
+
+// -------------
+
+// mySecondFile.js
+import * as constants from './mathConstants.js'; // Inject all exported values into constants variable
+console.log(constants.pi) // 3.14
+console.log(constants.exp) // 2.7
+</code></pre>
+
+<p>While named imports looks like <em>destructuring</em>, they have a different syntax and are not the same. They don&rsquo;t support default values nor <em>deep</em> destructuring.</p>
+
+<p>Besides, you can do aliases but the syntax is different from the one used in destructuring:</p>
+
+<pre><code class="language-js">import { foo as bar } from 'myFile.js'; // foo is imported and injected into a new bar variable
+</code></pre>
+
+<h5 id="default-import-export">Default import / export</h5>
+
+<p>Concerning the default export, there is only a single default export per module. A default export can be a function, a class, an object or anything else. This value is considered the &ldquo;main&rdquo; exported value since it will be the simplest to import. <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#Description">Ref: MDN</a></p>
+
+<pre><code class="language-js">// coolNumber.js
+const ultimateNumber = 42;
+export default ultimateNumber;
+
+// ------------
+
+// myFile.js
+import number from './coolNumber.js';
+// Default export, independently from its name, is automatically injected into number variable;
+console.log(number) // 42
+</code></pre>
+
+<p>Function exporting:</p>
+
+<pre><code class="language-js">// sum.js
+export default function sum(x, y) {
+  return x + y;
+}
+// -------------
+
+// myFile.js
+import sum from './sum.js';
+const result = sum(1, 2);
+console.log(result) // 3
+</code></pre>
+
+<h4 id="external-resources-5">External resources</h4>
+
+<ul>
+<li><a href="https://ponyfoo.com/articles/es6#modules">ES6 Modules in bulletpoints</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export">Export - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import">Import - MDN</a></li>
+<li><a href="https://www.sitepoint.com/understanding-es6-modules/">Understanding ES6 Modules</a></li>
+<li><a href="https://ponyfoo.com/articles/es6-destructuring-in-depth#special-case-import-statements">Destructuring special case - import statements</a></li>
+<li><a href="https://medium.com/@kentcdodds/misunderstanding-es6-modules-upgrading-babel-tears-and-a-solution-ad2d5ab93ce0">Misunderstanding ES6 Modules - Kent C. Dodds</a></li>
+<li><a href="http://exploringjs.com/es6/ch_modules.html#sec_modules-in-javascript">Modules in JavaScript</a></li>
+</ul>
+
+<h3 id="a-name-this-def-a-javascript-this"><a name="this_def"></a> JavaScript <em>this</em></h3>
+
+<p><em>this</em> operator behaves differently than in other languages and is in most cases determined by how a function is called. (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">Ref: MDN</a>).</p>
+
+<p>This notion is having many subtleties and being quite hard, I highly suggest you to deep dive in the external resources below. Thus, I will provide what I personally have in mind to determine what <em>this</em> is equal to. I have learned this tip from <a href="http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/">this article written by Yehuda Katz</a>.</p>
+
+<pre><code class="language-js">function myFunc() {
+  ...
+}
+
+// After each statement, you find the value of *this* in myFunc
+
+myFunc.call(&quot;myString&quot;, &quot;hello&quot;) // &quot;myString&quot; -- first .call parameter value is injected into *this*
+
+// In non-strict-mode
+myFunc(&quot;hello&quot;) // window -- myFunc() is syntax sugar for myFunc.call(window, &quot;hello&quot;)
+
+// In strict-mode
+myFunc(&quot;hello&quot;) // undefined -- myFunc() is syntax sugar for myFunc.call(undefined, &quot;hello&quot;)
+</code></pre>
+
+<pre><code class="language-js">var person = {
+  myFunc: function() { ... }
+}
+
+person.myFunc.call(person, &quot;test&quot;) // person Object -- first call parameter is injected into *this*
+person.myFunc(&quot;test&quot;) // person Object -- person.myFunc() is syntax sugar for person.myFunc.call(person, &quot;test&quot;)
+
+var myBoundFunc = person.myFunc.bind(&quot;hello&quot;) // Creates a new function in which we inject &quot;hello&quot; in *this* value
+person.myFunc(&quot;test&quot;) // person Object -- The bind method has no effect on the original method
+myBoundFunc(&quot;test&quot;) // &quot;hello&quot; -- myBoundFunc is person.myFunc with &quot;hello&quot; bound to *this*
+</code></pre>
+
+<h4 id="external-resources-6">External resources</h4>
+
+<ul>
+<li><a href="http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/">Understanding JavaScript Function Invocation and &ldquo;this&rdquo; - Yehuda Katz</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">JavaScript this - MDN</a></li>
+</ul>
+
+<h3 id="class">Class</h3>
+
+<p>JavaScript is a <a href="https://en.wikipedia.org/wiki/Prototype-based_programming">prototype-based</a> language (whereas Java is <a href="https://en.wikipedia.org/wiki/Class-based_programming">class-based</a> language, for instance). ES6 has introduced JavaScript classes which are meant to be a syntactic sugar for prototype-based inheritance and <strong>not</strong> a new class-based inheritance model (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">ref</a>).</p>
+
+<p>The word <em>class</em> is indeed error prone if you are familiar with classes in other languages. If you do, avoid assuming how JavaScript classes work on this basis and consider it an entirely different notion.</p>
+
+<p>Since this document is not an attempt to teach you the language from the ground up, I will believe you know what prototypes are and how they behave. If you do not, see the external resouces listed below the sample code.</p>
+
+<h4 id="samples">Samples</h4>
+
+<p>Before ES6, prototype syntax:</p>
+
+<pre><code class="language-js">var Person = function(name, age) {
+  this.name = name;
+  this.age = age;
+}
+Person.prototype.stringSentence = function() {
+  return &quot;Hello, my name is &quot; + this.name + &quot; and I'm &quot; + this.age;
+}
+</code></pre>
+
+<p>With ES6 class syntax:</p>
+
+<pre><code class="language-js">class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  stringSentence() {
+    return `Hello, my name is ${this.name} and I am ${this.age}`;
+  }
+}
+
+const myPerson = new Person(&quot;Manu&quot;, 23);
+console.log(myPerson.age) // 23
+console.log(myPerson.stringSentence()) // &quot;Hello, my name is Manu and I'm 23
+</code></pre>
+
+<h4 id="external-resources-7">External resources</h4>
+
+<p>For prototype understanding:</p>
+
+<ul>
+<li><a href="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">Understanding Prototypes in JS - Yehuda Katz</a></li>
+<li><a href="http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/">A plain English guide to JS prototypes - Sebastian Porto</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">Inheritance and the prototype chain - MDN</a></li>
+</ul>
+
+<p>For classes understanding:</p>
+
+<ul>
+<li><a href="https://ponyfoo.com/articles/es6-classes-in-depth">ES6 Classes in Depth - Nicolas Bevacqua</a></li>
+<li><a href="http://es6-features.org/#ClassDefinition">ES6 Features - Classes</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">JavaScript Classes - MDN</a></li>
+</ul>
+
+<h3 id="extends-and-super-keywords"><code>Extends</code> and <code>super</code> keywords</h3>
+
+<p>The <code>extends</code> keyword is used in class declarations or class expressions to create a class which is a child of another class (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends">Ref: MDN</a>). The subclass inherits all the properties of the superclass and additionally can add new properties or modify the inherited ones.</p>
+
+<p>The <code>super</code> keyword is used to call functions on an object&rsquo;s parent, including its constructor.</p>
+
+<ul>
+<li><code>super</code> keyword must be used before the <code>this</code> keyword is used in constructor</li>
+<li>Invoking <code>super()</code> calls the parent class constructor. If you want to pass some arguments in a class&rsquo;s constructor to its parent&rsquo;s constructor, you call it with <code>super(arguments)</code>.</li>
+<li>If the parent class have a method (even static) called <code>X</code>, you can use <code>super.X()</code> to call it in a child class.</li>
+</ul>
+
+<h4 id="sample-code-6">Sample Code</h4>
+
+<pre><code class="language-js">class Polygon {
+  constructor(height, width) {
+    this.name = 'Polygon';
+    this.height = height;
+    this.width = width;
+  }
+
+  getHelloPhrase() {
+    return `Hi, I am a ${this.name}`;
+  }
+}
+
+class Square extends Polygon {
+  constructor(length) {
+    // Here, it calls the parent class' constructor with lengths
+    // provided for the Polygon's width and height
+    super(length, length);
+    // Note: In derived classes, super() must be called before you
+    // can use 'this'. Leaving this out will cause a reference error.
+    this.name = 'Square';
+    this.length = length;
+  }
+
+  getCustomHelloPhrase() {
+    const polygonPhrase = super.getHelloPhrase(); // accessing parent method with super.X() syntax
+    return `${polygonPhrase} with a length of ${this.length}`;
+  }
+
+  get area() {
+    return this.height * this.width;
+  }
+}
+
+const mySquare = new Square(10);
+console.log(mySquare.area) // 100
+console.log(mySquare.getHelloPhrase()) // 'Hi, I am a Square' -- Square inherits from Polygon and has access to its methods
+console.log(mySquare.getCustomHelloPhrase()) // 'Hi, I am a Square with a length of 10'
+</code></pre>
+
+<p><strong>Note :</strong> If we had tried to use <code>this</code> before calling <code>super()</code> in Square class, a ReferenceError would have been raised:</p>
+
+<pre><code class="language-js">class Square extends Polygon {
+  constructor(length) {
+    this.height; // ReferenceError, super needs to be called first!
+
+    // Here, it calls the parent class' constructor with lengths
+    // provided for the Polygon's width and height
+    super(length, length);
+
+    // Note: In derived classes, super() must be called before you
+    // can use 'this'. Leaving this out will cause a reference error.
+    this.name = 'Square';
+  }
+}
+</code></pre>
+
+<h4 id="external-resources-8">External Resources</h4>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/extends">Extends - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super">Super operator - MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance">Inheritance - MDN</a></li>
+</ul>
+
+<h3 id="async-await">Async Await</h3>
+
+<p>In addition to <a href="#promises">Promises</a>, there is a new syntax you might encounter to handle asynchronous code named <em>async / await</em>.</p>
+
+<p>The purpose of async/await functions is to simplify the behavior of using promises synchronously and to perform some behavior on a group of Promises. Just as Promises are similar to structured callbacks, async/await is similar to combining generators and promises. Async functions <em>always</em> return a Promise. (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">Ref: MDN</a>)</p>
+
+<blockquote>
+<p><strong>Note :</strong> You must understand what promises are and how they work before trying to understand async / await since they rely on it.</p>
+
+<p><strong>Note 2:</strong> <a href="https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9#f3f0"><em>await</em> must be used in an <em>async</em> function</a>, which means that you can&rsquo;t use await in the top level of our code since that is not inside an async function.</p>
+</blockquote>
+
+<h4 id="sample-code-7">Sample code</h4>
+
+<pre><code class="language-js">async function getGithubUser(username) { // async keyword allows usage of await in the function and means function returns a promise
+  const response = await fetch(`https://api.github.com/users/${username}`); // Execution is paused here until the Promise returned by fetch is resolved
+  return response.json();
+}
+
+getGithubUser('mbeaudru')
+  .then(user =&gt; console.log(user)) // logging user response - cannot use await syntax since this code isn't in async function
+  .catch(err =&gt; console.log(err)); // if an error is thrown in our async function, we will catch it here
+</code></pre>
+
+<h4 id="explanation-with-sample-code-2">Explanation with sample code</h4>
+
+<p><em>Async / Await</em> is built on promises but they allow a more imperative style of code.</p>
+
+<p>The <em>async</em> operator marks a function as asynchronous and will always return a <em>Promise</em>. You can use the <em>await</em> operator in an <em>async</em> function to pause execution on that line until the returned Promise from the expression either resolves or rejects.</p>
+
+<pre><code class="language-js">async function myFunc() {
+  // we can use await operator because this function is async
+  return &quot;hello world&quot;;
+}
+
+myFunc().then(msg =&gt; console.log(msg)) // &quot;hello world&quot; -- myFunc's return value is turned into a promise because of async operator
+</code></pre>
+
+<p>When the <em>return</em> statement of an async function is reached, the Promise is fulfilled with the value returned. If an error is thrown inside an async function, the Promise state will turn to <em>rejected</em>. If no value is returned from an async function, a Promise is still returned and resolves with no value when execution of the async function is complete.</p>
+
+<p><em>await</em> operator is used to wait for a <em>Promise</em> to be fulfilled and can only be used inside an <em>async</em> function body. When encountered, the code execution is paused until the promise is fulfilled.</p>
+
+<blockquote>
+<p><strong>Note :</strong> <em>fetch</em> is a function that returns a Promise that allows to do an AJAX request</p>
+</blockquote>
+
+<p>Let&rsquo;s see how we could fetch a github user with promises first:</p>
+
+<pre><code class="language-js">function getGithubUser(username) {
+  return fetch(`https://api.github.com/users/${username}`).then(response =&gt; response.json());
+}
+
+getGithubUser('mbeaudru')
+  .then(user =&gt; console.log(user))
+  .catch(err =&gt; console.log(err));
+</code></pre>
+
+<p>Here&rsquo;s the <em>async / await</em> equivalent:</p>
+
+<pre><code class="language-js">async function getGithubUser(username) { // promise + await keyword usage allowed
+  const response = await fetch(`https://api.github.com/users/${username}`); // Execution stops here until fetch promise is fulfilled
+  return response.json();
+}
+
+getGithubUser('mbeaudru')
+  .then(user =&gt; console.log(user))
+  .catch(err =&gt; console.log(err));
+</code></pre>
+
+<p><em>async / await</em> syntax is particularly convenient when you need to chain promises that are interdependent.</p>
+
+<p>For instance, if you need to get a token in order to be able to fetch a blog post on a database and then the author informations:</p>
+
+<blockquote>
+<p><strong>Note :</strong> <em>await</em> expressions needs to be wrapped in parentheses to call its resolved value&rsquo;s methods and properties on the same line.</p>
+</blockquote>
+
+<pre><code class="language-js">async function fetchPostById(postId) {
+  const token = (await fetch('token_url')).json().token;
+  const post = (await fetch(`/posts/${postId}?token=${token}`)).json();
+  const author = (await fetch(`/users/${post.authorId}`)).json();
+
+  post.author = author;
+  return post;
+}
+
+fetchPostById('gzIrzeo64')
+  .then(post =&gt; console.log(post))
+  .catch(err =&gt; console.log(err));
+</code></pre>
+
+<h5 id="error-handling">Error handling</h5>
+
+<p>Unless we add <em>try / catch</em> blocks around <em>await</em> expressions, uncaught exceptions – regardless of whether they were thrown in the body of your <em>async</em> function or while it’s suspended during <em>await</em> – will reject the promise returned by the <em>async</em> function. Using the <code>throw</code> statement in an async function is the same as returning a Promise that rejects. <a href="https://ponyfoo.com/articles/understanding-javascript-async-await#error-handling">(Ref: PonyFoo)</a>.</p>
+
+<blockquote>
+<p><strong>Note :</strong> Promises behave the same!</p>
+</blockquote>
+
+<p>With promises, here is how you would handle the error chain:</p>
+
+<pre><code class="language-js">function getUser() { // This promise will be rejected!
+  return new Promise((res, rej) =&gt; rej(&quot;User not found !&quot;));
+}
+
+function getAvatarByUsername(userId) {
+  return getUser(userId).then(user =&gt; user.avatar);
+}
+
+function getUserAvatar(username) {
+  return getAvatarByUsername(username).then(avatar =&gt; ({ username, avatar }));
+}
+
+getUserAvatar('mbeaudru')
+  .then(res =&gt; console.log(res))
+  .catch(err =&gt; console.log(err)); // &quot;User not found !&quot;
+</code></pre>
+
+<p>The equivalent with <em>async / await</em>:</p>
+
+<pre><code class="language-js">async function getUser() { // The returned promise will be rejected!
+  throw &quot;User not found !&quot;;
+}
+
+async function getAvatarByUsername(userId) =&gt; {
+  const user = await getUser(userId);
+  return user.avatar;
+}
+
+async function getUserAvatar(username) {
+  var avatar = await getAvatarByUsername(username);
+  return { username, avatar };
+}
+
+getUserAvatar('mbeaudru')
+  .then(res =&gt; console.log(res))
+  .catch(err =&gt; console.log(err)); // &quot;User not found !&quot;
+</code></pre>
+
+<h4 id="external-resources-9">External resources</h4>
+
+<ul>
+<li><a href="https://javascript.info/async-await">Async/Await - JavaScript.Info</a></li>
+<li><a href="http://rossboucher.com/await/#/">ES7 Async/Await</a></li>
+<li><a href="https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9">6 Reasons Why JavaScript’s Async/Await Blows Promises Away</a></li>
+<li><a href="https://dev.to/kayis/javascript-awaits">JavaScript awaits</a></li>
+<li><a href="https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016">Using Async Await in Express with Node 8</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">Async Function</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await">Await</a></li>
+<li><a href="https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016">Using async / await in express with node 8</a></li>
+</ul>
+
+<h3 id="truthy-falsy">Truthy / Falsy</h3>
+
+<p>In JavaScript, a truthy or falsy value is a value that is being casted into a boolean when evaluated in a boolean context. An example of boolean context would be the evaluation of an <code>if</code> condition:</p>
+
+<p>Every value will be casted to <code>true</code> unless they are equal to:</p>
+
+<ul>
+<li><code>false</code></li>
+<li><code>0</code></li>
+<li><code>&quot;&quot;</code> (empty string)</li>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li><code>NaN</code></li>
+</ul>
+
+<p>Here are examples of <em>boolean context</em>:</p>
+
+<ul>
+<li><code>if</code> condition evaluation</li>
+</ul>
+
+<pre><code class="language-js">if (myVar) {}
+</code></pre>
+
+<p><code>myVar</code> can be any <a href="https://en.wikipedia.org/wiki/First-class_citizen">first-class citizen</a> (variable, function, boolean) but it will be casted into a boolean because it&rsquo;s evaluated in a boolean context.</p>
+
+<ul>
+<li>After logical <strong>NOT</strong> <code>!</code> operator</li>
+</ul>
+
+<p>This operator returns false if its single operand can be converted to true; otherwise, returns true.</p>
+
+<pre><code class="language-js">!0 // true -- 0 is falsy so it returns true
+!!0 // false -- 0 is falsy so !0 returns true so !(!0) returns false
+!!&quot;&quot; // false -- empty string is falsy so NOT (NOT false) equals false
+</code></pre>
+
+<ul>
+<li>With the <em>Boolean</em> object constructor</li>
+</ul>
+
+<pre><code class="language-js">new Boolean(0) // false
+new Boolean(1) // true
+</code></pre>
+
+<ul>
+<li>In a ternary evaluation</li>
+</ul>
+
+<pre><code class="language-js">myVar ? &quot;truthy&quot; : &quot;falsy&quot;
+</code></pre>
+
+<p>myVar is evaluated in a boolean context.</p>
+
+<p>Be careful when comparing 2 values. The object values (that should be cast to true) is <strong>not</strong> being casted to Boolean but it forced to convert into a primitive value one using <a href="http://javascript.info/object-toprimitive">ToPrimitives specification</a>. Internally, when an object is compared to Boolean value like <code>[] == true</code>, it does <code>[].toString() == true</code> so&hellip;</p>
+
+<pre><code class="language-js">let a = [] == true // a is false since [].toString() give &quot;&quot; back.
+let b = [1] == true // b is true since [1].toString() give &quot;1&quot; back.
+let c = [2] == true // c is false since [2].toString() give &quot;2&quot; back.
+</code></pre>
+
+<h4 id="external-resources-10">External resources</h4>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Truthy">Truthy (MDN)</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Glossary/Falsy">Falsy (MDN)</a></li>
+<li><a href="http://adripofjavascript.com/blog/drips/truthy-and-falsy-values-in-javascript.html">Truthy and Falsy values in JS - Josh Clanton</a></li>
+</ul>
+
+<h3 id="anamorphisms-and-catamorphisms">Anamorphisms and Catamorphisms</h3>
+
+<h4 id="anamorphisms">Anamorphisms</h4>
+
+<p>Anamorphisms are functions that map from some object to a more complex structure containing the type of the object. It is the process of <em>unfolding</em> a simple structure into a more complex one. Consider unfolding an integer to a list of integers. The integer is our initial object and the list of integers is the more complex structure.</p>
+
+<p><strong>Sample code</strong></p>
+
+<pre><code class="language-js">function downToOne(n) {
+  const list = [];
+
+  for (let i = n; i &gt; 0; --i) {
+    list.push(i);
+  }
+
+  return list;
+}
+
+downToOne(5)
+  //=&gt; [ 5, 4, 3, 2, 1 ]
+</code></pre>
+
+<h4 id="catamorphisms">Catamorphisms</h4>
+
+<p>Catamorphisms are the opposite of Anamorphisms, in that they take objects of more complex structure and <em>fold</em> them into simpler structures. Take the following example <code>product</code> which take a list of integers and returns a single integer.</p>
+
+<p><strong>Sample code</strong></p>
+
+<pre><code class="language-js">function product(list) {
+  let product = 1;
+
+  for (const n of list) {
+    product = product * n;
+  }
+
+  return product;
+}
+
+product(downToOne(5)) // 120
+</code></pre>
+
+<h4 id="external-resources-11">External resources</h4>
+
+<ul>
+<li><a href="http://raganwald.com/2016/11/30/anamorphisms-in-javascript.html">Anamorphisms in JavaScript</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Anamorphism">Anamorphism</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Catamorphism">Catamorphism</a></li>
+</ul>
+
+<h3 id="generators">Generators</h3>
+
+<p>Another way to write the <code>downToOne</code> function is to use a Generator. To instantiate a <code>Generator</code> object, one must use the <code>function *</code> declaration. Generators are functions that can be exited and later re-entered with its context (variable bindings) saved across re-entrances.</p>
+
+<p>For example, the <code>downToOne</code> function above can be rewritten as:</p>
+
+<pre><code class="language-js">function * downToOne(n) {
+  for (let i = n; i &gt; 0; --i) {
+    yield i;
+  }
+}
+
+[...downToOne(5)] // [ 5, 4, 3, 2, 1 ]
+</code></pre>
+
+<p>Generators return an iterable object. When the iterator&rsquo;s <code>next()</code> function is called, it is executed until the first <code>yield</code> expression, which specifies the value to be returned from the iterator or with <code>yield*</code>, which delegates to another generator function. When a <code>return</code> expression is called in the generator, it will mark the generator as done and pass back as the return value. Further calls to <code>next()</code> will not return any new values.</p>
+
+<p><strong>Sample code</strong></p>
+
+<pre><code class="language-js">// Yield Example
+function * idMaker() {
+  var index = 0;
+  while (index &lt; 2) {
+    yield index;
+    index = index + 1;
+  }
+}
+
+var gen = idMaker();
+
+gen.next().value; // 0
+gen.next().value; // 1
+gen.next().value; // undefined
+</code></pre>
+
+<p>The <code>yield*</code> expression enables a generator to call another generator function during iteration.</p>
+
+<pre><code class="language-js">// Yield * Example
+function * genB(i) {
+  yield i + 1;
+  yield i + 2;
+  yield i + 3;
+}
+
+function * genA(i) {
+  yield i;
+  yield* genB(i);
+  yield i + 10;
+}
+
+var gen = genA(10);
+
+gen.next().value; // 10
+gen.next().value; // 11
+gen.next().value; // 12
+gen.next().value; // 13
+gen.next().value; // 20
+</code></pre>
+
+<pre><code class="language-js">// Generator Return Example
+function* yieldAndReturn() {
+  yield &quot;Y&quot;;
+  return &quot;R&quot;;
+  yield &quot;unreachable&quot;;
+}
+
+var gen = yieldAndReturn()
+gen.next(); // { value: &quot;Y&quot;, done: false }
+gen.next(); // { value: &quot;R&quot;, done: true }
+gen.next(); // { value: undefined, done: true }
+</code></pre>
+
+<h4 id="external-resources-12">External resources</h4>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators#Generators">Mozilla MDN Web Docs, Iterators and Generators</a></li>
+</ul>
+
+<h3 id="static-methods">Static Methods</h3>
+
+<h4 id="short-explanation-1">Short explanation</h4>
+
+<p>The <code>static</code> keyword is used in classes to declare static methods. Static methods are functions in a class that belongs to the class object and are not available to any instance of that class.</p>
+
+<h4 id="sample-code-8">Sample code</h4>
+
+<pre><code class="language-js">class Repo{
+  static getName() {
+    return &quot;Repo name is modern-js-cheatsheet&quot;
+  }
+}
+
+// Note that we did not have to create an instance of the Repo class
+console.log(Repo.getName()) // Repo name is modern-js-cheatsheet
+
+let r = new Repo();
+console.log(r.getName()) // Uncaught TypeError: r.getName is not a function
+</code></pre>
+
+<h4 id="detailed-explanation-2">Detailed explanation</h4>
+
+<p>Static methods can be called within another static method by using the <code>this</code> keyword, this doesn&rsquo;t work for non-static methods though. Non-static methods cannot directly access static methods using the <code>this</code> keyword.</p>
+
+<h5 id="calling-other-static-methods-from-a-static-method">Calling other static methods from a static method.</h5>
+
+<p>To call a static method from another static method, the <code>this</code> keyword can be used like so;</p>
+
+<pre><code class="language-js">class Repo{
+  static getName() {
+    return &quot;Repo name is modern-js-cheatsheet&quot;
+  }
+
+  static modifyName(){
+    return this.getName() + '-added-this'
+  }
+}
+
+console.log(Repo.modifyName()) // Repo name is modern-js-cheatsheet-added-this
+</code></pre>
+
+<h5 id="calling-static-methods-from-non-static-methods">Calling static methods from non-static methods.</h5>
+
+<p>Non-static methods can call static methods in 2 ways;
+1. ###### Using the class name.</p>
+
+<p>To get access to a static method from a non-static method we use the class name and call the static method like a property. e.g <code>ClassName.StaticMethodName</code></p>
+
+<pre><code class="language-js">class Repo{
+  static getName() {
+    return &quot;Repo name is modern-js-cheatsheet&quot;
+  }
+
+  useName(){
+    return Repo.getName() + ' and it contains some really important stuff'
+  }
+}
+
+// we need to instantiate the class to use non-static methods
+let r = new Repo()
+console.log(r.useName()) // Repo name is modern-js-cheatsheet and it contains some really important stuff
+</code></pre>
+
+<ol>
+<li>###### Using the constructor</li>
+</ol>
+
+<p>Static methods can be called as properties on the constructor object.</p>
+
+<pre><code class="language-js">class Repo{
+  static getName() {
+    return &quot;Repo name is modern-js-cheatsheet&quot;
+  }
+
+  useName(){
+    // Calls the static method as a property of the constructor
+    return this.constructor.getName() + ' and it contains some really important stuff'
+  }
+}
+
+// we need to instantiate the class to use non-static methods
+let r = new Repo()
+console.log(r.useName()) // Repo name is modern-js-cheatsheet and it contains some really important stuff
+</code></pre>
+
+<h4 id="external-resources-13">External resources</h4>
+
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static">static keyword- MDN</a></li>
+<li><a href="https://javascript.info/class#static-methods">Static Methods- Javascript.info</a></li>
+<li><a href="http://odetocode.com/blogs/scott/archive/2015/02/02/static-members-in-es6.aspx">Static Members in ES6- OdeToCode</a></li>
+</ul>
+
+<h2 id="glossary">Glossary</h2>
+
+<h3 id="a-name-scope-def-a-scope"><a name="scope_def"></a> Scope</h3>
+
+<p>The context in which values and expressions are &ldquo;visible,&rdquo; or can be referenced. If a variable or other expression is not &ldquo;in the current scope,&rdquo; then it is unavailable for use.</p>
+
+<p>Source: <a href="https://developer.mozilla.org/en-US/docs/Glossary/Scope">MDN</a></p>
+
+<h3 id="a-name-mutation-def-a-variable-mutation"><a name="mutation_def"></a> Variable mutation</h3>
+
+<p>A variable is said to have been mutated when its initial value has changed afterward.</p>
+
+<pre><code class="language-js">var myArray = [];
+myArray.push(&quot;firstEl&quot;) // myArray is being mutated
+</code></pre>
+
+<p>A variable is said to be <em>immutable</em> if it can&rsquo;t be mutated.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Mutable">Check MDN Mutable article</a> for more details.</p>
+
+<hr />
+
+<p>Source : <a href="https://github.com/mbeaudru/modern-js-cheatsheet">modern-js-cheatsheet</a></p>
+
+
+            </div>
+            
+            <br>
+            <div class="share">
+                  
+                  <a href="" class="ssk ssk-facebook"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-twitter"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-google-plus"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-linkedin"></a>
+                  
+            </div>
+            
+            
+            <br>
+            <div class="navigation">
+                
+                <div>
+                    <img class="icon" src="/img/back.svg" alt="back" />
+                    <a href="/blog/install-fira-code-font/">Install Fira-Code font</a>
+                </div>
+                
+                <div style="width: 100%;"></div>
+                
+                <div>
+                    <a href="/blog/golang-cheat-sheet/">Golang Cheat Sheet</a>
+                    <img class="icon" src="/img/next.svg" alt="next" />
+                </div>
+                
+            </div>
+            
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "winarkoandy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+
+            
+
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer column">
+    <div class="container">
+
+        
+
+        <div class="copyright">
+
+        
+            
+                <a href="/license">Copyright © 2019 Andy Winarko</a>
+            
+        
+
+        </div>
+        <div class="icons">
+
+        
+
+        
+
+        
+
+        
+
+        
+            <a href="https://facebook.com/masAndywinarko" rel=me target="_blank">
+                <img class="icon" src="/img/facebook.svg" alt="facebook" />
+            </a>
+        
+
+        
+            <a href="https://github.com/winarcooo" rel=me target="_blank">
+                <img class="icon" src="/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+
+        
+            <a href="https://www.linkedin.com/in/andywinarko" rel=me target="_blank">
+                <img class="icon" src="/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+
+        
+            <a href="mailto:winarcooo@gmail.com">
+                <img class="icon" src="/img/email.svg" alt="email" />
+            </a>
+        
+
+        
+            <a href="/index.xml">
+                <img class="icon" src="/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Raleway:400,600,700', 'Merriweather:300,300i,700,700i', 'Ubuntu+Mono:400,700']
+    }
+  });
+</script>
+
+
+
+  <script src="/js/highlight.min.js" defer></script>
+  
+
+
+
+  <script src="/js/progressively.min.js" defer></script>
+
+
+
+  <script src="/js/social-share-kit.min.js" defer></script>
+
+
+
+
+
+
+<script>
+  window.onload = function() {
+    
+      hljs.initHighlighting();
+    
+    
+      progressively.init({delay: 30, throttle: 50});
+    
+    
+      SocialShareKit.init({
+        twitter: {
+            text: '',
+            
+        }
+      });
+    
+  };
+</script>
+
+
+
+
+</body>
+</html>
+

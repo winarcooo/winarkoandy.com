@@ -20,5 +20,16 @@
       <description>Index  Index  Credits Go in a Nutshell  Basic Syntax  Hello World Operators Arithmetic Comparison Logical Other Declarations Functions Functions As Values And Closures Variadic Functions Built-in Types Type Conversions Packages Control structures If Loops Switch Arrays, Slices, Ranges Arrays Slices Operations on Arrays and Slices Maps Structs Pointers Interfaces Embedding Errors  Concurrency  Goroutines Channels Channel Axioms Printing Reflection Type Switch  Snippets  HTTP Server   Credits Most example code taken from A Tour of Go, which is an excellent introduction to Go.</description>
     </item>
     
+    <item>
+      <title>Modern Javascript Cheat Sheet</title>
+      <link>/blog/modern-javascript-cheat-sheet/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/modern-javascript-cheat-sheet/</guid>
+      <description>Modern JavaScript Cheatsheet Image Credits: Ahmad Awais ⚡️
+Introduction Motivation This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.
+This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let&amp;rsquo;s say to learn React for instance) because of the JavaScript concepts used.</description>
+    </item>
+    
   </channel>
 </rss>

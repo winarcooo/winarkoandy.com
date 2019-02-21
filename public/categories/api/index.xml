@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Api on ~/.andy_winarko</title>
+    <link>/categories/api/</link>
+    <description>Recent content in Api on ~/.andy_winarko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Public Apis</title>
+      <link>/blog/public-apis/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/public-apis/</guid>
+      <description>Public-APIs    This is an attempt to categorise different APIs scoured from the web which make their resources available for consumption.
+ *Items marked with are open-source *Items marked with 💸 are trial based APIs
+ Table of Contents  Public-APIs   Table of Contents APIs Advertising Analytics Augmented Reality BarCode Big Data and Analytics Bitcoin/Bitcoin Wallets Calendar Captcha Check-In Commerce Communication Content Currency Data Science Design Dictionary Entertainment Events Face Recognition File Storage and Manipulation Finance Fitness Google Identity Verification Image Moderation IoT Legal  Open Licenses  Login Authentication Machine Learning Maps Math Medical Miscellaneous Movies Music Music Analytics Music Discovery Music Identification Music Lyrics Music Stores News Services Natural Language Processing Placeholder Images Places Product Quotes Retail Science Social Media Source Control Sport Transportation URL Shorteners Videogames Weather Credits Resources For Design and Discovery of APIs More Resources Contributions  License  APIs Advertising  Amazon Mobile Ads - Monetize across platforms with multiple ad formats.</description>
+    </item>
+    
+  </channel>
+</rss>
