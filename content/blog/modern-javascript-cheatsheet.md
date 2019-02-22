@@ -11,6 +11,7 @@ categories = [
     "javascript",
     "cheatsheet",
 ]
+best = true
 +++
 
 ---

@@ -13,6 +13,7 @@ categories = [
     "golang",
     "cheatsheet",
 ]
+best = true
 +++
 
 # Index
