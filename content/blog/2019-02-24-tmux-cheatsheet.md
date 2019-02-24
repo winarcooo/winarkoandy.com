@@ -10,6 +10,7 @@ date = "2019-02-24"
 categories = [
     "cheatsheet",
 ]
+best = true
 +++
 
 ---
