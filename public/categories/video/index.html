@@ -12,9 +12,9 @@
 <meta property="og:site_name" content="~/.andy_winarko" />
 <meta property="og:locale" content="en-US" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/blog/golang-pass-by-value-vs-pass-by-reference/" />
-<meta property="og:title" content="Golang Pass-by-value vs Pass-by-reference" />
-<meta property="twitter:title" content="Golang Pass-by-value vs Pass-by-reference">
+<meta property="og:url" content="/categories/video/" />
+<meta property="og:title" content="Video" />
+<meta property="twitter:title" content="Video">
 
     <meta property="twitter:card" content="summary">
 
@@ -34,10 +34,10 @@
 <title>
 
 
-     ~/.andy_winarko - Golang Pass-by-value vs Pass-by-reference 
+     ~/.andy_winarko - Video 
 
 </title>
-<link rel="canonical" href="/blog/golang-pass-by-value-vs-pass-by-reference/">
+<link rel="canonical" href="/categories/video/">
 
 
 <style media="screen">
@@ -1002,6 +1002,8 @@ margin-left: -4%;
 
 
 
+  <link href="/categories/video/index.xml" rel="alternate" type="application/rss+xml" title="~/.andy_winarko" />
+
 
 </head>
 
@@ -1009,7 +1011,7 @@ margin-left: -4%;
 <body>
 
 
-<div class="header column">
+<div class="header header-home column">
 
     <div class="container">
         
@@ -1040,201 +1042,26 @@ margin-left: -4%;
     </div>
 </div>
 
-
-
-
-
-<div class="main post non-narrow zero-top-spacing column">
+<div class="main column">
     <div class="container">
         <div class="content">
-            <div class="front-matter">
-                <div class="title-container">
-                    <div class="page-heading">
-
-    
-    Golang Pass-by-value vs Pass-by-reference
-    
-
-</div>
-
-                </div>
-                <div class="meta">
-                    <div class="date" title="Sun Feb 24 2019 00:00:00 UTC">Feb 24, 2019</div>
+            <div class="posts">
+                <div class="page-heading">Posts about Video</div>
+                <ul>
                     
-                        
-                        <div class="author middot" title="andy winarko">andy winarko</div>
-                        
+                        <li class="post-item">
+    <span class="meta">Feb 24, 2019</span>
+    
+    <a href="/blog/youtube-how-do-computer-read-code-/"><span>[YouTube] How Do Computer Read code ?</span></a>
+    
+</li>
+
                     
-                    
-                    <div class="reading-time middot">1 minute read</div>
-                    
-                    <div class="tags">
-                        <ul>
-                          
-                            <li class="middot"><a href="/tags/go">go</a> </li>
-                          
-                            <li class="middot"><a href="/tags/golang">golang</a> </li>
-                          
-                            <li class="middot"><a href="/tags/snippet">snippet</a> </li>
-                          
-                        </ul>
-                    </div>
-                    <div class="tags">
-                        <ul>
-                          
-                          
-                        </ul>
-                    </div>
-                </div>
+                </ul>
             </div>
-            <div class="markdown">
-                
-    
-    
-
-<hr />
-
-<p>Sedikit menjelaskan aja, perbedaan mendasar pass-by-value &amp; by-rerefence dalam golang.</p>
-
-<h3 id="passing-by-value">Passing by value</h3>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-type Person struct {
-	firstname string
-	lastname  string
-}
-
-func changeName(p Person) {
-	p.firstname = &quot;Bob&quot;
-}
-
-func main() {
-	person := Person{
-		firstname: &quot;Alice&quot;,
-		lastname:  &quot;Dow&quot;,
-	}
-
-	changeName(person)  // function ini hanya mengambil copy dari variable person
-
-	fmt.Println(person)
-}
-</code></pre>
-
-<p>Output dari code diatas,</p>
-
-<pre><code>{Alice Dow}
-</code></pre>
-
-<p>bisa dilihat, function <code>changeName</code> yang ada di <code>main</code> gak mengubah sama sekali firstname dari person. Ini karena <code>changeName</code> mengubah copy dari variable person, bukan varible person itu sendiri.</p>
-
-<hr />
-
-<h3 id="passing-by-pointer">Passing By Pointer</h3>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-type Person struct {
-	firstname string
-	lastname  string
-}
-
-func changeName(p *Person) {
-	p.firstname = &quot;Bob&quot;
-}
-
-func main() {
-	person := Person{
-		firstname: &quot;Alice&quot;,
-		lastname:  &quot;Dow&quot;,
-	}
-
-	changeName(&amp;person)  // function ini menunjuk ke variable yg sama
-
-	fmt.Println(person)
-}
-</code></pre>
-
-<p>Output dari code diatas,</p>
-
-<pre><code>{Bob Dow}
-</code></pre>
-
-<p>disini, variable person di function <code>main</code> berubah karena function <code>changeName</code>, ini karena menunjuk ke variable yang sama.</p>
-
-<hr />
-
-
-            </div>
-            
-            <br>
-            <div class="share">
-                  
-                  <a href="" class="ssk ssk-facebook"></a>
-                  
-                  
-                  <a href="" class="ssk ssk-twitter"></a>
-                  
-                  
-                  <a href="" class="ssk ssk-google-plus"></a>
-                  
-                  
-                  <a href="" class="ssk ssk-linkedin"></a>
-                  
-            </div>
-            
-            
-            <br>
-            <div class="navigation">
-                
-                <div>
-                    <img class="icon" src="/img/back.svg" alt="back" />
-                    <a href="/blog/youtube-how-do-computer-read-code-/">[YouTube] How Do Computer Read code ?</a>
-                </div>
-                
-                <div style="width: 100%;"></div>
-                
-            </div>
-            
-            
-            <br>
-            <div class="disqus">
-                <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "winarkoandy" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-            </div>
-            
-
-            
-
-            
         </div>
     </div>
 </div>
-
-
-
 <div class="footer column">
     <div class="container">
 

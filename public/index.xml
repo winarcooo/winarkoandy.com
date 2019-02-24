@@ -17,8 +17,21 @@
       <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/golang-pass-by-value-vs-pass-by-reference/</guid>
-      <description>Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct { firstname string lastname string } func changeName(p Person) { p.firstname = &amp;quot;Bob&amp;quot; } func main() { person := Person{ firstname: &amp;quot;Alice&amp;quot;, lastname: &amp;quot;Dow&amp;quot;, } changeName(person) // function ini hanya mengambil copy dari variable person fmt.Println(person) }  Output dari code diatas,
+      <description>Sedikit menjelaskan aja, perbedaan mendasar pass-by-value &amp;amp; by-rerefence dalam golang.
+Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct { firstname string lastname string } func changeName(p Person) { p.firstname = &amp;quot;Bob&amp;quot; } func main() { person := Person{ firstname: &amp;quot;Alice&amp;quot;, lastname: &amp;quot;Dow&amp;quot;, } changeName(person) // function ini hanya mengambil copy dari variable person fmt.Println(person) }  Output dari code diatas,
 {Alice Dow}  bisa dilihat, function changeName yang ada di main gak mengubah sama sekali firstname dari person.</description>
+    </item>
+    
+    <item>
+      <title>[YouTube] How Do Computer Read code ?</title>
+      <link>/blog/youtube-how-do-computer-read-code-/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/youtube-how-do-computer-read-code-/</guid>
+      <description>Mau share aja, video yang menurut saya keren. Dia jelasin tentang gimana komputer bisa baca source-code kita sampai bisa dieksekusi.
+ini dari channel youtube frame of Essense.
+How do computers read code? 
+Happy watching and keep learning.</description>
     </item>
     
     <item>

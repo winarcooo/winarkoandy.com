@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>/blog/youtube-how-do-computer-read-code-/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/awesome-crawler/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
   </url>
@@ -153,6 +158,18 @@
   </url>
   
   <url>
+    <loc>/tags/programming/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/programming/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/snippet/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -161,6 +178,18 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/video/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/video/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

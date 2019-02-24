@@ -14,6 +14,8 @@ categories = [
 +++
 ---
 
+Sedikit menjelaskan aja, perbedaan mendasar pass-by-value & by-rerefence dalam golang.
+
 ### Passing by value
 
 ```go

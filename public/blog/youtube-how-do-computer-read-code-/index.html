@@ -12,9 +12,9 @@
 <meta property="og:site_name" content="~/.andy_winarko" />
 <meta property="og:locale" content="en-US" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/blog/golang-pass-by-value-vs-pass-by-reference/" />
-<meta property="og:title" content="Golang Pass-by-value vs Pass-by-reference" />
-<meta property="twitter:title" content="Golang Pass-by-value vs Pass-by-reference">
+<meta property="og:url" content="/blog/youtube-how-do-computer-read-code-/" />
+<meta property="og:title" content="[YouTube] How Do Computer Read code ?" />
+<meta property="twitter:title" content="[YouTube] How Do Computer Read code ?">
 
     <meta property="twitter:card" content="summary">
 
@@ -34,10 +34,10 @@
 <title>
 
 
-     ~/.andy_winarko - Golang Pass-by-value vs Pass-by-reference 
+     ~/.andy_winarko - [YouTube] How Do Computer Read code ? 
 
 </title>
-<link rel="canonical" href="/blog/golang-pass-by-value-vs-pass-by-reference/">
+<link rel="canonical" href="/blog/youtube-how-do-computer-read-code-/">
 
 
 <style media="screen">
@@ -1052,7 +1052,7 @@ margin-left: -4%;
                     <div class="page-heading">
 
     
-    Golang Pass-by-value vs Pass-by-reference
+    [YouTube] How Do Computer Read code ?
     
 
 </div>
@@ -1071,11 +1071,9 @@ margin-left: -4%;
                     <div class="tags">
                         <ul>
                           
-                            <li class="middot"><a href="/tags/go">go</a> </li>
+                            <li class="middot"><a href="/tags/programming">programming</a> </li>
                           
-                            <li class="middot"><a href="/tags/golang">golang</a> </li>
-                          
-                            <li class="middot"><a href="/tags/snippet">snippet</a> </li>
+                            <li class="middot"><a href="/tags/video">video</a> </li>
                           
                         </ul>
                     </div>
@@ -1094,77 +1092,15 @@ margin-left: -4%;
 
 <hr />
 
-<p>Sedikit menjelaskan aja, perbedaan mendasar pass-by-value &amp; by-rerefence dalam golang.</p>
+<p>Mau share aja, video yang menurut saya keren. Dia jelasin tentang gimana komputer bisa baca source-code kita sampai bisa dieksekusi.</p>
 
-<h3 id="passing-by-value">Passing by value</h3>
+<p>ini dari channel youtube <a href="https://www.youtube.com/channel/UCQHsMwcGoH1ygyi-pJs5Z8A">frame of Essense</a>.</p>
 
-<pre><code class="language-go">package main
+<h2 id="how-do-computers-read-code">How do computers read code?</h2>
 
-import &quot;fmt&quot;
+<p><a href="https://www.youtube.com/watch?v=QXjU9qTsYCc" title="How do computers read code?"><img src="https://img.youtube.com/vi/QXjU9qTsYCc/0.jpg" alt="How do computers read code?" /></a></p>
 
-type Person struct {
-	firstname string
-	lastname  string
-}
-
-func changeName(p Person) {
-	p.firstname = &quot;Bob&quot;
-}
-
-func main() {
-	person := Person{
-		firstname: &quot;Alice&quot;,
-		lastname:  &quot;Dow&quot;,
-	}
-
-	changeName(person)  // function ini hanya mengambil copy dari variable person
-
-	fmt.Println(person)
-}
-</code></pre>
-
-<p>Output dari code diatas,</p>
-
-<pre><code>{Alice Dow}
-</code></pre>
-
-<p>bisa dilihat, function <code>changeName</code> yang ada di <code>main</code> gak mengubah sama sekali firstname dari person. Ini karena <code>changeName</code> mengubah copy dari variable person, bukan varible person itu sendiri.</p>
-
-<hr />
-
-<h3 id="passing-by-pointer">Passing By Pointer</h3>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-type Person struct {
-	firstname string
-	lastname  string
-}
-
-func changeName(p *Person) {
-	p.firstname = &quot;Bob&quot;
-}
-
-func main() {
-	person := Person{
-		firstname: &quot;Alice&quot;,
-		lastname:  &quot;Dow&quot;,
-	}
-
-	changeName(&amp;person)  // function ini menunjuk ke variable yg sama
-
-	fmt.Println(person)
-}
-</code></pre>
-
-<p>Output dari code diatas,</p>
-
-<pre><code>{Bob Dow}
-</code></pre>
-
-<p>disini, variable person di function <code>main</code> berubah karena function <code>changeName</code>, ini karena menunjuk ke variable yang sama.</p>
+<p>Happy watching and keep learning.</p>
 
 <hr />
 
@@ -1193,10 +1129,15 @@ func main() {
                 
                 <div>
                     <img class="icon" src="/img/back.svg" alt="back" />
-                    <a href="/blog/youtube-how-do-computer-read-code-/">[YouTube] How Do Computer Read code ?</a>
+                    <a href="/blog/awesome-crawler/">Awesome Crawler</a>
                 </div>
                 
                 <div style="width: 100%;"></div>
+                
+                <div>
+                    <a href="/blog/golang-pass-by-value-vs-pass-by-reference/">Golang Pass-by-value vs Pass-by-reference</a>
+                    <img class="icon" src="/img/next.svg" alt="next" />
+                </div>
                 
             </div>
             
