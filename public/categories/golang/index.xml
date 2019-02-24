@@ -6,10 +6,20 @@
     <description>Recent content in Golang on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Thu, 21 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang Pass-by-value vs Pass-by-reference</title>
+      <link>/blog/golang-pass-by-value-vs-pass-by-reference/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/golang-pass-by-value-vs-pass-by-reference/</guid>
+      <description>Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct { firstname string lastname string } func changeName(p Person) { p.firstname = &amp;quot;Bob&amp;quot; } func main() { person := Person{ firstname: &amp;quot;Alice&amp;quot;, lastname: &amp;quot;Dow&amp;quot;, } changeName(person) // function ini hanya mengambil copy dari variable person fmt.Println(person) }  Output dari code diatas,
+{Alice Dow}  bisa dilihat, function changeName yang ada di main gak mengubah sama sekali firstname dari person.</description>
+    </item>
     
     <item>
       <title>Golang Cheat Sheet</title>
