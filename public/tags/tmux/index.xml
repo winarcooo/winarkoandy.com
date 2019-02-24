@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tmux on ~/.andy_winarko</title>
+    <link>/tags/tmux/</link>
+    <description>Recent content in Tmux on ~/.andy_winarko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tmux Cheat sheet</title>
+      <link>/blog/tmux-cheat-sheet/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/tmux-cheat-sheet/</guid>
+      <description>tmux is a terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time.
+ tmux shortcuts &amp;amp; cheatsheet start new:
+tmux  start new with session name:
+tmux new -s myname  attach:
+tmux a # (or at, or attach)  attach to named:
+tmux a -t myname  list sessions:</description>
+    </item>
+    
+  </channel>
+</rss>

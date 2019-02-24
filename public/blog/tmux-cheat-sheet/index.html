@@ -12,9 +12,9 @@
 <meta property="og:site_name" content="~/.andy_winarko" />
 <meta property="og:locale" content="en-US" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/blog/golang-pass-by-value-vs-pass-by-reference/" />
-<meta property="og:title" content="Golang Pass-by-value vs Pass-by-reference" />
-<meta property="twitter:title" content="Golang Pass-by-value vs Pass-by-reference">
+<meta property="og:url" content="/blog/tmux-cheat-sheet/" />
+<meta property="og:title" content="Tmux Cheat sheet" />
+<meta property="twitter:title" content="Tmux Cheat sheet">
 
     <meta property="twitter:card" content="summary">
 
@@ -34,10 +34,10 @@
 <title>
 
 
-     ~/.andy_winarko - Golang Pass-by-value vs Pass-by-reference 
+     ~/.andy_winarko - Tmux Cheat sheet 
 
 </title>
-<link rel="canonical" href="/blog/golang-pass-by-value-vs-pass-by-reference/">
+<link rel="canonical" href="/blog/tmux-cheat-sheet/">
 
 
 <style media="screen">
@@ -1052,7 +1052,7 @@ margin-left: -4%;
                     <div class="page-heading">
 
     
-    Golang Pass-by-value vs Pass-by-reference
+    Tmux Cheat sheet
     
 
 </div>
@@ -1066,16 +1066,14 @@ margin-left: -4%;
                         
                     
                     
-                    <div class="reading-time middot">1 minute read</div>
+                    <div class="reading-time middot">5 minute read</div>
                     
                     <div class="tags">
                         <ul>
                           
-                            <li class="middot"><a href="/tags/go">go</a> </li>
+                            <li class="middot"><a href="/tags/tmux">tmux</a> </li>
                           
-                            <li class="middot"><a href="/tags/golang">golang</a> </li>
-                          
-                            <li class="middot"><a href="/tags/snippet">snippet</a> </li>
+                            <li class="middot"><a href="/tags/cheatsheet">cheatsheet</a> </li>
                           
                         </ul>
                     </div>
@@ -1094,79 +1092,197 @@ margin-left: -4%;
 
 <hr />
 
-<p>Sedikit menjelaskan aja, perbedaan mendasar pass-by-value &amp; by-rerefence dalam golang.</p>
+<blockquote>
+<p>tmux is a terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time.</p>
+</blockquote>
 
-<h3 id="passing-by-value">Passing by value</h3>
+<h1 id="tmux-shortcuts-cheatsheet">tmux shortcuts &amp; cheatsheet</h1>
 
-<pre><code class="language-go">package main
+<p>start new:</p>
 
-import &quot;fmt&quot;
-
-type Person struct {
-	firstname string
-	lastname  string
-}
-
-func changeName(p Person) {
-	p.firstname = &quot;Bob&quot;
-}
-
-func main() {
-	person := Person{
-		firstname: &quot;Alice&quot;,
-		lastname:  &quot;Dow&quot;,
-	}
-
-	changeName(person)  // function ini hanya mengambil copy dari variable person
-
-	fmt.Println(person)
-}
+<pre><code>tmux
 </code></pre>
 
-<p>Output dari code diatas,</p>
+<p>start new with session name:</p>
 
-<pre><code>{Alice Dow}
+<pre><code>tmux new -s myname
 </code></pre>
 
-<p>bisa dilihat, function <code>changeName</code> yang ada di <code>main</code> gak mengubah sama sekali firstname dari person. Ini karena <code>changeName</code> mengubah copy dari variable person, bukan varible person itu sendiri.</p>
+<p>attach:</p>
+
+<pre><code>tmux a  #  (or at, or attach)
+</code></pre>
+
+<p>attach to named:</p>
+
+<pre><code>tmux a -t myname
+</code></pre>
+
+<p>list sessions:</p>
+
+<pre><code>tmux ls
+</code></pre>
+
+<p><a name="killSessions"></a>kill session:</p>
+
+<pre><code>tmux kill-session -t myname
+</code></pre>
+
+<p><a name="killAllSessions"></a>Kill all the tmux sessions:</p>
+
+<pre><code>tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill
+</code></pre>
+
+<p>In tmux, hit the prefix <code>ctrl+b</code> (my modified prefix is ctrl+a) and then:</p>
+
+<h2 id="sessions">Sessions</h2>
+
+<pre><code>:new&lt;CR&gt;  new session
+s  list sessions
+$  name session
+</code></pre>
+
+<h2 id="a-name-windowstabs-a-windows-tabs"><a name="WindowsTabs"></a>Windows (tabs)</h2>
+
+<pre><code>c  create window
+w  list windows
+n  next window
+p  previous window
+f  find window
+,  name window
+&amp;  kill window
+</code></pre>
+
+<h2 id="a-name-panessplits-a-panes-splits"><a name="PanesSplits"></a>Panes (splits)</h2>
+
+<pre><code>%  vertical split
+&quot;  horizontal split
+
+o  swap panes
+q  show pane numbers
+x  kill pane
++  break pane into window (e.g. to select text by mouse to copy)
+-  restore pane from window
+⍽  space - toggle between layouts
+&lt;prefix&gt; q (Show pane numbers, when the numbers show up type the key to goto that pane)
+&lt;prefix&gt; { (Move the current pane left)
+&lt;prefix&gt; } (Move the current pane right)
+&lt;prefix&gt; z toggle pane zoom
+</code></pre>
+
+<h2 id="a-name-syncpanes-a-sync-panes"><a name="syncPanes"></a>Sync Panes</h2>
+
+<p>You can do this by switching to the appropriate window, typing your Tmux prefix (commonly Ctrl-B or Ctrl-A) and then a colon to bring up a Tmux command line, and typing:</p>
+
+<pre><code>:setw synchronize-panes
+</code></pre>
+
+<p>You can optionally add on or off to specify which state you want; otherwise the option is simply toggled. This option is specific to one window, so it won’t change the way your other sessions or windows operate. When you’re done, toggle it off again by repeating the command. <a href="http://blog.sanctum.geek.nz/sync-tmux-panes/">tip source</a></p>
+
+<h2 id="resizing-panes">Resizing Panes</h2>
+
+<p>You can also resize panes if you don’t like the layout defaults. I personally rarely need to do this, though it’s handy to know how. Here is the basic syntax to resize panes:</p>
+
+<pre><code>PREFIX : resize-pane -D (Resizes the current pane down)
+PREFIX : resize-pane -U (Resizes the current pane upward)
+PREFIX : resize-pane -L (Resizes the current pane left)
+PREFIX : resize-pane -R (Resizes the current pane right)
+PREFIX : resize-pane -D 20 (Resizes the current pane down by 20 cells)
+PREFIX : resize-pane -U 20 (Resizes the current pane upward by 20 cells)
+PREFIX : resize-pane -L 20 (Resizes the current pane left by 20 cells)
+PREFIX : resize-pane -R 20 (Resizes the current pane right by 20 cells)
+PREFIX : resize-pane -t 2 20 (Resizes the pane with the id of 2 down by 20 cells)
+PREFIX : resize-pane -t -L 20 (Resizes the pane with the id of 2 left by 20 cells)
+</code></pre>
+
+<h2 id="copy-mode">Copy mode:</h2>
+
+<p>Pressing PREFIX [ places us in Copy mode. We can then use our movement keys to move our cursor around the screen. By default, the arrow keys work. we set our configuration file to use Vim keys for moving between windows and resizing panes so we wouldn’t have to take our hands off the home row. tmux has a vi mode for working with the buffer as well. To enable it, add this line to .tmux.conf:</p>
+
+<pre><code>setw -g mode-keys vi
+</code></pre>
+
+<p>With this option set, we can use h, j, k, and l to move around our buffer.</p>
+
+<p>To get out of Copy mode, we just press the ENTER key. Moving around one character at a time isn’t very efficient. Since we enabled vi mode, we can also use some other visible shortcuts to move around the buffer.</p>
+
+<p>For example, we can use &ldquo;w&rdquo; to jump to the next word and &ldquo;b&rdquo; to jump back one word. And we can use &ldquo;f&rdquo;, followed by any character, to jump to that character on the same line, and &ldquo;F&rdquo; to jump backwards on the line.</p>
+
+<pre><code>   Function                vi             emacs
+   Back to indentation     ^              M-m
+   Clear selection         Escape         C-g
+   Copy selection          Enter          M-w
+   Cursor down             j              Down
+   Cursor left             h              Left
+   Cursor right            l              Right
+   Cursor to bottom line   L
+   Cursor to middle line   M              M-r
+   Cursor to top line      H              M-R
+   Cursor up               k              Up
+   Delete entire line      d              C-u
+   Delete to end of line   D              C-k
+   End of line             $              C-e
+   Goto line               :              g
+   Half page down          C-d            M-Down
+   Half page up            C-u            M-Up
+   Next page               C-f            Page down
+   Next word               w              M-f
+   Paste buffer            p              C-y
+   Previous page           C-b            Page up
+   Previous word           b              M-b
+   Quit mode               q              Escape
+   Scroll down             C-Down or J    C-Down
+   Scroll up               C-Up or K      C-Up
+   Search again            n              n
+   Search backward         ?              C-r
+   Search forward          /              C-s
+   Start of line           0              C-a
+   Start selection         Space          C-Space
+   Transpose chars                        C-t
+</code></pre>
+
+<h2 id="misc">Misc</h2>
+
+<pre><code>d  detach
+t  big clock
+?  list shortcuts
+:  prompt
+</code></pre>
+
+<h2 id="configurations-options">Configurations Options:</h2>
+
+<pre><code># Mouse support - set to on if you want to use the mouse
+* setw -g mode-mouse off
+* set -g mouse-select-pane off
+* set -g mouse-resize-pane off
+* set -g mouse-select-window off
+
+# Set the default terminal mode to 256color mode
+set -g default-terminal &quot;screen-256color&quot;
+
+# enable activity alerts
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Center the window list
+set -g status-justify centre
+
+# Maximize and restore a pane
+unbind Up bind Up new-window -d -n tmp \; swap-pane -s tmp.1 \; select-window -t tmp
+unbind Down
+bind Down last-window \; swap-pane -s tmp.1 \; kill-window -t tmp
+</code></pre>
+
+<h2 id="resources">Resources:</h2>
+
+<ul>
+<li><a href="http://pragprog.com/book/bhtmux/tmux">tmux: Productive Mouse-Free Development</a></li>
+<li><a href="http://superuser.com/questions/343572/tmux-how-do-i-reorder-my-windows">How to reorder windows</a></li>
+</ul>
 
 <hr />
 
-<h3 id="passing-by-pointer">Passing By Pointer</h3>
-
-<pre><code class="language-go">package main
-
-import &quot;fmt&quot;
-
-type Person struct {
-	firstname string
-	lastname  string
-}
-
-func changeName(p *Person) {
-	p.firstname = &quot;Bob&quot;
-}
-
-func main() {
-	person := Person{
-		firstname: &quot;Alice&quot;,
-		lastname:  &quot;Dow&quot;,
-	}
-
-	changeName(&amp;person)  // function ini menunjuk ke variable yg sama
-
-	fmt.Println(person)
-}
-</code></pre>
-
-<p>Output dari code diatas,</p>
-
-<pre><code>{Bob Dow}
-</code></pre>
-
-<p>disini, variable person di function <code>main</code> berubah karena function <code>changeName</code>, ini karena menunjuk ke variable yang sama.</p>
-
-<hr />
+<p>credit to : <a href="https://gist.github.com/MohamedAlaa/2961058">MohamedAlaa</a></p>
 
 
             </div>
@@ -1193,10 +1309,15 @@ func main() {
                 
                 <div>
                     <img class="icon" src="/img/back.svg" alt="back" />
-                    <a href="/blog/tmux-cheat-sheet/">Tmux Cheat sheet</a>
+                    <a href="/blog/youtube-how-do-computer-read-code-/">[YouTube] How Do Computer Read code ?</a>
                 </div>
                 
                 <div style="width: 100%;"></div>
+                
+                <div>
+                    <a href="/blog/golang-pass-by-value-vs-pass-by-reference/">Golang Pass-by-value vs Pass-by-reference</a>
+                    <img class="icon" src="/img/next.svg" alt="next" />
+                </div>
                 
             </div>
             
