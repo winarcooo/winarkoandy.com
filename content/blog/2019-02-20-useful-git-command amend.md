@@ -11,9 +11,6 @@ categories = [
 ]
 +++
 
-![image](/img/book.jpg) "Photo by Mick Haupt on Unsplash"
-
-
 Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah  `git commit`.
 
 nah problem yang muncul kalo pake `git commit` biasanya kayak gini,
@@ -21,6 +18,8 @@ nah problem yang muncul kalo pake `git commit` biasanya kayak gini,
 * ***git commit gua messagenya salah, gantinya gmn ya ?***
 
 * ***eh file gua ada 1 yang gak ke commit, gua bikin commit baru aja ya?***
+
+![image](/img/wait.jpg)
 
 Nah di case-case ini kita bisa pakai option `--amend`
 

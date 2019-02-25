@@ -17,8 +17,7 @@
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/useful-git-command---amend/</guid>
-      <description>&amp;ldquo;Photo by Mick Haupt on Unsplash&amp;rdquo;
-Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah git commit.
+      <description>Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah git commit.
 nah problem yang muncul kalo pake git commit biasanya kayak gini,
  git commit gua messagenya salah, gantinya gmn ya ?
  eh file gua ada 1 yang gak ke commit, gua bikin commit baru aja ya?
