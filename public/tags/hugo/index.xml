@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo on Snackoverflow</title>
+    <title>Hugo on ~/.andy_winarko</title>
     <link>/tags/hugo/</link>
-    <description>Recent content in Hugo on Snackoverflow</description>
+    <description>Recent content in Hugo on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate>
@@ -13,10 +13,10 @@
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>/blog/getting-started-with-hugo/</link>
+      <link>/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/getting-started-with-hugo/</guid>
+      <guid>/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo

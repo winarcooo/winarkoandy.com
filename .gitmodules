@@ -1,3 +1,6 @@
 [submodule "themes/cocoa-eh"]
 	path = themes/cocoa-eh
 	url = https://github.com/mtn/cocoa-eh-hugo-theme
+[submodule "themes/temple"]
+	path = themes/temple
+	url = https://github.com/aos/temple.git

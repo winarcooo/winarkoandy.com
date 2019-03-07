@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Frontend on ~/.andy_winarko</title>
+    <link>/categories/frontend/</link>
+    <description>Recent content in Frontend on ~/.andy_winarko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/frontend/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>100 Days of Code - Frontend Development</title>
+      <link>/blog/100-days-of-code---frontend-development/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/100-days-of-code---frontend-development/</guid>
+      <description>This is a somewhat opinionated curriculum for learning front-end development during #100DaysOfCode. As it covers a wide range of front-end development topics, it can be thought of as more of a &amp;ldquo;survey&amp;rdquo; style course rather than a deep dive into any one area. Ideally, your takeaway from completing this curriculum will be some familiarity with each topic and the ability to easily dive deeper in any area in the future when necessary.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -23,11 +23,36 @@ Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct 
     </item>
     
     <item>
+      <title>Golang Pass-by-value vs Pass-by-reference</title>
+      <link>/posts/2019-02-24-golang-different-pass-by-value-and-reference/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-24-golang-different-pass-by-value-and-reference/</guid>
+      <description>Sedikit menjelaskan aja, perbedaan mendasar pass-by-value &amp;amp; by-rerefence dalam golang.
+Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct { firstname string lastname string } func changeName(p Person) { p.firstname = &amp;quot;Bob&amp;quot; } func main() { person := Person{ firstname: &amp;quot;Alice&amp;quot;, lastname: &amp;quot;Dow&amp;quot;, } changeName(person) // function ini hanya mengambil copy dari variable person fmt.Println(person) }  Output dari code diatas,
+{Alice Dow}  bisa dilihat, function changeName yang ada di main gak mengubah sama sekali firstname dari person.</description>
+    </item>
+    
+    <item>
       <title>Tmux Cheat sheet</title>
       <link>/blog/tmux-cheat-sheet/</link>
       <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/tmux-cheat-sheet/</guid>
+      <description>tmux is a terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time.
+ tmux shortcuts &amp;amp; cheatsheet start new:
+tmux  start new with session name:
+tmux new -s myname  attach:
+tmux a # (or at, or attach)  attach to named:
+tmux a -t myname  list sessions:</description>
+    </item>
+    
+    <item>
+      <title>Tmux Cheat sheet</title>
+      <link>/posts/2019-02-24-tmux-cheatsheet/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-24-tmux-cheatsheet/</guid>
       <description>tmux is a terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time.
  tmux shortcuts &amp;amp; cheatsheet start new:
 tmux  start new with session name:
@@ -49,11 +74,33 @@ Happy watching and keep learning.</description>
     </item>
     
     <item>
+      <title>[YouTube] How Do Computer Read code ?</title>
+      <link>/posts/2019-02-24-how-computer-read-code/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-24-how-computer-read-code/</guid>
+      <description>Mau share aja, video yang menurut saya keren. Dia jelasin tentang gimana komputer bisa baca source-code kita sampai bisa dieksekusi.
+ini dari channel youtube frame of Essense.
+How do computers read code? 
+Happy watching and keep learning.</description>
+    </item>
+    
+    <item>
       <title>Awesome Crawler</title>
       <link>/blog/awesome-crawler/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/awesome-crawler/</guid>
+      <description>Awesome-crawler A collection of awesome web crawler,spider and resources in different languages.
+Contents  Awesome-crawler  Contents Python Java C# JavaScript PHP C++ C Ruby R Erlang Perl Go Scala   Python  Scrapy - A fast high-level screen scraping and web crawling framework.  django-dynamic-scraper - Creating Scrapy scrapers via the Django admin interface. Scrapy-Redis - Redis-based components for Scrapy. scrapy-cluster - Uses Redis and Kafka to create a distributed on demand scraping cluster.</description>
+    </item>
+    
+    <item>
+      <title>Awesome Crawler</title>
+      <link>/posts/2019-02-21-awesome-crawler/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-21-awesome-crawler/</guid>
       <description>Awesome-crawler A collection of awesome web crawler,spider and resources in different languages.
 Contents  Awesome-crawler  Contents Python Java C# JavaScript PHP C++ C Ruby R Erlang Perl Go Scala   Python  Scrapy - A fast high-level screen scraping and web crawling framework.  django-dynamic-scraper - Creating Scrapy scrapers via the Django admin interface. Scrapy-Redis - Redis-based components for Scrapy. scrapy-cluster - Uses Redis and Kafka to create a distributed on demand scraping cluster.</description>
     </item>
@@ -68,11 +115,31 @@ Contents  Awesome-crawler  Contents Python Java C# JavaScript PHP C++ C Ruby R E
     </item>
     
     <item>
+      <title>Golang Cheat Sheet</title>
+      <link>/posts/2019-02-21-golang-cheat-sheet/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-21-golang-cheat-sheet/</guid>
+      <description>Index  Index  Credits Go in a Nutshell  Basic Syntax  Hello World Operators Arithmetic Comparison Logical Other Declarations Functions Functions As Values And Closures Variadic Functions Built-in Types Type Conversions Packages Control structures If Loops Switch Arrays, Slices, Ranges Arrays Slices Operations on Arrays and Slices Maps Structs Pointers Interfaces Embedding Errors  Concurrency  Goroutines Channels Channel Axioms Printing Reflection Type Switch  Snippets  HTTP Server   Credits Most example code taken from A Tour of Go, which is an excellent introduction to Go.</description>
+    </item>
+    
+    <item>
       <title>Modern Javascript Cheat Sheet</title>
       <link>/blog/modern-javascript-cheat-sheet/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/modern-javascript-cheat-sheet/</guid>
+      <description>Modern JavaScript Cheatsheet Image Credits: Ahmad Awais ⚡️
+Introduction Motivation This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.
+This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let&amp;rsquo;s say to learn React for instance) because of the JavaScript concepts used.</description>
+    </item>
+    
+    <item>
+      <title>Modern Javascript Cheat Sheet</title>
+      <link>/posts/2019-02-21-modern-javascript-cheatsheet/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-21-modern-javascript-cheatsheet/</guid>
       <description>Modern JavaScript Cheatsheet Image Credits: Ahmad Awais ⚡️
 Introduction Motivation This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.
 This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let&amp;rsquo;s say to learn React for instance) because of the JavaScript concepts used.</description>
@@ -89,11 +156,34 @@ This guide is not intended to teach you JavaScript from the ground up, but to he
     </item>
     
     <item>
+      <title>Install Fira-Code font</title>
+      <link>/posts/2019-02-20-install-fira-code-font/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-20-install-fira-code-font/</guid>
+      <description>Kenapa Fira Code ? 😕
+ Programmers use a lot of symbols, often encoded with several characters. For the human brain, sequences like -&amp;gt;, &amp;lt;= or := are single logical tokens, even if they take two or three characters on the screen. Your eye spends a non-zero amount of energy to scan, parse and join multiple characters into a single logical one. Ideally, all programming languages should be designed with full-fledged Unicode symbols for operators, but that’s not the case yet.</description>
+    </item>
+    
+    <item>
       <title>Useful git Command --amend</title>
       <link>/blog/useful-git-command---amend/</link>
       <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/useful-git-command---amend/</guid>
+      <description>Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah git commit.
+nah problem yang muncul kalo pake git commit biasanya kayak gini,
+ git commit gua messagenya salah, gantinya gmn ya ?
+ eh file gua ada 1 yang gak ke commit, gua bikin commit baru aja ya?
+  Nah di case-case ini kita bisa pakai option --amend</description>
+    </item>
+    
+    <item>
+      <title>Useful git Command --amend</title>
+      <link>/posts/2019-02-20-useful-git-command-amend/</link>
+      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-20-useful-git-command-amend/</guid>
       <description>Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah git commit.
 nah problem yang muncul kalo pake git commit biasanya kayak gini,
  git commit gua messagenya salah, gantinya gmn ya ?
@@ -118,6 +208,30 @@ nah problem yang muncul kalo pake git commit biasanya kayak gini,
       <guid>/blog/golang-print-typeof-object/</guid>
       <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
  package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
+    </item>
+    
+    <item>
+      <title>Golang print typeof object</title>
+      <link>/posts/2019-02-19-go-print-typeof-object/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-19-go-print-typeof-object/</guid>
+      <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
+ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hugo</title>
+      <link>/posts/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at installing hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
     </item>
     
     <item>

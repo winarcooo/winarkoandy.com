@@ -8,7 +8,17 @@
   </url>
   
   <url>
+    <loc>/posts/2019-02-24-golang-different-pass-by-value-and-reference/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/tmux-cheat-sheet/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2019-02-24-tmux-cheatsheet/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,7 +28,17 @@
   </url>
   
   <url>
+    <loc>/posts/2019-02-24-how-computer-read-code/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/awesome-crawler/</loc>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2019-02-21-awesome-crawler/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -28,7 +48,17 @@
   </url>
   
   <url>
+    <loc>/posts/2019-02-21-golang-cheat-sheet/</loc>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/modern-javascript-cheat-sheet/</loc>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2019-02-21-modern-javascript-cheatsheet/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,7 +68,17 @@
   </url>
   
   <url>
+    <loc>/posts/2019-02-20-install-fira-code-font/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/useful-git-command---amend/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/2019-02-20-useful-git-command-amend/</loc>
     <lastmod>2019-02-20T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,13 +93,23 @@
   </url>
   
   <url>
-    <loc>/categories/awesome-curated/</loc>
+    <loc>/posts/2019-02-19-go-print-typeof-object/</loc>
+    <lastmod>2019-02-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/hugoisforlovers/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/awesome-curated/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/awesome-curated/</loc>
+    <loc>/categories/awesome-curated/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -77,20 +127,26 @@
   </url>
   
   <url>
-    <loc>/categories/cheatsheet/</loc>
-    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/tags/cheatsheet/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/font/</loc>
-    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+    <loc>/categories/cheatsheet/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/development/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -101,7 +157,7 @@
   </url>
   
   <url>
-    <loc>/categories/git/</loc>
+    <loc>/categories/font/</loc>
     <lastmod>2019-02-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -113,13 +169,25 @@
   </url>
   
   <url>
+    <loc>/categories/git/</loc>
+    <lastmod>2019-02-20T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/go/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/go/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/go/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -131,23 +199,23 @@
   </url>
   
   <url>
-    <loc>/tags/golang/</loc>
-    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/home/</loc>
   </url>
   
   <url>
-    <loc>/categories/javascript/</loc>
-    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+    <loc>/tags/hugo/</loc>
+    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/javascript/</loc>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/javascript/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -163,13 +231,19 @@
   </url>
   
   <url>
-    <loc>/categories/programming/</loc>
+    <loc>/posts/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/programming/</loc>
+    <lastmod>2019-02-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/programming/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -193,13 +267,13 @@
   </url>
   
   <url>
-    <loc>/categories/video/</loc>
+    <loc>/tags/video/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/video/</loc>
+    <loc>/categories/video/</loc>
     <lastmod>2019-02-24T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

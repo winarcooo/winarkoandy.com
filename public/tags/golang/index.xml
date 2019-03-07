@@ -23,11 +23,31 @@ Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct 
     </item>
     
     <item>
+      <title>Golang Pass-by-value vs Pass-by-reference</title>
+      <link>/posts/2019-02-24-golang-different-pass-by-value-and-reference/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-24-golang-different-pass-by-value-and-reference/</guid>
+      <description>Sedikit menjelaskan aja, perbedaan mendasar pass-by-value &amp;amp; by-rerefence dalam golang.
+Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct { firstname string lastname string } func changeName(p Person) { p.firstname = &amp;quot;Bob&amp;quot; } func main() { person := Person{ firstname: &amp;quot;Alice&amp;quot;, lastname: &amp;quot;Dow&amp;quot;, } changeName(person) // function ini hanya mengambil copy dari variable person fmt.Println(person) }  Output dari code diatas,
+{Alice Dow}  bisa dilihat, function changeName yang ada di main gak mengubah sama sekali firstname dari person.</description>
+    </item>
+    
+    <item>
       <title>Golang Cheat Sheet</title>
       <link>/blog/golang-cheat-sheet/</link>
       <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>/blog/golang-cheat-sheet/</guid>
+      <description>Index  Index  Credits Go in a Nutshell  Basic Syntax  Hello World Operators Arithmetic Comparison Logical Other Declarations Functions Functions As Values And Closures Variadic Functions Built-in Types Type Conversions Packages Control structures If Loops Switch Arrays, Slices, Ranges Arrays Slices Operations on Arrays and Slices Maps Structs Pointers Interfaces Embedding Errors  Concurrency  Goroutines Channels Channel Axioms Printing Reflection Type Switch  Snippets  HTTP Server   Credits Most example code taken from A Tour of Go, which is an excellent introduction to Go.</description>
+    </item>
+    
+    <item>
+      <title>Golang Cheat Sheet</title>
+      <link>/posts/2019-02-21-golang-cheat-sheet/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-21-golang-cheat-sheet/</guid>
       <description>Index  Index  Credits Go in a Nutshell  Basic Syntax  Hello World Operators Arithmetic Comparison Logical Other Declarations Functions Functions As Values And Closures Variadic Functions Built-in Types Type Conversions Packages Control structures If Loops Switch Arrays, Slices, Ranges Arrays Slices Operations on Arrays and Slices Maps Structs Pointers Interfaces Embedding Errors  Concurrency  Goroutines Channels Channel Axioms Printing Reflection Type Switch  Snippets  HTTP Server   Credits Most example code taken from A Tour of Go, which is an excellent introduction to Go.</description>
     </item>
     
@@ -39,6 +59,30 @@ Passing by value package main import &amp;quot;fmt&amp;quot; type Person struct 
       <guid>/blog/golang-print-typeof-object/</guid>
       <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
  package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
+    </item>
+    
+    <item>
+      <title>Golang print typeof object</title>
+      <link>/posts/2019-02-19-go-print-typeof-object/</link>
+      <pubDate>Tue, 19 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/2019-02-19-go-print-typeof-object/</guid>
+      <description>The Go reflection package has methods for inspecting the type of variables. The following snippet will print out the reflection type of a string, integer and float.
+ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;reflect&amp;quot; ) func main() { tst := &amp;quot;string&amp;quot; tst2 := 10 tst3 := 1.2 fmt.Println(reflect.TypeOf(tst)) fmt.Println(reflect.TypeOf(tst2)) fmt.Println(reflect.TypeOf(tst3)) }  more documentation https://golang.org/pkg/reflect/#TypeOf</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hugo</title>
+      <link>/posts/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at installing hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
     </item>
     
   </channel>
