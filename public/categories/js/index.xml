@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Js on ~/.andy_winarko</title>
+    <link>/categories/js/</link>
+    <description>Recent content in Js on ~/.andy_winarko</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/js/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Steam Sales Crawler with Puppeteer</title>
+      <link>/blog/steam-sales-crawler-with-puppeteer/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/steam-sales-crawler-with-puppeteer/</guid>
+      <description>const puppeteer = require(&#39;puppeteer&#39;); const fs = require(&#39;fs&#39;); (async () =&amp;gt; { const extractGameList = async url =&amp;gt; { const page = await browser.newPage(); await page.goto(url); console.log(`scraping: ${url}`); const gameListOnPage = await page.evaluate(() =&amp;gt; Array.from(document.querySelectorAll(&#39;div.responsive_search_name_combined&#39;)) .map(data =&amp;gt; ({ title: data.querySelector(&#39;span.title&#39;).innerText.trim(), price: data.querySelector(&#39;div.search_price&#39;).innerText.replace(/(?:\r\n|\r|\n)/g, &#39;-&#39;) })) ) await page.close() if(gameListOnPage.length &amp;lt; 1) { console.log(`terminate recursion on: ${url}`); return gameListOnPage } else { const nextPageNumber = parseInt(url.match(/page=(\d+)$/)[1], 10) + 1 const nextUrl = `https://store.</description>
+    </item>
+    
+    <item>
+      <title>Steam Sales Crawler with Puppeteer</title>
+      <link>/posts/hugoisforlovers/</link>
+      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/hugoisforlovers/</guid>
+      <description>const puppeteer = require(&#39;puppeteer&#39;); const fs = require(&#39;fs&#39;); (async () =&amp;gt; { const extractGameList = async url =&amp;gt; { const page = await browser.newPage(); await page.goto(url); console.log(`scraping: ${url}`); const gameListOnPage = await page.evaluate(() =&amp;gt; Array.from(document.querySelectorAll(&#39;div.responsive_search_name_combined&#39;)) .map(data =&amp;gt; ({ title: data.querySelector(&#39;span.title&#39;).innerText.trim(), price: data.querySelector(&#39;div.search_price&#39;).innerText.replace(/(?:\r\n|\r|\n)/g, &#39;-&#39;) })) ) await page.close() if(gameListOnPage.length &amp;lt; 1) { console.log(`terminate recursion on: ${url}`); return gameListOnPage } else { const nextPageNumber = parseInt(url.match(/page=(\d+)$/)[1], 10) + 1 const nextUrl = `https://store.</description>
+    </item>
+    
+  </channel>
+</rss>
