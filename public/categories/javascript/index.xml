@@ -22,16 +22,5 @@ Introduction Motivation This document is a cheatsheet for JavaScript you will fr
 This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let&amp;rsquo;s say to learn React for instance) because of the JavaScript concepts used.</description>
     </item>
     
-    <item>
-      <title>Modern Javascript Cheat Sheet</title>
-      <link>/posts/2019-02-21-modern-javascript-cheatsheet/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019-02-21-modern-javascript-cheatsheet/</guid>
-      <description>Modern JavaScript Cheatsheet Image Credits: Ahmad Awais ⚡️
-Introduction Motivation This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.
-This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let&amp;rsquo;s say to learn React for instance) because of the JavaScript concepts used.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -20,14 +20,5 @@
       <description>Index  Index  Credits Go in a Nutshell  Basic Syntax  Hello World Operators Arithmetic Comparison Logical Other Declarations Functions Functions As Values And Closures Variadic Functions Built-in Types Type Conversions Packages Control structures If Loops Switch Arrays, Slices, Ranges Arrays Slices Operations on Arrays and Slices Maps Structs Pointers Interfaces Embedding Errors  Concurrency  Goroutines Channels Channel Axioms Printing Reflection Type Switch  Snippets  HTTP Server   Credits Most example code taken from A Tour of Go, which is an excellent introduction to Go.</description>
     </item>
     
-    <item>
-      <title>Golang Cheat Sheet</title>
-      <link>/posts/2019-02-21-golang-cheat-sheet/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019-02-21-golang-cheat-sheet/</guid>
-      <description>Index  Index  Credits Go in a Nutshell  Basic Syntax  Hello World Operators Arithmetic Comparison Logical Other Declarations Functions Functions As Values And Closures Variadic Functions Built-in Types Type Conversions Packages Control structures If Loops Switch Arrays, Slices, Ranges Arrays Slices Operations on Arrays and Slices Maps Structs Pointers Interfaces Embedding Errors  Concurrency  Goroutines Channels Channel Axioms Printing Reflection Type Switch  Snippets  HTTP Server   Credits Most example code taken from A Tour of Go, which is an excellent introduction to Go.</description>
-    </item>
-    
   </channel>
 </rss>

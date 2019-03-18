@@ -30,7 +30,7 @@ Udah selesai bikin fitur, terus kita `git commit`, nah baru sadar kalau commit m
 disini kita bisa pakai `git commit --amend`
 
 ```
-git commit --amend "New Commit Messages"
+git commit --amend -m "New Commit Messages"
 ```
 
 ## Case 2

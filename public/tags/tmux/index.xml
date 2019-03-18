@@ -25,19 +25,5 @@ tmux a # (or at, or attach)  attach to named:
 tmux a -t myname  list sessions:</description>
     </item>
     
-    <item>
-      <title>Tmux Cheat sheet</title>
-      <link>/posts/2019-02-24-tmux-cheatsheet/</link>
-      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019-02-24-tmux-cheatsheet/</guid>
-      <description>tmux is a terminal multiplexer for Unix-like operating systems. It allows multiple terminal sessions to be accessed simultaneously in a single window. It is useful for running more than one command-line program at the same time.
- tmux shortcuts &amp;amp; cheatsheet start new:
-tmux  start new with session name:
-tmux new -s myname  attach:
-tmux a # (or at, or attach)  attach to named:
-tmux a -t myname  list sessions:</description>
-    </item>
-    
   </channel>
 </rss>

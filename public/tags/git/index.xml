@@ -24,18 +24,5 @@ nah problem yang muncul kalo pake git commit biasanya kayak gini,
   Nah di case-case ini kita bisa pakai option --amend</description>
     </item>
     
-    <item>
-      <title>Useful git Command --amend</title>
-      <link>/posts/2019-02-20-useful-git-command-amend/</link>
-      <pubDate>Wed, 20 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/2019-02-20-useful-git-command-amend/</guid>
-      <description>Git udah pasti jadi tools sehari-hari yang dipakai software developer, salah satu command git basic yang sering dipakai adalah git commit.
-nah problem yang muncul kalo pake git commit biasanya kayak gini,
- git commit gua messagenya salah, gantinya gmn ya ?
- eh file gua ada 1 yang gak ke commit, gua bikin commit baru aja ya?
-  Nah di case-case ini kita bisa pakai option --amend</description>
-    </item>
-    
   </channel>
 </rss>
