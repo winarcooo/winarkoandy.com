@@ -1,6 +1,6 @@
 +++
 title = "Home"
 +++
->_“Talk is cheap. Show me the code.”_ - **Linus Torvalds**
+>_“Tell me and I forget. Teach me and I remember. Involve me and I learn.”_ - **Benjamin Franklin**
 
 Simple, Straightforward.
