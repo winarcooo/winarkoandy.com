@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on ~/.andy_winarko</title>
-    <link>/categories/programming/</link>
-    <description>Recent content in Programming on ~/.andy_winarko</description>
+    <title>Basic on ~/.andy_winarko</title>
+    <link>/tags/basic/</link>
+    <description>Recent content in Basic on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/basic/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,18 +18,6 @@
       
       <guid>/blog/understand-this-keyword-in-javascript/</guid>
       <description>/** * * Understand `this` and `bind` in javascript * `this` is reference to context where are you now * `bind` is property on a function */ const button = { onClick: null }; const dragon = { element: &#39;dirt&#39;, // technically breath property(which is a function) is know nothing about other property in this dragon object // they dont magically connect each other like class in java, or php. // but in this scope, this.</description>
-    </item>
-    
-    <item>
-      <title>[YouTube] How Do Computer Read code ?</title>
-      <link>/blog/youtube-how-do-computer-read-code-/</link>
-      <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/youtube-how-do-computer-read-code-/</guid>
-      <description>Mau share aja, video yang menurut saya keren. Dia jelasin tentang gimana komputer bisa baca source-code kita sampai bisa dieksekusi.
-ini dari channel youtube frame of Essense.
-How do computers read code? 
-Happy watching and keep learning.</description>
     </item>
     
   </channel>

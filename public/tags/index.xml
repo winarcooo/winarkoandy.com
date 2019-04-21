@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Basic</title>
+      <link>/tags/basic/</link>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/basic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cheatsheet</title>
       <link>/tags/cheatsheet/</link>
       <pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate>
@@ -68,7 +77,7 @@
     <item>
       <title>Javascript</title>
       <link>/tags/javascript/</link>
-      <pubDate>Thu, 21 Feb 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>/tags/javascript/</guid>
       <description></description>

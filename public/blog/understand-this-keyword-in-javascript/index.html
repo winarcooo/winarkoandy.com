@@ -12,9 +12,9 @@
 <meta property="og:site_name" content="~/.andy_winarko" />
 <meta property="og:locale" content="en-US" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/tags/javascript/" />
-<meta property="og:title" content="Javascript" />
-<meta property="twitter:title" content="Javascript">
+<meta property="og:url" content="/blog/understand-this-keyword-in-javascript/" />
+<meta property="og:title" content="Understand `this` keyword in Javascript" />
+<meta property="twitter:title" content="Understand `this` keyword in Javascript">
 
     <meta property="twitter:card" content="summary">
 
@@ -34,10 +34,10 @@
 <title>
 
 
-     ~/.andy_winarko - Javascript 
+     ~/.andy_winarko - Understand `this` keyword in Javascript 
 
 </title>
-<link rel="canonical" href="/tags/javascript/">
+<link rel="canonical" href="/blog/understand-this-keyword-in-javascript/">
 
 
 <style media="screen">
@@ -327,8 +327,6 @@ div.main .content .title-container {
 }
 div.main .content .posts {
   
-  
-  margin-bottom: 4em;
   
 }
 div.main .content .page-heading {
@@ -1004,8 +1002,6 @@ margin-left: -4%;
 
 
 
-  <link href="/tags/javascript/index.xml" rel="alternate" type="application/rss+xml" title="~/.andy_winarko" />
-
 
 </head>
 
@@ -1013,7 +1009,7 @@ margin-left: -4%;
 <body>
 
 
-<div class="header header-home column">
+<div class="header column">
 
     <div class="container">
         
@@ -1044,34 +1040,168 @@ margin-left: -4%;
     </div>
 </div>
 
-<div class="main column">
+
+
+
+
+<div class="main post non-narrow zero-top-spacing column">
     <div class="container">
         <div class="content">
-            <div class="posts">
-                <div class="page-heading">Posts about Javascript</div>
-                <ul>
-                    
-                        <li class="post-item">
-    <span class="meta">Feb 21, 2019</span>
-    
-    <a href="/blog/modern-javascript-cheat-sheet/"><span>Modern Javascript Cheat Sheet</span></a>
-    
-</li>
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
 
-                    
-                        <li class="post-item">
-    <span class="meta">Apr 21, 2019</span>
     
-    <a href="/blog/understand-this-keyword-in-javascript/"><span>Understand `this` keyword in Javascript</span></a>
+    Understand `this` keyword in Javascript
     
-</li>
 
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun Apr 21 2019 00:00:00 UTC">Apr 21, 2019</div>
                     
-                </ul>
+                        
+                        <div class="author middot" title="andy winarko">andy winarko</div>
+                        
+                    
+                    
+                    <div class="reading-time middot">1 minute read</div>
+                    
+                    <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="/tags/javascript">javascript</a> </li>
+                          
+                            <li class="middot"><a href="/tags/basic">basic</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <div class="markdown">
+                
+    
+    <hr />
+
+<pre><code class="language-js">/**
+ * * Understand `this` and `bind` in javascript
+ * `this` is reference to context where are you now
+ * `bind` is property on a function 
+ */
+const button = {
+    onClick: null
+};
+
+const dragon = {
+    element: 'dirt',
+    // technically breath property(which is a function) is know nothing about other property in this dragon object
+    // they dont magically connect each other like class in java, or php.
+    // but in this scope, this.element reference to dragon object (element property)
+    breath: function() {
+        console.log(`i am breathing ${this.element}`);
+    }
+};
+
+const godzila = {
+    element: 'fire',
+};
+
+// `bind` is a property on a function
+
+/** 
+ * doing this way, will return undefined, 
+ * because `this` in dragon.breath doen't reference `this` to dragon object
+ * even it in dragon property but it still just a normal
+*/
+button.onClick  = dragon.breath // return &quot;i am breathing undefined&quot;
+
+/**
+ * here `bind` come to the rescue,
+ * we use bind in a function (dragon.breath is a function)
+ * and bind any of `this` reference on dragon.breath function to dragon object
+ * in this case element property in dragon object
+ * so `this` will return `dirt`
+ */
+button.onClick = dragon.breath.bind(dragon); // return &quot;i am breathing dirt&quot;
+button.onClick()
+</code></pre>
+
+<hr />
+
+
+            </div>
+            
+            <br>
+            <div class="share">
+                  
+                  <a href="" class="ssk ssk-facebook"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-twitter"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-google-plus"></a>
+                  
+                  
+                  <a href="" class="ssk ssk-linkedin"></a>
+                  
+            </div>
+            
+            
+            <br>
+            <div class="navigation">
+                
+                <div>
+                    <img class="icon" src="/img/back.svg" alt="back" />
+                    <a href="/blog/golang-pass-by-value-vs-pass-by-reference/">Golang Pass-by-value vs Pass-by-reference</a>
+                </div>
+                
+                <div style="width: 100%;"></div>
+                
+            </div>
+            
+            
+            <br>
+            <div class="disqus">
+                <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "winarkoandy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </div>
+            
+
+            
+
+            
         </div>
     </div>
 </div>
+
+
+
 <div class="footer column">
     <div class="container">
 

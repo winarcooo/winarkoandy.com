@@ -6,10 +6,19 @@
     <description>Recent content on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 24 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understand `this` keyword in Javascript</title>
+      <link>/blog/understand-this-keyword-in-javascript/</link>
+      <pubDate>Sun, 21 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/understand-this-keyword-in-javascript/</guid>
+      <description>/** * * Understand `this` and `bind` in javascript * `this` is reference to context where are you now * `bind` is property on a function */ const button = { onClick: null }; const dragon = { element: &#39;dirt&#39;, // technically breath property(which is a function) is know nothing about other property in this dragon object // they dont magically connect each other like class in java, or php. // but in this scope, this.</description>
+    </item>
     
     <item>
       <title>Golang Pass-by-value vs Pass-by-reference</title>
