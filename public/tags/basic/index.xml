@@ -6,10 +6,19 @@
     <description>Recent content in Basic on ~/.andy_winarko</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 21 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/basic/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Re-created new keyword in JS</title>
+      <link>/blog/re-created-new-keyword-in-js/</link>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/re-created-new-keyword-in-js/</guid>
+      <description>function Person(saying) { this.saying = saying } Person.prototype.talk = function() { console.log(&#39;I say:&#39;, this.saying); } // replicate what `new` does function spawn(constructor) { // 1. create a new object var obj = {} // 2. set the prototype Object.setPrototypeOf(obj, constructor.prototype) var argsArray = Array.prototype.slice.apply(arguments) // 3. execute constructor with `this` // 4. return the created object, unless the constructor return the object return constructor.apply(obj, argsArray.slice(1)) || obj } var crockforg = spawn(Person, &#39;semicolans1!</description>
+    </item>
     
     <item>
       <title>Understand `this` keyword in Javascript</title>
