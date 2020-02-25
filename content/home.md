@@ -1,6 +1,6 @@
 +++
 title = "Home"
 +++
->_“Tell me and I forget. Teach me and I remember. Involve me and I learn.”_ - **Benjamin Franklin**
+> Web Developer, Coffee consumer, History Enthusiast, Follower of Muhammad SAW, I love reading and writing code
 
 Simple, Straightforward.
